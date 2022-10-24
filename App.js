@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home'
 import Login from './screens/Login'
 import Notification from './screens/Notification'
-import DateRegist from './screens/DateRegist' 
+import DateRegist from './screens/DateRegist'
 import DrinkChoosing from './screens/DrinkChoosing'
 import TableChoosing from './screens/TableChoosing'
 import Total from './screens/Total'
@@ -14,9 +14,15 @@ const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={Login} />
+    <NavigationContainer >
+      <Stack.Navigator screenOptions={{
+      cardStyle: {
+        backgroundColor: 'transparent',
+      },
+      animationEnabled: false,
+      headerShown: false,
+    }} >
+        <Stack.Screen name="Login" component={Login} style={{ backgroundColor: "black" }} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Notification" component={Notification} />
         <Stack.Screen name="DateRegist" component={DateRegist} />
