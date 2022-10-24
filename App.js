@@ -16,13 +16,13 @@ const MyStack = () => {
   return (
     <NavigationContainer >
       <Stack.Navigator screenOptions={{
-      cardStyle: {
-        backgroundColor: 'transparent',
-      },
-      animationEnabled: false,
-      headerShown: false,
-    }} >
-        <Stack.Screen name="Login" component={Login} style={{ backgroundColor: "black" }} />
+        cardStyle: {
+          backgroundColor: 'transparent',
+        },
+        animationEnabled: false,
+        headerShown: false,
+      }} >
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Notification" component={Notification} />
         <Stack.Screen name="DateRegist" component={DateRegist} />
