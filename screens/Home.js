@@ -19,45 +19,44 @@ const Home = ({ navigation }) => {
         <ScrollView style={styles.container} >
             <StatusBar style="dark" />
             <WelcomeContainer>
-                <HomePageLogo resizeMode="cover" source={require('../assets/image/b.png')} ></HomePageLogo>
                 <StyledFormHome style={styles.twocl} >
                     <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        Alert.alert("Already Check In")
-                        console.log('Check in') 
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/check.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Check In </StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('TableChoosing')
-                        console.log('Working')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/work.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Working </StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('DateRegist')
-                        console.log('Regist')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/regist1.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Regist Date </StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('Notification')
-                        console.log('Notificate')
+                        navigation.navigate('SalaryManagement')
+                        console.log('SalaryManagement')
                     }} >
                         <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Notification</StyledTouchableText>
+                        <StyledTouchableText> Salary</StyledTouchableText>
+                    </StyledTouchable>
+                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                        navigation.navigate('TableManagement')
+                        console.log('TableManagement')
+                    }} >
+                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                        <StyledTouchableText> Table</StyledTouchableText>
+                    </StyledTouchable>
+                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                        navigation.navigate('UserManagement')
+                        console.log('UserManagement')
+                    }} >
+                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                        <StyledTouchableText> User</StyledTouchableText>
+                    </StyledTouchable>
+                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                        navigation.navigate('RegistDateManagement')
+                        console.log('RegistDateManagement')
+                    }} >
+                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                        <StyledTouchableText> RegistDate</StyledTouchableText>
+                    </StyledTouchable>
+                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                        navigation.navigate('DrinkManagement')
+                        console.log('DrinkManagement')
+                    }} >
+                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                        <StyledTouchableText> Drink</StyledTouchableText>
                     </StyledTouchable>
                 </StyledFormHome>
-                <WhiteZone>
-                    <WZText>
-                        Worked Time : 5h
-                    </WZText>
-                    <WZText>
-                        The Salary : 100$
-                    </WZText>
-                </WhiteZone>
+               
             </WelcomeContainer>
         </ScrollView>
 

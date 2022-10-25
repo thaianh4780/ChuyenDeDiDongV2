@@ -9,6 +9,15 @@ import DateRegist from './screens/DateRegist'
 import DrinkChoosing from './screens/DrinkChoosing'
 import TableChoosing from './screens/TableChoosing'
 import Total from './screens/Total'
+import DrinkManagement from './screens/DrinkManagement';
+import TableManagement from './screens/TableManagement';
+import UserManagement from './screens/UserManagement';
+import DrinkAdding from './screens/DrinkAdding';
+import DrinkUpdating from './screens/DrinkUpdating';
+import RegistDateManagement from './screens/RegistDateManagement';
+import SalaryManagement from './screens/SalaryManagement';
+import UserAdding from './screens/UserAdding';
+import UserUpdating from './screens/UserUpdating';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +38,15 @@ const MyStack = () => {
         <Stack.Screen name="DrinkChoosing" component={DrinkChoosing} />
         <Stack.Screen name="TableChoosing" component={TableChoosing} />
         <Stack.Screen name="Total" component={Total} />
+        <Stack.Screen name="DrinkManagement" component={DrinkManagement} />
+        <Stack.Screen name="TableManagement" component={TableManagement} />
+        <Stack.Screen name="UserManagement" component={UserManagement} />
+        <Stack.Screen name="DrinkAdding" component={DrinkAdding} />
+        <Stack.Screen name="DrinkUpdating" component={DrinkUpdating} />
+        <Stack.Screen name="UserAdding" component={UserAdding} />
+        <Stack.Screen name="UserUpdating" component={UserUpdating} />
+        <Stack.Screen name="RegistDateManagement" component={RegistDateManagement} />
+        <Stack.Screen name="SalaryManagement" component={SalaryManagement} />
       </Stack.Navigator>
     </NavigationContainer>
   );
