@@ -18,6 +18,7 @@ import RegistDateManagement from './screens/RegistDateManagement';
 import SalaryManagement from './screens/SalaryManagement';
 import UserAdding from './screens/UserAdding';
 import UserUpdating from './screens/UserUpdating';
+import Test from './screens/Test';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,7 @@ const MyStack = () => {
         <Stack.Screen name="UserUpdating" component={UserUpdating} />
         <Stack.Screen name="RegistDateManagement" component={RegistDateManagement} />
         <Stack.Screen name="SalaryManagement" component={SalaryManagement} />
+        <Stack.Screen name="Test" component={Test} />
       </Stack.Navigator>
     </NavigationContainer>
   );

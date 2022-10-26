@@ -20,6 +20,7 @@ import {
 } from "../components/styles"
 import { Formik } from "formik";
 import { View } from "react-native";
+import Button from "../components/Button";
 
 //Colors 
 const { brand, darkLight } = Colors;
@@ -64,6 +65,12 @@ const Login = ({ navigation }) => {
                                     Login
                                 </ButtonText>
                             </StyledButton>
+                            <StyledButton onPress={() => { navigation.navigate('Test') }} >
+                                <ButtonText>
+                                   Test
+                                </ButtonText>
+                            </StyledButton>
+                           
                         </StyledFormArea>
                     )}
                 </Formik>

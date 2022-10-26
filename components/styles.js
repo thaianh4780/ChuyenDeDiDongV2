@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
-import { View, Text, Image, TextInput, TouchableOpacity ,Button} from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Button,Icon, } from "react-native";
 
 // const StatusBarHeight = Constants.StatusBarHeight;
 
@@ -78,6 +78,10 @@ export const StyledFormArea = styled.View`
   width: 100%;
 `
 export const StyledFormHome = styled.View`
+  flex: 1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
   width: 100%;
 `
 export const StyledTextInput = styled.TextInput`
@@ -246,7 +250,7 @@ export const StyledDrinkTouchablePrice = styled.Text`
   padding-vertical: 15px;
   font-weight: bold;
   text-align: center;
- ` 
+ `
 
 export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
 position: absolute;
@@ -260,3 +264,17 @@ text-align: center;
 background-color: ${brand};
 border-radius: 15px;
 ` 
+
+
+// Home Admin Style
+export const StyledHomeBrownZone = styled.View`
+  background-color: ${brand};
+  width: 100%;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+`
+export const StyledHomeBrownText = styled.Text`
+  padding-vertical:25px;
+  color: ${primary};
+  font-size: 25px;
+`
