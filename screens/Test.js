@@ -1,25 +1,36 @@
 import React from 'react';
-import { View, Text, StyleSheet, } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, } from 'react-native';
 import Button from '../components/Button';
-
+import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone } from '../components/styles';
+import { Fontisto } from "@expo/vector-icons";
+import TestTab from './TestTab';
 
 const Test = ({ navigation }) => {
     return (
-        <View style={styles.home} >
-            <Text style={styles.title}>Trang Test</Text>
-           
-        </View>
+        <SafeAreaView style={styles.container}>
+                <StyledHomeBrownZone>
+                    <Fontisto style={styles.logo} name="coffeescript" />
+                    <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
+                    <StyledHomeBrownText>
+                        Coffee Shop
+                    </StyledHomeBrownText>
+                </StyledHomeBrownZone>
+                <TestTab></TestTab>
+        </SafeAreaView>
     )
 }
-
 const styles = StyleSheet.create({
-    home: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    logo: {
+        paddingTop: 20,
+        fontSize: 30,
+        textAlign: "center",
+        justifyContent: "center",
+        color: "white",
     },
-    title: {
-        textAlign: 'center',
-    }
+    container: {
+        flex: 1,
+        backgroundColor: "white",
+    },
+    
 })
 export default Test 

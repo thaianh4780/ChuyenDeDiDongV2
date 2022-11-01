@@ -11,54 +11,55 @@ import {
     WhiteZone,
     WZText,
 } from "../components/styles"
-import { Alert, ScrollView, StyleSheet, View } from "react-native";
+import { Alert, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 
 //Colors 
 const Home = ({ navigation }) => {
     return (
-        <ScrollView style={styles.container} >
-            <StatusBar style="dark" />
-            <WelcomeContainer>
-                <StyledFormHome style={styles.twocl} >
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('SalaryManagement')
-                        console.log('SalaryManagement')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Salary</StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('TableManagement')
-                        console.log('TableManagement')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Table</StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('UserManagement')
-                        console.log('UserManagement')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> User</StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('RegistDateManagement')
-                        console.log('RegistDateManagement')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> RegistDate</StyledTouchableText>
-                    </StyledTouchable>
-                    <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                        navigation.navigate('DrinkManagement')
-                        console.log('DrinkManagement')
-                    }} >
-                        <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
-                        <StyledTouchableText> Drink</StyledTouchableText>
-                    </StyledTouchable>
-                </StyledFormHome>
-               
-            </WelcomeContainer>
-        </ScrollView>
+        <SafeAreaView>
+            <ScrollView style={styles.container} >
+                <WelcomeContainer>
+                    <StyledFormHome style={styles.twocl} >
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('SalaryManagement')
+                            console.log('SalaryManagement')
+                        }} >
+                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                            <StyledTouchableText> Salary</StyledTouchableText>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('TableManagement')
+                            console.log('TableManagement')
+                        }} >
+                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                            <StyledTouchableText> Table</StyledTouchableText>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('UserManagement')
+                            console.log('UserManagement')
+                        }} >
+                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                            <StyledTouchableText> User</StyledTouchableText>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('RegistDateManagement')
+                            console.log('RegistDateManagement')
+                        }} >
+                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                            <StyledTouchableText> RegistDate</StyledTouchableText>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkManagement')
+                            console.log('DrinkManagement')
+                        }} >
+                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/notificate.png')} ></StyledTouchableImage>
+                            <StyledTouchableText> Drink</StyledTouchableText>
+                        </StyledTouchable>
+                    </StyledFormHome>
+                </WelcomeContainer>
+            </ScrollView>
+        </SafeAreaView>
+
 
     );
 }
@@ -73,7 +74,6 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'flex-start'
     },
-
     TouchableImage: {
         padding: 20,
         backgroundColor: '#f0eeee',

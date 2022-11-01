@@ -10,12 +10,12 @@ import {
     StyledDrinkTouchableBtn,
     Line,
 } from "../components/styles"
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
 //Colors 
 const DrinkChoosing = ({ navigation }) => {
     return (
-        <View style={styles.container} >
+        <SafeAreaView style={styles.container} >
             <ScrollView  >
                 <StyledFormHome style={styles.twocl} >
                     <StyledDrinkTouchable style={styles.TouchableImage}  onPress={() => navigation.navigate('Notification')} >
@@ -75,7 +75,7 @@ const DrinkChoosing = ({ navigation }) => {
                 <Line />
             <Button  onPress={() => navigation.navigate('Total')} title='Total' ></Button>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 

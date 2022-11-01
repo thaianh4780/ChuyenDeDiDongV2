@@ -70,6 +70,11 @@ const Login = ({ navigation }) => {
                                    Test
                                 </ButtonText>
                             </StyledButton>
+                            <StyledButton onPress={() => { navigation.navigate('TestTab') }} >
+                                <ButtonText>
+                                   TestTab
+                                </ButtonText>
+                            </StyledButton>
                            
                         </StyledFormArea>
                     )}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
-import { View, Text, Image, TextInput, TouchableOpacity, Button,Icon, } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
 
 // const StatusBarHeight = Constants.StatusBarHeight;
 
@@ -190,7 +190,7 @@ export const WZText = styled.Text`
   font-weight: bold;
 `
 
-// css DC styles
+// css DinkChoosing styles
 
 export const StyledDrinkTouchable = styled.TouchableOpacity`
   background-color: ${primary};
@@ -263,18 +263,56 @@ font-weight: bold;
 text-align: center;
 background-color: ${brand};
 border-radius: 15px;
-` 
-
+`
 
 // Home Admin Style
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
   width: 100%;
-  border-bottom-right-radius: 10px;
+  height: 150px;
+  border-bottom-left-radius: 50px;
   overflow: hidden;
 `
 export const StyledHomeBrownText = styled.Text`
-  padding-vertical:25px;
+  padding-vertical:30px;
   color: ${primary};
-  font-size: 25px;
+  padding-left: 20px;
+  font-size: 40px;
+  position: absolute;
+  bottom: 0;
+`
+export const StyledHomeBrownImage = styled.Image`
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  top:7px
+`
+
+//Home Admin Tab Style
+export const StyledHomeTab = styled.TouchableOpacity`
+  background-color: ${primary};
+  border-radius: 10px;
+  width: 300px;
+  height: 80px;
+  margin-top: 5px;
+  margin-vertical:20px;
+`
+
+export const StyledHomeTabImage = styled.Image`
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 35px;
+  margin-horizontal: 15px;  
+`
+export const StyledHomeTabText = styled.Text`
+  position: absolute;
+  color: ${brand};
+  font-size: 27px;
+  font-weight: 500;
+  top:25;
+  left: 120;
 `
