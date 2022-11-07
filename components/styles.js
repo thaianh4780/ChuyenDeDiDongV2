@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Constants } from "expo-constants";
 import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
 
-// const StatusBarHeight = Constants.StatusBarHeight;
 
 //color
 export const Colors = {
@@ -11,11 +10,15 @@ export const Colors = {
   tertiary: "#1F2937",
   darkLight: "#9CA3AF",
   brand: "#a85b3c",
-  green: "#10B981",
-  red: "#EF4444",
+  //green: "#10B981",
+  green: "#6bad3a",
+  //red: "#EF4444",
+  red: "#ad3a3a",
+ // blue:"#0db1f0",
+  blue:"#3a78ad",
 };
 
-const { primary, secondary, tertiary, darkLight, brand, green, red } = Colors;
+const { primary, secondary, tertiary,blue, darkLight, brand, green, red } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
@@ -25,10 +28,11 @@ export const StyledContainer = styled.View`
 export const InnerContainer = styled.View`
   flex: 1;
   width: 100%;
-   align-items: center;
+  align-items: center;
 `;
 
-export const WelcomeContainer = styled(InnerContainer)`
+export const WelcomeContainer = styled(InnerContainer)
+  `
   padding-top:10px;
   justify-content: center;
 `
@@ -79,9 +83,9 @@ export const StyledFormArea = styled.View`
 `
 export const StyledFormHome = styled.View`
   flex: 1;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
   width: 100%;
 `
 export const StyledTextInput = styled.TextInput`
@@ -95,7 +99,6 @@ export const StyledTextInput = styled.TextInput`
   margin-bottom: 10px;
   color: ${tertiary};
   margin-vertical: 8px;
-
 `
 export const StyledInputLabel = styled.Text`
   color: ${tertiary};
@@ -123,7 +126,6 @@ export const StyledButton = styled.TouchableOpacity`
   border-radius :5px;
   height: 60px;
   margin-vertical: 5px; 
-
 `
 export const ButtonText = styled.Text`
   color: ${primary};
@@ -141,7 +143,6 @@ export const Line = styled.View`
   width: 100%;
   background-color: ${darkLight};
   margin-vertical: 15px; 
-
 `
 export const StyledTouchable = styled.TouchableOpacity`
   padding: 15px;
@@ -190,12 +191,12 @@ export const WZText = styled.Text`
   font-weight: bold;
 `
 
-// css DinkChoosing styles
 
+// css DinkChoosing styles
 export const StyledDrinkTouchable = styled.TouchableOpacity`
   background-color: ${primary};
   border-radius: 25px;
-  width: 350px;
+  width: 370px;
   height: 100px;
   margin-top: 5px;
   margin-vertical: 20px; 
@@ -210,7 +211,6 @@ export const StyledDrinkTouchableImage = styled.Image`
   bottom: 0;
   left:-30px;
   border-radius: 35px;
-  /* background-color: ${brand}; */
 `
 export const StyledDrinkTouchableText = styled.Text`
   position: absolute;
@@ -253,56 +253,19 @@ export const StyledDrinkTouchablePrice = styled.Text`
  `
 
 export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
-position: absolute;
-top: 25px;
-left: 320px;
-height: 50px;
-width: 50px;
-padding-vertical: 15px;
-font-weight: bold;
-text-align: center;
-background-color: ${brand};
-border-radius: 15px;
+  position: absolute;
+  top: 25px;
+  left: 320px;
+  height: 50px;
+  width: 50px;
+  padding-vertical: 15px;
+  font-weight: bold;
+  text-align: center;
+  background-color: ${brand};
+  border-radius: 15px;
 `
-export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
-position: absolute;
-top: 1px;
-left: 290px;
-height:30px;
-width: 50px;
-padding-vertical: 15px;
-font-weight: bold;
-text-align: center;
-background-color: ${brand};
-border-radius: 15px;
-fontsize: 14;
-` 
-export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
-position: absolute;
-top: 35px;
-left: 290px;
-height:30px;
-width: 50px;
-padding-vertical: 15px;
-font-weight: bold;
-text-align: center;
-background-color: ${brand};
-border-radius: 15px;
-fontsize: 14;
-` 
-export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
-position: absolute;
-top: 70px;
-left: 290px;
-height:30px;
-width: 50px;
-padding-vertical: 15px;
-font-weight: bold;
-text-align: center;
-background-color: ${brand};
-border-radius: 15px;
-fontsize: 14;
-`
+
+
 // Home Admin Style
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
@@ -318,17 +281,7 @@ export const StyledHomeBrownText = styled.Text`
   font-size: 40px;
   position: absolute;
   bottom: 0;
-`
-export const StyledHomeBrownImage = styled.Image`
-  height:50px;
-  width:50px;
-  border-radius: 100px;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-  top:7px
-`
-//Home Admin Tab Style
+  `
 export const StyledHomeTab = styled.TouchableOpacity`
   background-color: ${primary};
   border-radius: 10px;
@@ -336,7 +289,7 @@ export const StyledHomeTab = styled.TouchableOpacity`
   height: 80px;
   margin-top: 5px;
   margin-vertical:20px;
-`
+ `
 
 export const StyledHomeTabImage = styled.Image`
   position: absolute;
@@ -353,31 +306,82 @@ export const StyledHomeTabText = styled.Text`
   top:25;
   left: 120;
 `
+export const StyledHomeBrownImage = styled.Image`
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  top:7px
+`
 
+//  css price and name in drink scr
 export const SDTText = styled.Text`
   position: absolute;
-  top: 10px;
-  left: 70px;
+  top: 20px;
+  left: 55px;
   color: ${brand};
-  font-size: 20px;
+  font-size: 22px;
   height: 60px;
   width: 150px;
-  padding-vertical: 15px;
-  margin-horizontal : 5px;
-  font-weight: 500;
+  font-weight: bold;
   text-align: left;
   z-index: 1;
 `
 
 export const SDTPrice = styled.Text`
   position: absolute;
-  top: 30px;
-  left: 80px;
+  top: 50px;
+  left: 30px;
   color:#000000;
   font-size: 22px;
   height: 60px;
   width: 150px;
-  padding-vertical: 15px;
   font-weight: bold;
   text-align: center;
  `
+
+
+// css 3 btn 
+export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
+  position: absolute;
+  left: 175px;
+  margin-vertical:25px;
+  width: 60px;
+  height: 50px;
+  font-weight: bold;
+  text-align: center;
+  background-color: ${blue};
+  border-radius:5px
+`
+export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
+  position: absolute;
+  left: 240px;
+  width: 60px;
+  height: 50px;
+  font-weight: bold;
+  text-align: center;
+  background-color: ${red};
+  border-radius:5px;
+  margin-vertical:25px;
+
+`
+export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
+  position: absolute;
+  left: 305px;
+  width: 60px;
+  height: 50px;
+  font-weight: bold;
+  text-align: center;
+  background-color: ${green};
+  border-radius:5px;
+  margin-vertical:25px;
+`
+export const SDTBtnText = styled.Text`
+  color: ${primary};
+  font-size: 18;
+  text-align: center;
+  padding-vertical:15px;
+  font-weight: bold;
+`

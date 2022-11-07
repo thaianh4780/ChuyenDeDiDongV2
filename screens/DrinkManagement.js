@@ -1,18 +1,13 @@
 import React from "react";
-import Button from '../components/Button';
 import {
     StyledFormHome,
     StyledDrinkTouchable,
     StyledDrinkTouchableImage,
-    StyledDrinkTouchableText,
-    StyledDrinkTouchablePrice,
-    StyledDrinkTouchableAdd,
-    StyledDrinkTouchableDelete,
-    StyledDrinkTouchableEdit,
-    Line,
+    SDTText,
+    SDTPrice,
 } from "../components/styles"
 import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import TabBtn from "../components/TabBtn";
 //Colors 
 const DrinkChoosing = ({ navigation }) => {
     return (
@@ -21,21 +16,11 @@ const DrinkChoosing = ({ navigation }) => {
                 <StyledFormHome style={styles.twocl} >
                     <StyledDrinkTouchable style={styles.TouchableImage}  onPress={() => navigation.navigate('Notification')} >
                         <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
-                        <StyledDrinkTouchableText> Cà Phê Đá</StyledDrinkTouchableText>
-                        <StyledDrinkTouchablePrice>50$</StyledDrinkTouchablePrice>
-                        <StyledDrinkTouchableAdd  onPress={() => navigation.navigate('DrinkAdding')} >
-                            <Text style={styles.btnDrText}>Add</Text>
-                        </StyledDrinkTouchableAdd>
-                        <StyledDrinkTouchableDelete  onPress={() => navigation.navigate('DrinkUpdating')} >
-                            <Text style={styles.btnDelete}>Delete</Text>
-                        </StyledDrinkTouchableDelete>
-                        <StyledDrinkTouchableEdit  onPress={() => Alert.alert("Deleted")} >
-                            <Text style={styles.btnDrText}>Edit</Text>
-                        </StyledDrinkTouchableEdit>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                       <TabBtn></TabBtn>
                     </StyledDrinkTouchable>
                 </StyledFormHome>
-                <Line />
-            <Button  onPress={() => navigation.navigate('Total')} title='Total' ></Button>
             </ScrollView>
         </View>
     );
@@ -60,24 +45,6 @@ const styles = StyleSheet.create({
             height: 1,
             width: 3
         }
-    },
-    btnDrText: {
-        position: "absolute",
-        color: "white",
-        fontSize: 15,
-        fontWeight: 'bold',
-        top: -1,
-        marginVertical:5,
-        right:13,
-    },
-    btnDelete: {
-        position: "absolute",
-        color: "white",
-        fontSize: 15,
-        fontWeight: 'bold',
-        top: -1,
-        marginVertical:5,
-        right:4,
     },
 });
 
