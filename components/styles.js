@@ -353,3 +353,31 @@ export const StyledHomeTabText = styled.Text`
   top:25;
   left: 120;
 `
+
+export const SDTText = styled.Text`
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  color: ${brand};
+  font-size: 20px;
+  height: 60px;
+  width: 150px;
+  padding-vertical: 15px;
+  margin-horizontal : 5px;
+  font-weight: 500;
+  text-align: left;
+  z-index: 1;
+`
+
+export const SDTPrice = styled.Text`
+  position: absolute;
+  top: 30px;
+  left: 80px;
+  color:#000000;
+  font-size: 22px;
+  height: 60px;
+  width: 150px;
+  padding-vertical: 15px;
+  font-weight: bold;
+  text-align: center;
+ `
