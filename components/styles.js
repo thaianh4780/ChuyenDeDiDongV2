@@ -264,7 +264,45 @@ text-align: center;
 background-color: ${brand};
 border-radius: 15px;
 `
-
+export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
+position: absolute;
+top: 1px;
+left: 290px;
+height:30px;
+width: 50px;
+padding-vertical: 15px;
+font-weight: bold;
+text-align: center;
+background-color: ${brand};
+border-radius: 15px;
+fontsize: 14;
+` 
+export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
+position: absolute;
+top: 35px;
+left: 290px;
+height:30px;
+width: 50px;
+padding-vertical: 15px;
+font-weight: bold;
+text-align: center;
+background-color: ${brand};
+border-radius: 15px;
+fontsize: 14;
+` 
+export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
+position: absolute;
+top: 70px;
+left: 290px;
+height:30px;
+width: 50px;
+padding-vertical: 15px;
+font-weight: bold;
+text-align: center;
+background-color: ${brand};
+border-radius: 15px;
+fontsize: 14;
+`
 // Home Admin Style
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
@@ -290,7 +328,6 @@ export const StyledHomeBrownImage = styled.Image`
   margin-right: 10px;
   top:7px
 `
-
 //Home Admin Tab Style
 export const StyledHomeTab = styled.TouchableOpacity`
   background-color: ${primary};
