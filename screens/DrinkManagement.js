@@ -13,7 +13,7 @@ const DrinkChoosing = ({ navigation }) => {
     return (
         <View style={styles.container} >
             <ScrollView  >
-                <StyledFormHome style={styles.twocl} >
+                <StyledFormHome  >
                     <StyledDrinkTouchable style={styles.TouchableImage}  onPress={() => navigation.navigate('Notification')} >
                         <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                         <SDTText> Cà Phê Đá</SDTText>

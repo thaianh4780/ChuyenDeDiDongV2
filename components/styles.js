@@ -38,9 +38,9 @@ export const WelcomeContainer = styled(InnerContainer)
 `
 
 export const PageLogo = styled.Image`
-  width: 300px;
-  height: 200px;
-  margin-top: -20px;
+  width: 150%;
+  height: 50%;
+  margin-top: -10%;
   margin-bottom: 10px;
 `;
 
@@ -59,6 +59,15 @@ export const Avatar = styled.Image`
   margin: auto;
   border-radius : 50px;
 
+`
+export const FormLog = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 53%;
+  background-color: ${primary};
+  top:35%;
+  padding:30px;
+  border-radius: 12px
 `
 
 export const PageTitle = styled.Text`
@@ -102,22 +111,18 @@ export const StyledTextInput = styled.TextInput`
 `
 export const StyledInputLabel = styled.Text`
   color: ${tertiary};
-  font-size: 13px;
+  font-size: 16px;
   text-align:left; 
+  font-weight: bold;
+  padding-left: 5px;
 `
 export const LeftIcon = styled.View`
-  left: 15px;
-  top: 38px;
+  left: 20px;
+  top: 42px;
   position: absolute;
   z-index: 1;
 `
 
-export const RightIcon = styled.TouchableOpacity`
-  right: 15px;
-  top: 38px;
-  position: absolute;
-  z-index: 1;
-`
 export const StyledButton = styled.TouchableOpacity`
   padding: 15px;
   background-color:${brand} ;

@@ -1,6 +1,7 @@
 import { Alert, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { SDTBtnText, StyledDrinkTouchableAdd, StyledDrinkTouchableDelete, StyledDrinkTouchableEdit } from './styles'
+import Button from './Button'
 
 const TabBtn = ({ navigation}) => {
     return (
@@ -8,16 +9,16 @@ const TabBtn = ({ navigation}) => {
             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
                 <SDTBtnText>Add</SDTBtnText>
             </StyledDrinkTouchableAdd>
-            <StyledDrinkTouchableDelete onPress={() => navigation.navigate('DrinkUpdating')} >
+            <StyledDrinkTouchableDelete  onPress={() => Alert.alert("Deleted")}>
                 <SDTBtnText>Delete</SDTBtnText>
             </StyledDrinkTouchableDelete>
-            <StyledDrinkTouchableEdit onPress={() => Alert.alert("Deleted")} >
+            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
                 <SDTBtnText>Edit</SDTBtnText>
             </StyledDrinkTouchableEdit>
+            <Button onPress={() => navigation.navigate('Notification')}></Button>
         </View>
     )
 }
 
-export default TabBtn
-
 const styles = StyleSheet.create({})
+export default TabBtn
