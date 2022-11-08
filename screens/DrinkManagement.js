@@ -5,20 +5,158 @@ import {
     StyledDrinkTouchableImage,
     SDTText,
     SDTPrice,
+    StyledDrinkTouchableAdd,
+    SDTBtnText,
+    StyledDrinkTouchableDelete,
+    StyledDrinkTouchableEdit,
 } from "../components/styles"
 import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
-import TabBtn from "../components/TabBtn";
+import TabBtn from "./TabBtn";
 //Colors 
 const DrinkChoosing = ({ navigation }) => {
     return (
         <View style={styles.container} >
             <ScrollView  >
                 <StyledFormHome  >
-                    <StyledDrinkTouchable style={styles.TouchableImage}  onPress={() => navigation.navigate('Notification')} >
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
                         <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                         <SDTText> Cà Phê Đá</SDTText>
                         <SDTPrice>50$</SDTPrice>
-                       <TabBtn></TabBtn>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/capu.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
+                    </StyledDrinkTouchable>
+                    <StyledDrinkTouchable style={styles.TouchableImage} >
+                        <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                        <SDTText> Cà Phê Đá</SDTText>
+                        <SDTPrice>50$</SDTPrice>
+                        <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <SDTBtnText>Add</SDTBtnText>
+                        </StyledDrinkTouchableAdd>
+                        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+                            <SDTBtnText>Delete</SDTBtnText>
+                        </StyledDrinkTouchableDelete>
+                        <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <SDTBtnText>Edit</SDTBtnText>
+                        </StyledDrinkTouchableEdit>
                     </StyledDrinkTouchable>
                 </StyledFormHome>
             </ScrollView>
@@ -28,8 +166,8 @@ const DrinkChoosing = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop:20,
-        flex:1,
+        marginTop: 20,
+        flex: 1,
     },
     twocl: {
         flex: 1,

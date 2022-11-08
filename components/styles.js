@@ -325,9 +325,9 @@ export const StyledHomeBrownImage = styled.Image`
 export const SDTText = styled.Text`
   position: absolute;
   top: 20px;
-  left: 55px;
+  left: 70px;
   color: ${brand};
-  font-size: 22px;
+  font-size: 18px;
   height: 60px;
   width: 150px;
   font-weight: bold;
@@ -338,9 +338,9 @@ export const SDTText = styled.Text`
 export const SDTPrice = styled.Text`
   position: absolute;
   top: 50px;
-  left: 30px;
+  left: 40px;
   color:#000000;
-  font-size: 22px;
+  font-size: 18px;
   height: 60px;
   width: 150px;
   font-weight: bold;

@@ -28,7 +28,7 @@ const { brand, darkLight } = Colors;
 
 const Login = ({ navigation }) => {
     return (
-        <StyledContainer>
+        <StyledContainer >
             <InnerContainer>
                 <PageLogo resizeMode="cover" source={require('../assets/image/a.png')} ></PageLogo>
                 <FormLog style={styles.TouchableImage} >
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: "#a85b3c",
     },
     TouchableImage: {
         padding: 20,

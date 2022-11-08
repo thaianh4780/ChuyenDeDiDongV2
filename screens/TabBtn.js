@@ -1,12 +1,11 @@
 import { Alert, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { SDTBtnText, StyledDrinkTouchableAdd, StyledDrinkTouchableDelete, StyledDrinkTouchableEdit } from './styles'
-import Button from './Button'
-
+import { SDTBtnText, StyledDrinkTouchableAdd, StyledDrinkTouchableDelete, StyledDrinkTouchableEdit } from '../components/styles'
+import { useNavigation } from '@react-navigation/native';
 const TabBtn = ({ navigation}) => {
     return (
         <View>
-            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+            <StyledDrinkTouchableAdd onPress={() => this.props.navigation.navigate('DrinkAdding')} >
                 <SDTBtnText>Add</SDTBtnText>
             </StyledDrinkTouchableAdd>
             <StyledDrinkTouchableDelete  onPress={() => Alert.alert("Deleted")}>
@@ -15,7 +14,6 @@ const TabBtn = ({ navigation}) => {
             <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
                 <SDTBtnText>Edit</SDTBtnText>
             </StyledDrinkTouchableEdit>
-            <Button onPress={() => navigation.navigate('Notification')}></Button>
         </View>
     )
 }

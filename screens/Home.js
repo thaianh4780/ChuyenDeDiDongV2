@@ -15,7 +15,7 @@ const Home= ({ navigation }) => {
                         Coffee Shop
                     </StyledHomeBrownText>
                 </StyledHomeBrownZone>
-                <TestTab></TestTab>
+                <TestTab style={styles.tab} ></TestTab>
         </SafeAreaView>
     )
 }
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         color: "white",
     },
     container: {
-        flex: 1,
+        flex: 1.5,
         backgroundColor: "white",
     },
     TouchableImage: {
@@ -41,6 +41,9 @@ const styles = StyleSheet.create({
             width: 3
         }
     },
+    tab:{
+        flex: 1,
+    }
     
 })
 export default Home
