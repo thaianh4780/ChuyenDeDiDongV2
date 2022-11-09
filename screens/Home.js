@@ -21,7 +21,7 @@ const Home= ({ navigation }) => {
 }
 const styles = StyleSheet.create({
     logo: {
-        paddingTop: 20,
+        paddingTop: 35,
         fontSize: 30,
         textAlign: "center",
         justifyContent: "center",
