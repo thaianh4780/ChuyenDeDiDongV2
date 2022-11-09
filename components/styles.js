@@ -69,6 +69,7 @@ export const FormLog = styled.View`
   padding:30px;
   border-radius: 12px
 `
+
 export const FormUpdate = styled.View`
   position: absolute;
   width: 105%;
@@ -78,6 +79,7 @@ export const FormUpdate = styled.View`
   padding:30px;
   border-radius: 12px
 `
+
 export const FormAdd = styled.View`
   position: absolute;
   width: 105%;
