@@ -40,13 +40,12 @@ const UserAdding = ({ navigation }) => {
                         onSubmit={(values) => { console.log(values); }} >
                         
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
-                            // countries = ["Egypt", "Canada", "Australia", "Ireland"],
                             <StyledFormArea>
                                 
 
                                 <MyTextInput
                                     autofocus
-                                    label="uer name"
+                                    label="user name"
                                     icon="account"
                                     placeholder="abc"
                                     placeholderTextColor={darkLight}
@@ -67,6 +66,16 @@ const UserAdding = ({ navigation }) => {
                                 <MyTextInput
                                     autofocus
                                     label="phone number"
+                                    icon="phone"
+                                    placeholder="0123"
+                                    placeholderTextColor={darkLight}
+                                    onChangeText={handleChange('phoneNumber')}
+                                    onBlur={handleBlur('phoneNumber')}
+                                    value={values.phoneNumber} >
+                                </MyTextInput>
+                                <MyTextInput
+                                    autofocus
+                                    label=""
                                     icon="phone"
                                     placeholder="0123"
                                     placeholderTextColor={darkLight}

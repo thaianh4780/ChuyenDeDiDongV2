@@ -34,10 +34,12 @@ const DrinkUpdating = ({ navigation }) => {
                 <FormUpdate style={styles.TouchableImage} >
                     <PageTitle>DrinkUpdating</PageTitle>
                     <Formik
-                        initialValues={{ username: '', }}
+                        initialValues={{ username: '', price:'',category: ''}}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
+
+
                                 <MyTextInput
                                     autofocus
                                     label=" name"

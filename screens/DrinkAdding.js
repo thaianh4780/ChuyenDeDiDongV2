@@ -34,7 +34,7 @@ const DrinkAdding = ({ navigation }) => {
                 <FormAdd style={styles.TouchableImage} >
                     <PageTitle>DrinkAdding</PageTitle>
                     <Formik
-                        initialValues={{ username: '', }}
+                        initialValues={{ username: '', price:'',category: '' }}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
