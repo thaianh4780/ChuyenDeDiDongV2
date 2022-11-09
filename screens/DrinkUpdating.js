@@ -11,13 +11,13 @@ import {
     PageTitle,
     StyledFormArea,
     LeftIcon,
-    StyledTextInput,
+    StyledTextInputs,
     StyledInputLabel,
     StyledButton,
     ButtonText,
     Line,
     Colors,
-    FormLog,
+    FormUpdate,
 } from "../components/styles"
 import { Formik } from "formik";
 import { StyleSheet, View } from "react-native";
@@ -31,45 +31,50 @@ const DrinkUpdating = ({ navigation }) => {
         <StyledContainer >
             <InnerContainer>
                 <PageLogo resizeMode="cover" source={require('../assets/image/a.png')} ></PageLogo>
-                <FormLog style={styles.TouchableImage} >
-                    <PageTitle>Login</PageTitle>
+                <FormUpdate style={styles.TouchableImage} >
+                    <PageTitle>DrinkUpdating</PageTitle>
                     <Formik
-                        initialValues={{ username: '', password: '' }}
+                        initialValues={{ username: '', }}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
                                 <MyTextInput
                                     autofocus
-                                    label="User name"
-                                    icon="mail"
-                                    placeholder="NameAbc"
+                                    label=" name"
+                                    placeholder="input name"
                                     placeholderTextColor={darkLight}
                                     onChangeText={handleChange('username')}
                                     onBlur={handleBlur('username')}
-                                    value={values.username}
-                                >
+                                    value={values.username} >
                                 </MyTextInput>
                                 <MyTextInput
-                                    label="Password"
-                                    icon="lock"
-                                    placeholder="* * * * * *"
+                                    autofocus
+                                    label="price"
+                                    placeholder="input price"
                                     placeholderTextColor={darkLight}
-                                    onChangeText={handleChange('password')}
-                                    onBlur={handleBlur('password')}
-                                    value={values.password}
-                                    secureTextEntry={true}
-                                >
+                                    onChangeText={handleChange('username')}
+                                    onBlur={handleBlur('username')}
+                                    value={values.username} >
+                                </MyTextInput>
+                                <MyTextInput
+                                    autofocus
+                                    label="category"
+                                    placeholder="input category"
+                                    placeholderTextColor={darkLight}
+                                    onChangeText={handleChange('username')}
+                                    onBlur={handleBlur('username')}
+                                    value={values.username} >
                                 </MyTextInput>
                                 <Line />
                                 <StyledButton onPress={() => { navigation.navigate('Home'), HandleSubmit }} >
                                     <ButtonText>
-                                        Login
+                                        Submit
                                     </ButtonText>
                                 </StyledButton>
                             </StyledFormArea>
                         )}
                     </Formik>
-                </FormLog>
+                </FormUpdate>
             </InnerContainer>
         </StyledContainer>
     );
@@ -83,7 +88,7 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
             <StyledInputLabel>
                 {label}
             </StyledInputLabel>
-            <StyledTextInput {...props} />
+            <StyledTextInputs {...props} />
         </View>
     )
 }

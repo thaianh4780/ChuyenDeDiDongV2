@@ -24,13 +24,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -38,13 +38,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -52,13 +52,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -66,13 +66,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -80,13 +80,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -94,13 +94,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -108,13 +108,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -122,13 +122,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
@@ -136,13 +136,13 @@ const UserManagement = ({ navigation }) => {
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
-                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
+                            <StyledDrinkTouchableAdd onPress={() => navigation.navigate('UserAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
                             <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
                                 <SDTBtnText>Delete</SDTBtnText>
                             </StyledDrinkTouchableDelete>
-                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('DrinkUpdating')}  >
+                            <StyledDrinkTouchableEdit onPress={() => navigation.navigate('UserUpdating')}  >
                                 <SDTBtnText>Edit</SDTBtnText>
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
