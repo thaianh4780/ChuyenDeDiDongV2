@@ -9,9 +9,11 @@ import {
     SDTBtnText,
     StyledDrinkTouchableDelete,
     StyledDrinkTouchableEdit,
+    Colors,
 } from "../components/styles"
 import { Alert, ScrollView, StyleSheet, Text, View, SafeAreaView } from "react-native";
 import TabBtn from "./TabBtn";
+const { brand, darkLight,black,primary } = Colors;
 //Colors 
 const DrinkManagement = ({ navigation }) => {
     return (
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 20,
         flex: 1,
+        // backgroundColor: primary ,
     },
     twocl: {
         flex: 1,

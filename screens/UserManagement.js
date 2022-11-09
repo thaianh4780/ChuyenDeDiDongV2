@@ -155,6 +155,7 @@ const UserManagement = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 20,
     },
     twocl: {
         flex: 1,

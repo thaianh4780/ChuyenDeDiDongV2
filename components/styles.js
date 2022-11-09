@@ -8,7 +8,7 @@ export const Colors = {
   primary: "#ffffff",
   secondary: "#E5E7EB",
   tertiary: "#1F2937",
-  darkLight: "#9CA3AF",
+  darkLight: "#1F2937",
   brand: "#a85b3c",
   //green: "#10B981",
   green: "#6bad3a",
@@ -16,6 +16,7 @@ export const Colors = {
   red: "#ad3a3a",
  // blue:"#0db1f0",
   blue:"#3a78ad",
+  black: "#1d3240",
 };
 
 const { primary, secondary, tertiary,blue, darkLight, brand, green, red } = Colors;
