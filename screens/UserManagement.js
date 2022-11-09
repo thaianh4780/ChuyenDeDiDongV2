@@ -17,11 +17,10 @@ const UserManagement = ({ navigation }) => {
     return (
         <View style={styles.container} >
             <SafeAreaView>
-
                 <ScrollView  >
                     <StyledFormHome  >
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -35,7 +34,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -49,7 +48,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -63,7 +62,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -77,7 +76,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -91,7 +90,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -105,7 +104,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -119,7 +118,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -133,7 +132,7 @@ const UserManagement = ({ navigation }) => {
                             </StyledDrinkTouchableEdit>
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
-                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>
+                            <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/u3.png')} ></StyledDrinkTouchableImage>
                             <SDTText> Username</SDTText>
                             <SDTPrice>Password</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
@@ -155,7 +154,6 @@ const UserManagement = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 20,
         flex: 1,
     },
     twocl: {
