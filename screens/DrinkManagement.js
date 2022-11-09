@@ -35,8 +35,8 @@ const DrinkManagement = ({ navigation }) => {
                         </StyledDrinkTouchable>
                         <StyledDrinkTouchable style={styles.TouchableImage} >
                             <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/capu.png')} ></StyledDrinkTouchableImage>
-                            {/* <SDTText> Cà Phê Đá</SDTText>
-                        <SDTPrice>50$</SDTPrice> */}
+                            <SDTText> Cà Phê Đá</SDTText>
+                            <SDTPrice>50$</SDTPrice>
                             <StyledDrinkTouchableAdd onPress={() => navigation.navigate('DrinkAdding')} >
                                 <SDTBtnText>Add</SDTBtnText>
                             </StyledDrinkTouchableAdd>
