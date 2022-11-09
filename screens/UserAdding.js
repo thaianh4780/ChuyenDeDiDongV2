@@ -2,7 +2,9 @@ import React from "react";
 import { StatusBar } from 'expo-status-bar';
 
 //Icon
-import { Octicons, IonicIcon } from '@expo/vector-icons';
+import { Octicons, IonicIcon,Feather } from '@expo/vector-icons';
+
+import SelectDropdown from 'react-native-select-dropdown'
 
 import {
     StyledContainer,
@@ -17,37 +19,39 @@ import {
     ButtonText,
     Line,
     Colors,
-    FormLog,
+    FormAdd,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
 const { brand, darkLight } = Colors;
-
+const countries = ["addmin", "phuc vu", "thu ngan",]
 const UserAdding = ({ navigation }) => {
     return (
         <StyledContainer >
             <InnerContainer>
                 <PageLogo resizeMode="cover" source={require('../assets/image/a.png')} ></PageLogo>
-                <FormLog style={styles.TouchableImage} >
-                    <PageTitle>Login</PageTitle>
+                <FormAdd style={styles.TouchableImage} >
+                    <PageTitle>UserAdding</PageTitle>
                     <Formik
-                        initialValues={{ username: '', password: '' }}
+                        initialValues={{ phoneNumber: '',password: '', phoneNumber:'', email: '', Permission: ''}}
                         onSubmit={(values) => { console.log(values); }} >
+                        
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
+                                
+
                                 <MyTextInput
                                     autofocus
-                                    label="User name"
-                                    icon="mail"
-                                    placeholder="NameAbc"
+                                    label="user name"
+                                    icon="account"
+                                    placeholder="abc"
                                     placeholderTextColor={darkLight}
                                     onChangeText={handleChange('username')}
                                     onBlur={handleBlur('username')}
-                                    value={values.username}
-                                >
+                                    value={values.username} >
                                 </MyTextInput>
                                 <MyTextInput
                                     label="Password"
@@ -57,19 +61,50 @@ const UserAdding = ({ navigation }) => {
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
                                     value={values.password}
-                                    secureTextEntry={true}
-                                >
+                                    secureTextEntry={true}>
                                 </MyTextInput>
+                                <MyTextInput
+                                    autofocus
+                                    label="phone number"
+                                    icon="phone"
+                                    placeholder="0123"
+                                    placeholderTextColor={darkLight}
+                                    onChangeText={handleChange('phoneNumber')}
+                                    onBlur={handleBlur('phoneNumber')}
+                                    value={values.phoneNumber} >
+                                </MyTextInput>
+                                <MyTextInput
+                                    autofocus
+                                    label=""
+                                    icon="phone"
+                                    placeholder="0123"
+                                    placeholderTextColor={darkLight}
+                                    onChangeText={handleChange('phoneNumber')}
+                                    onBlur={handleBlur('phoneNumber')}
+                                    value={values.phoneNumber} >
+                                </MyTextInput>
+                                <Text  style= {styles.t}>decentralization</Text>
+                                <SelectDropdown
+                                    data={countries}
+                                    onSelect={(selectedItem, index) => {
+                                        console.log(selectedItem, index)
+                                    }}
+                                    buttonTextAfterSelection={(selectedItem, index) => {
+                                        return selectedItem
+                                    }}
+                                    rowTextForSelection={(item, index) => {
+                                        return item
+                                    }}/>
                                 <Line />
                                 <StyledButton onPress={() => { navigation.navigate('Home'), HandleSubmit }} >
                                     <ButtonText>
-                                        Login
+                                        Submit
                                     </ButtonText>
                                 </StyledButton>
                             </StyledFormArea>
                         )}
                     </Formik>
-                </FormLog>
+                </FormAdd>
             </InnerContainer>
         </StyledContainer>
     );
@@ -95,6 +130,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         justifyContent: "center",
         color: "white",
+    },
+    t:{
+        fontWeigh:'bold',
     },
     container: {
         flex: 1,
