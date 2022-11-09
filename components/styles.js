@@ -276,7 +276,7 @@ export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
   width: 100%;
-  height: 150px;
+  height: 170px;
   border-bottom-left-radius: 50px;
   overflow: hidden;
 `
@@ -319,7 +319,7 @@ export const StyledHomeBrownImage = styled.Image`
   position: absolute;
   right: 0;
   margin-right: 10px;
-  top:7px
+  top:23px
 `
 
 //  css price and name in drink scr
