@@ -20,6 +20,7 @@ const TestTab=()=> {
 const styles = StyleSheet.create({
   contanner:{
     backgroundColor: '#FFFFFF',
+    flex:1
   }
 })
 

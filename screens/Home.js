@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     },
     tab:{
         flex: 1,
+        width:'100%',
     }
     
 })
