@@ -328,8 +328,8 @@ export const SDTText = styled.Text`
   left: 70px;
   color: ${brand};
   font-size: 18px;
-  height: 60px;
-  width: 150px;
+  height: 40px;
+  width: 100px;
   font-weight: bold;
   text-align: left;
   z-index: 1;
@@ -338,11 +338,11 @@ export const SDTText = styled.Text`
 export const SDTPrice = styled.Text`
   position: absolute;
   top: 50px;
-  left: 40px;
+  left: 70px;
   color:#000000;
   font-size: 18px;
-  height: 60px;
-  width: 150px;
+  height: 40px;
+  width: 100px;
   font-weight: bold;
   text-align: center;
  `
