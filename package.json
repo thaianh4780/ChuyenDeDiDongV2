@@ -19,6 +19,7 @@
     "@react-navigation/native-stack": "^6.9.0",
     "config.js": "^0.1.0",
     "expo": "^46.0.16",
+    "expo-cli": "^6.0.8",
     "expo-constants": "^13.2.4",
     "expo-status-bar": "~1.4.0",
     "formik": "^2.2.9",
