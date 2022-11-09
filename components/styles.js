@@ -71,6 +71,26 @@ export const FormLog = styled.View`
   border-radius: 12px
 `
 
+export const FormUpdate = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 53%;
+  background-color: ${primary};
+  top:15%;
+  padding:30px;
+  border-radius: 12px
+`
+
+export const FormAdd = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 53%;
+  background-color: ${primary};
+  top:15%;
+  padding:30px;
+  border-radius: 12px
+`
+
 export const PageTitle = styled.Text`
   font-size: 30px;
   text-align: center;
@@ -91,6 +111,7 @@ export const SubTittle = styled.Text`
 export const StyledFormArea = styled.View`
   width: 100%;
 `
+
 export const StyledFormHome = styled.View`
   flex: 1;
   flex-direction: row;
@@ -110,6 +131,18 @@ export const StyledTextInput = styled.TextInput`
   color: ${tertiary};
   margin-vertical: 8px;
 `
+export const StyledTextInputs = styled.TextInput`
+  background: ${secondary};
+  padding: 10px;
+  padding-right: 55px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 60px;
+  margin-bottom: 10px;
+  color: ${tertiary};
+  margin-vertical: 8px;
+`
+
 export const StyledInputLabel = styled.Text`
   color: ${tertiary};
   font-size: 16px;
