@@ -4,6 +4,8 @@ import Button from '../components/Button';
 import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone } from '../components/styles';
 import { Fontisto } from "@expo/vector-icons";
 import TestTab from './TestTab';
+import { Colors } from '../components/styles';
+const { brand, darkLight,black ,primary, secondary} = Colors;
 
 const Home= ({ navigation }) => {
     return (
@@ -25,11 +27,11 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: "center",
         justifyContent: "center",
-        color: "white",
+        color: primary,
     },
     container: {
         flex: 1.5,
-        backgroundColor: "white",
+        backgroundColor: primary,
     },
     TouchableImage: {
         padding: 20,

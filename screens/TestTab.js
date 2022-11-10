@@ -8,7 +8,7 @@ import DrinkManagement from './DrinkManagement';
 import UserManagement from './UserManagement';
 
 const Tab = createMaterialTopTabNavigator();
-const { brand, darkLight,black } = Colors;
+const { brand, darkLight,black ,primary, secondary} = Colors;
 const TestTab = () => {
   return (
     <Tab.Navigator
@@ -16,7 +16,7 @@ const TestTab = () => {
       tabBarOptions={{
         activeTintColor: brand,
         // tabStyle: {
-        //   width: 100,    
+        //   width: 100,   
         // },
         inactiveTintColor: black,
         indicatorStyle :{
@@ -44,7 +44,7 @@ const TestTab = () => {
 
 const styles = StyleSheet.create({
   contanner: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: primary,
     flex: 1
   }
 })

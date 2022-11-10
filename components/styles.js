@@ -14,12 +14,13 @@ export const Colors = {
   green: "#6bad3a",
   //red: "#EF4444",
   red: "#ad3a3a",
- // blue:"#0db1f0",
-  blue:"#3a78ad",
+  // blue:"#0db1f0",
+  blue: "#3a78ad",
   black: "#1d3240",
+  blur: "#adafb2"
 };
 
-const { primary, secondary, tertiary,blue, darkLight, brand, green, red } = Colors;
+const { primary, secondary, tertiary, blue, darkLight, brand, green, red, black, blur } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
@@ -71,25 +72,7 @@ export const FormLog = styled.View`
   border-radius: 12px
 `
 
-export const FormUpdate = styled.View`
-  position: absolute;
-  width: 105%;
-  height: 53%;
-  background-color: ${primary};
-  top:15%;
-  padding:30px;
-  border-radius: 12px
-`
 
-export const FormAdd = styled.View`
-  position: absolute;
-  width: 105%;
-  height: 53%;
-  background-color: ${primary};
-  top:15%;
-  padding:30px;
-  border-radius: 12px
-`
 
 export const PageTitle = styled.Text`
   font-size: 30px;
@@ -422,4 +405,48 @@ export const SDTBtnText = styled.Text`
   text-align: center;
   padding-vertical:15px;
   font-weight: bold;
+`
+
+// CRUB css
+export const OLPic = styled.Image`
+  width: 120%;
+  height: 110%;
+  margin-top: -10%;
+`;
+
+export const FormUpdate = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 65%;
+  background-color: ${primary};
+  top:20%;
+  padding:30px;
+  border-radius: 12px
+`
+
+export const FormAdd = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 88%;
+  background-color: ${primary};
+  top:5%;
+  padding:20px;
+  border-radius: 12px
+`
+export const UULabel = styled.Text`
+  color: ${tertiary};
+  font-size: 16px;
+  text-align:left; 
+  font-weight: bold;
+`
+export const UUInput = styled.TextInput`
+  background: ${secondary};
+  padding: 20px;
+  padding-right: 55px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 60px;
+  margin-bottom: 10px;
+  color: ${black};
+  margin-vertical: 10px;
 `
