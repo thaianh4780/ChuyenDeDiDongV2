@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, } from 'react-native';
 import Button from '../components/Button';
+import { Colors } from '../components/styles';
+const { brand, darkLight,black ,primary, secondary} = Colors;
 
 
 const DateRegist= ({ navigation }) => {
