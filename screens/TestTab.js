@@ -3,8 +3,10 @@ import { StyleSheet } from 'react-native';
 import DrinkTab from '../components/DrinkTab';
 import { Colors } from '../components/styles';
 import Home from '../screens/Home';
+import AdminManagement from './AdminManagement';
 import DrinkChoosing from './DrinkChoosing';
 import DrinkManagement from './DrinkManagement';
+import Test from './Test';
 import UserManagement from './UserManagement';
 
 const Tab = createMaterialTopTabNavigator();
@@ -37,7 +39,7 @@ const TestTab = () => {
       }} >
       <Tab.Screen name="Nước Uống" component={DrinkManagement} />
       <Tab.Screen name="Nhân Viên" component={UserManagement} />
-      <Tab.Screen name="Doanh Thu" component={DrinkChoosing} />
+      <Tab.Screen name="Doanh Thu" component={Test} />
     </Tab.Navigator>
   );
 }

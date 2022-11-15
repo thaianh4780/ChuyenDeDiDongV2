@@ -21,6 +21,7 @@ import UserUpdating from './screens/UserUpdating';
 import Test from './screens/Test';
 import TestTab from './screens/TestTab';
 import TabBtn from './screens/TabBtn';
+import AdminManagement from './screens/AdminManagement';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,7 @@ const MyStack = () => {
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="TestTab" component={TestTab} />
         <Stack.Screen name="TabBtn" component={TabBtn} />
+        <Stack.Screen name="AdminManagement" component={AdminManagement} />
       </Stack.Navigator>
     </NavigationContainer>
   );
