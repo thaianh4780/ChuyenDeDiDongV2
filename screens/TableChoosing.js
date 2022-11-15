@@ -1,76 +1,85 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import Button from '../components/Button';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Fontisto } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { render } from 'react-dom';
+import { FlatList, Dimensions } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native-web';
 
+const dataList =[{key:'1'},{key:'2'},{key:'3'},{key:'4'},{key:'5'},{key:'6'},{key:'7'},{key:'8'},{key:'9'},{key:10}]
 
+const numColumn=2
+const WIDHT = Dimensions.get('window').width
 const TableChoosing = ({ navigation }) => {
-    return (
-        <SafeAreaView  >
-            <View style={styles.home} >
+    formatData = (dataList,numColumn)=>{
+        const totalRow = Math.floor(data.length/numColumn)
+        let totalLastRow  = dataList.length -(totalRow * numColumn)
 
-                <ScrollView style={styles.scll}
-                    contentContainerStyle={{
-                        flexGrow: 1
-                    }}
-                    keyboardShouldPersistTaps='never    '>
-                    {/* <Text style={styles.title}>This is TableChoosing Page</Text> */}
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                </ScrollView>
-                <ScrollView style={styles.sclr}
-                    contentContainerStyle={{
-                        flexGrow: 1
-                        
-                    }}
-                    keyboardShouldPersistTaps='never    '>
-                    {/* <Text style={styles.title}>This is TableChoosing Page</Text> */}
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                </ScrollView>
-                <Text>Abc</Text>
+        while (totalLastRow !== 0&& tatalLastRow !== numColumn){
+            dataList.push({key:'blank', empty: true})
+            totalLastRow++
+
+        }
+        return dataList
+        
+    }
+    _renderItem =({item, index})=>{
+        let {itemStyle, itemText, itemInvisible} = style
+        if(item.empty){
+            return (
+                <View style={itemStyle}>
+                    <Text style={itemText}>{item.key}</Text>
+                </View>
+            )
+
+        }
+        return (
+            <View style={itemStyle}>
+                <Text style={itemText}>{item.key}</Text>
             </View>
-                <MaterialCommunityIcons style={styles.icons} name='desk' />
+        )
 
-            <Button onPress={() => navigation.navigate('DrinkChoosing')} title='DrinkChoosing' ></Button>
-        </SafeAreaView>
-    )
+    }
+    render= ()=>{
+        let {container}= styles
+        return (
+            <SafeAreaView  >
+                
+                <View style={container} >
+                    <FlatList 
+                    data={this.formatData(dataList, numColumn)}
+                    renderItem={this._renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                    numColumns={numColumn}
+                    />
+                </View>
+                    
+    
+                <Button onPress={() => navigation.navigate('DrinkChoosing')} title='DrinkChoosing' ></Button>
+            </SafeAreaView>
+        )
+    }
+    
 }
 
 const styles = StyleSheet.create({
-    home: {
+    container: {
+        flex: 1
+    },
+    itemStyle: {
+        backgroundColor: '#F5FCFF',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height:100,
         flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start'
+        margin: 1,
+        height: WIDHT / numColumn
     },
-    title: {
-        textAlign: 'center',
+    itemText:{
+        color:'#fff',
+        fontSize: 30
     },
-    iconic: {
-        height: 100,
-        width: 100
+    itemInvisible:{
+        backgroundColor: 'transparent'
     },
-    icons: {
-        fontSize: 100,
-        color: '#a85b3c',
-        margin: 20,
-    },
-    scll: {
-        width: '50%' // is 50% of container width
-    },
-    sclr: {
-        width: '-50%' // is 50% of container width
-    }
+
 })
+
 export default TableChoosing 
