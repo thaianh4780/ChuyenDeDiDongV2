@@ -6,6 +6,16 @@ import { Fontisto, Octicons } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 import { Formik } from 'formik';
+import { useFonts } from 'expo-font';
+// import AppLoading from 'expo-app-loading';
+
+//   let [fontsLoaded] = useFonts({
+//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+//   });
+//   if (!fontsLoaded) {
+//     return <AppLoading />;
+//   }
 const { brand, darkLight, black, primary, secondary } = Colors;
 
 const Home = ({ navigation }) => {
@@ -19,23 +29,10 @@ const Home = ({ navigation }) => {
                 </StyledHomeBrownText>
             </StyledHomeBrownZone>
             <TestTab style={styles.tab} ></TestTab>
+            <Button onPress={() => { navigation.navigate('Test')}} title={'login'} ></Button>
         </SafeAreaView>
     )
 }
-const MyTextInput = ({ label, icon, ...props }) => {
-    return (
-        <View style={styles.search} >
-            <LeftIcon>
-                <Octicons name={icon} size={30} color={brand} />
-            </LeftIcon>
-            <StyledInputLabel>
-                {label}
-            </StyledInputLabel>
-            <StyledTextInputs {...props} />
-        </View>
-    )
-}
-
 
 const styles = StyleSheet.create({
     logo: {
@@ -44,6 +41,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         justifyContent: "center",
         color: primary,
+        // fontFamily:'AlexBrush-Regular',
     },
     container: {
         flex: 1.5,

@@ -1,85 +1,106 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { FlatList, Dimensions } from 'react-native';
-import { StyleSheet, Text, View} from 'react-native-web';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, } from 'react-native';
+import Button from '../components/Button';
+import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
+import { Fontisto } from "@expo/vector-icons";
+import TestTab from './TestTab';
+import { Colors } from '../components/styles';
+const { brand, darkLight, black, primary, secondary ,neon_blur ,light_brand } = Colors;
 
-const dataList =[{key:'1'},{key:'2'},{key:'3'},{key:'4'},{key:'5'},{key:'6'},{key:'7'},{key:'8'},{key:'9'},{key:10}]
+//note : justifyContent: 'center' : theo height || alignItems: 'center' : theo width || alignItems: 'center'
+//note : 2 cai tren chi co tac dung voi the cha chua no || ko dung dc trong ScrollView
 
-const numColumn=2
-const WIDHT = Dimensions.get('window').width
-const TableChoosing = ({ navigation }) => {
-    formatData = (dataList,numColumn)=>{
-        const totalRow = Math.floor(data.length/numColumn)
-        let totalLastRow  = dataList.length -(totalRow * numColumn)
+const AdminManagement = ({ navigation }) => {
+    return (
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scrollView}>
+                <View style={{ flex: 1, justifyContent: 'center', textAlign: 'center', flexDirection: "row" }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} > 
+                        <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log(' Table')
+                        }} > 
+                        <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} > 
+                        <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                    </View>
 
-        while (totalLastRow !== 0&& tatalLastRow !== numColumn){
-            dataList.push({key:'blank', empty: true})
-            totalLastRow++
-
-        }
-        return dataList
-        
-    }
-    _renderItem =({item, index})=>{
-        let {itemStyle, itemText, itemInvisible} = style
-        if(item.empty){
-            return (
-                <View style={itemStyle}>
-                    <Text style={itemText}>{item.key}</Text>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                    </View>
                 </View>
-            )
-
-        }
-        return (
-            <View style={itemStyle}>
-                <Text style={itemText}>{item.key}</Text>
-            </View>
-        )
-
-    }
-    render= ()=>{
-        let {container}= styles
-        return (
-            <SafeAreaView  >
-                
-                <View style={container} >
-                    <FlatList 
-                    data={this.formatData(dataList, numColumn)}
-                    renderItem={this._renderItem}
-                    keyExtractor={(item, index) => index.toString()}
-                    numColumns={numColumn}
-                    />
-                </View>
-                    
-    
-                <Button onPress={() => navigation.navigate('DrinkChoosing')} title='DrinkChoosing' ></Button>
-            </SafeAreaView>
-        )
-    }
-    
+            </ScrollView>
+        </SafeAreaView>
+    )
 }
-
 const styles = StyleSheet.create({
+    TouchableImage: {
+        elevation: 1,
+        padding: 20,
+        backgroundColor: light_brand,
+        shadowColor: black,
+        shadowOpacity: .5,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 2
+        }
+    },
     container: {
-        flex: 1
-    },
-    itemStyle: {
-        backgroundColor: '#F5FCFF',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height:100,
         flex: 1,
-        margin: 1,
-        height: WIDHT / numColumn
+        justifyContent: 'center',
     },
-    itemText:{
-        color:'#fff',
-        fontSize: 30
+    scrollView: {
+        flex: 1,
+        marginTop:"10%",
     },
-    itemInvisible:{
-        backgroundColor: 'transparent'
+    img:{
+       paddingHorizontal:50
     },
+    table:{
+        color: 'white',
 
+    }
 })
-
-export default TableChoosing 
+export default AdminManagement 
