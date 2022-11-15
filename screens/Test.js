@@ -5,7 +5,8 @@ import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledT
 import { Fontisto } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
-const { brand, darkLight, black, primary, secondary ,neon_blur ,light_brand } = Colors;
+const { brand, darkLight, black, primary, secondary, neon_blur, light_brand } = Colors;
+import { DataTable } from 'react-native-paper';
 
 //note : justifyContent: 'center' : theo height || alignItems: 'center' : theo width || alignItems: 'center'
 //note : 2 cai tren chi co tac dung voi the cha chua no || ko dung dc trong ScrollView
@@ -14,55 +15,34 @@ const Test = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
-                <View style={{ flex: 1, justifyContent: 'center', textAlign: 'center', flexDirection: "row" }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('TableChoosing')
-                            console.log('TableChoosing')
-                        }} > 
-                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/work.png')} ></StyledTouchableImage>
-                            <StyledTouchableText> TableChoosing </StyledTouchableText>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('RegistDateManagement')
-                            console.log(' Dates TurnOver')
-                        }} > 
-                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/datesale.png')} ></StyledTouchableImage>
-                            <StyledTouchableText> Date's TurnOver </StyledTouchableText>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('TableChoosing')
-                            console.log('TableManagement')
-                        }} > 
-                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/monthsale.png')} style={styles.img} ></StyledTouchableImage>
-                            <StyledTouchableText >  Month's TurnOver </StyledTouchableText>
-                        </StyledTouchable>
-                    </View>
+                <DataTable style={styles.container}>
+                    <DataTable.Header style={styles.tableHeader}>
+                        <DataTable.Title>Name</DataTable.Title>
+                        <DataTable.Title>Favourite Food</DataTable.Title>
+                        <DataTable.Title>Age</DataTable.Title>
+                    </DataTable.Header>
+                    <DataTable.Row>
+                        <DataTable.Cell>Radhika</DataTable.Cell>
+                        <DataTable.Cell>Dosa</DataTable.Cell>
+                        <DataTable.Cell>23</DataTable.Cell>
+                    </DataTable.Row>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DateRegist')
-                            console.log('Regist')
-                        }} >
-                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/regist1.png')} ></StyledTouchableImage>
-                            <StyledTouchableText> Regist Date </StyledTouchableText>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('Notification')
-                            console.log('Staff Salary')
-                        }} >
-                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/total.png')} ></StyledTouchableImage>
-                            <StyledTouchableText>Total Expenditure</StyledTouchableText>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('SalaryManagement')
-                            console.log('Total Expenditure')
-                        }} >
-                            <StyledTouchableImage resizeMode="cover" source={require('../assets/image/salary.png')} ></StyledTouchableImage>
-                            <StyledTouchableText>SalaryManagemen</StyledTouchableText>
-                        </StyledTouchable>
-                    </View>
-                </View>
+                    <DataTable.Row>
+                        <DataTable.Cell>Krishna</DataTable.Cell>
+                        <DataTable.Cell>Uttapam</DataTable.Cell>
+                        <DataTable.Cell>26</DataTable.Cell>
+                    </DataTable.Row>
+                    <DataTable.Row>
+                        <DataTable.Cell>Vanshika</DataTable.Cell>
+                        <DataTable.Cell>Brownie</DataTable.Cell>
+                        <DataTable.Cell>20</DataTable.Cell>
+                    </DataTable.Row>
+                    <DataTable.Row>
+                        <DataTable.Cell>Teena</DataTable.Cell>
+                        <DataTable.Cell>Pizza</DataTable.Cell>
+                        <DataTable.Cell>24</DataTable.Cell>
+                    </DataTable.Row>
+                </DataTable>
             </ScrollView>
         </SafeAreaView>
     )
@@ -86,10 +66,13 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         flex: 1,
-        marginTop:"10%",
+        marginTop: "10%",
     },
-    img:{
-       paddingHorizontal:50
-    }
+    img: {
+        paddingHorizontal: 50
+    },
+    tableHeader: {
+        backgroundColor: '#DCDCDC',
+    },
 })
 export default Test 
