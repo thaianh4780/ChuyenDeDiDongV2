@@ -66,11 +66,6 @@ const Login = ({ navigation }) => {
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                                <StyledButton onPress={() => { navigation.navigate('Test')}} >
-                                    <ButtonText>
-                                        Test
-                                    </ButtonText>
-                                </StyledButton>
                             </StyledFormArea>
                         )}
                     </Formik>
