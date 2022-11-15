@@ -29,6 +29,7 @@ const Home = ({ navigation }) => {
                 </StyledHomeBrownText>
             </StyledHomeBrownZone>
             <TestTab style={styles.tab} ></TestTab>
+            <Button onPress={() => { navigation.navigate('Test')}} title={'login'} ></Button>
         </SafeAreaView>
     )
 }
