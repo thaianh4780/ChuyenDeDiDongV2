@@ -24,7 +24,7 @@ import { StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
-const { brand, darkLight } = Colors;
+const { brand, darkLight ,primary } = Colors;
 
 const Login = ({ navigation }) => {
     return (
@@ -94,11 +94,11 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: "center",
         justifyContent: "center",
-        color: "white",
+        color: primary,
     },
     container: {
         flex: 1,
-        backgroundColor: "#a85b3c",
+        backgroundColor: brand,
     },
     TouchableImage: {
         padding: 20,

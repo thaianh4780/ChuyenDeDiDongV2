@@ -8,17 +8,19 @@ export const Colors = {
   primary: "#ffffff",
   secondary: "#E5E7EB",
   tertiary: "#1F2937",
-  darkLight: "#9CA3AF",
+  darkLight: "#1F2937",
   brand: "#a85b3c",
   //green: "#10B981",
   green: "#6bad3a",
   //red: "#EF4444",
   red: "#ad3a3a",
- // blue:"#0db1f0",
-  blue:"#3a78ad",
+  // blue:"#0db1f0",
+  blue: "#3a78ad",
+  black: "#1d3240",
+  blur: "#adafb2"
 };
 
-const { primary, secondary, tertiary,blue, darkLight, brand, green, red } = Colors;
+const { primary, secondary, tertiary, blue, darkLight, brand, green, red, black, blur } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
@@ -69,24 +71,8 @@ export const FormLog = styled.View`
   padding:30px;
   border-radius: 12px
 `
-export const FormUpdate = styled.View`
-  position: absolute;
-  width: 105%;
-  height: 53%;
-  background-color: ${primary};
-  top:15%;
-  padding:30px;
-  border-radius: 12px
-`
-export const FormAdd = styled.View`
-  position: absolute;
-  width: 105%;
-  height: 53%;
-  background-color: ${primary};
-  top:15%;
-  padding:30px;
-  border-radius: 12px
-`
+
+
 
 export const PageTitle = styled.Text`
   font-size: 30px;
@@ -232,17 +218,18 @@ export const WZText = styled.Text`
 export const StyledDrinkTouchable = styled.TouchableOpacity`
   background-color: ${primary};
   border-radius: 25px;
-  width: 370px;
-  height: 100px;
+  width: 330px;
+  height: 90px;
   margin-top: 5px;
-  margin-vertical: 20px; 
-  margin-horizontal: 15px;
+  justify-content: center;
+  margin-horizontal:7%;
+  margin-vertical:2%;
 `
 
 export const StyledDrinkTouchableImage = styled.Image`
   position: absolute;
-  height: 120px;
-  width: 120px;
+  height: 90px;
+  width: 85px;
   z-index: 1;
   bottom: 0;
   left:-30px;
@@ -306,7 +293,7 @@ export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
   width: 100%;
-  height: 150px;
+  height: 170px;
   border-bottom-left-radius: 50px;
   overflow: hidden;
 `
@@ -349,29 +336,27 @@ export const StyledHomeBrownImage = styled.Image`
   position: absolute;
   right: 0;
   margin-right: 10px;
-  top:7px
+  top:23px
 `
 
 //  css price and name in drink scr
 export const SDTText = styled.Text`
   position: absolute;
-  top: 20px;
-  left: 70px;
   color: ${brand};
-  font-size: 18px;
-  height: 40px;
-  width: 100px;
+  font-size: 16px;
+  height: 50px;
+  width: 130px;
   font-weight: bold;
   text-align: left;
-  z-index: 1;
+  left: 50px;
 `
 
 export const SDTPrice = styled.Text`
   position: absolute;
   top: 50px;
-  left: 70px;
-  color:#000000;
-  font-size: 18px;
+  left: 40px;
+  color:${tertiary};
+  font-size: 16px;
   height: 40px;
   width: 100px;
   font-weight: bold;
@@ -382,19 +367,19 @@ export const SDTPrice = styled.Text`
 // css 3 btn 
 export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
   position: absolute;
-  left: 175px;
+  left: 140px;
   margin-vertical:25px;
-  width: 60px;
+  width: 55px;
   height: 50px;
   font-weight: bold;
   text-align: center;
   background-color: ${blue};
-  border-radius:5px
+  border-radius:5px;
 `
 export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
   position: absolute;
-  left: 240px;
-  width: 60px;
+  left: 200px;
+  width: 55px;
   height: 50px;
   font-weight: bold;
   text-align: center;
@@ -405,8 +390,8 @@ export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
 `
 export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   position: absolute;
-  left: 305px;
-  width: 60px;
+  left: 260px;
+  width: 55px;
   height: 50px;
   font-weight: bold;
   text-align: center;
@@ -416,8 +401,52 @@ export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
 `
 export const SDTBtnText = styled.Text`
   color: ${primary};
-  font-size: 18;
+  font-size: 15;
   text-align: center;
   padding-vertical:15px;
   font-weight: bold;
+`
+
+// CRUB css
+export const OLPic = styled.Image`
+  width: 120%;
+  height: 110%;
+  margin-top: -10%;
+`;
+
+export const FormUpdate = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 65%;
+  background-color: ${primary};
+  top:20%;
+  padding:30px;
+  border-radius: 12px
+`
+
+export const FormAdd = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 88%;
+  background-color: ${primary};
+  top:5%;
+  padding:20px;
+  border-radius: 12px
+`
+export const UULabel = styled.Text`
+  color: ${tertiary};
+  font-size: 16px;
+  text-align:left; 
+  font-weight: bold;
+`
+export const UUInput = styled.TextInput`
+  background: ${secondary};
+  padding: 20px;
+  padding-right: 55px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 60px;
+  margin-bottom: 10px;
+  color: ${black};
+  margin-vertical: 10px;
 `

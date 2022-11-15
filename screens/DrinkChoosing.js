@@ -11,6 +11,8 @@ import {
     Line,
 } from "../components/styles"
 import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Colors } from '../components/styles';
+const { brand, darkLight,black ,primary, secondary} = Colors;
 
 //Colors 
 const DrinkChoosing = ({ navigation }) => {
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
     },
     btnDrText: {
         position: "absolute",
-        color: "white",
+        color: primary,
         fontSize: 30,
         fontWeight: 'bold',
         top: 5,

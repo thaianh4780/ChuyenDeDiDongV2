@@ -1,74 +1,81 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 //Icon
-import { Octicons, IonicIcon } from '@expo/vector-icons';
+import { Octicons, IonicIcon, Feather } from '@expo/vector-icons';
+
+import SelectDropdown from 'react-native-select-dropdown'
 
 import {
     StyledContainer,
     InnerContainer,
-    PageLogo,
+    OLPic,
     PageTitle,
     StyledFormArea,
     LeftIcon,
-    StyledTextInputs,
+    StyledTextInput,
     StyledInputLabel,
     StyledButton,
     ButtonText,
     Line,
     Colors,
+    FormAdd,
+    UULabel,
+    UUInput,
     FormUpdate,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, Alert } from "react-native";
 import Button from "../components/Button";
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 //Colors 
-const { brand, darkLight } = Colors;
-
+const { brand, blur, primary, secondary, black, darkLight } = Colors;
+const data = ["admin", "phuc vu", "thu ngan",]
 const DrinkUpdating = ({ navigation }) => {
     return (
         <StyledContainer >
             <InnerContainer>
-                <PageLogo resizeMode="cover" source={require('../assets/image/a.png')} ></PageLogo>
+                <OLPic resizeMode="cover" source={require('../assets/image/br3.png')} ></OLPic>
                 <FormUpdate style={styles.TouchableImage} >
-                    <PageTitle>DrinkUpdating</PageTitle>
+                    <PageTitle>Update Drink</PageTitle>
                     <Formik
-                        initialValues={{ username: '', price:'',category: ''}}
+                        initialValues={{ drinkname: '', price: '', category: '',}}
                         onSubmit={(values) => { console.log(values); }} >
-                        {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
+                        {({ handleChange, handleBlur, HandleSubmit, values }) => (
                             <StyledFormArea>
-
-
                                 <MyTextInput
                                     autofocus
-                                    label=" name"
-                                    placeholder="input name"
-                                    placeholderTextColor={darkLight}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    value={values.username} >
+                                    label="Drinkname"
+                                    placeholder="Drinkname"
+                                    placeholderTextColor={blur}
+                                    onChangeText={handleChange('drinkname')}
+                                    onBlur={handleBlur('drinkname')}
+                                    value={values.drinkname} >
                                 </MyTextInput>
                                 <MyTextInput
-                                    autofocus
-                                    label="price"
-                                    placeholder="input price"
-                                    placeholderTextColor={darkLight}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    value={values.username} >
+                                    label="Price"
+                                    placeholder="Price"
+                                    placeholderTextColor={blur}
+                                    onChangeText={handleChange('price')}
+                                    onBlur={handleBlur('price')}
+                                    value={values.price}>
                                 </MyTextInput>
                                 <MyTextInput
-                                    autofocus
-                                    label="category"
-                                    placeholder="input category"
-                                    placeholderTextColor={darkLight}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    value={values.username} >
+                                    label="Category"
+                                    placeholder="Category"
+                                    placeholderTextColor={blur}
+                                    onChangeText={handleChange('category')}
+                                    onBlur={handleBlur('category')}
+                                    value={values.category}>
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => { navigation.navigate('Home'), HandleSubmit }} >
+                                <StyledButton
+                                    onPress={() => {
+                                        navigation.navigate('Home'),
+                                            Alert.alert("Done Update"),
+                                            HandleSubmit
+                                    }} >
                                     <ButtonText>
                                         Submit
                                     </ButtonText>
@@ -81,32 +88,18 @@ const DrinkUpdating = ({ navigation }) => {
         </StyledContainer>
     );
 }
-const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
+const MyTextInput = ({ label, icon, ...props }) => {
     return (
-        <View>
-            <LeftIcon>
-                <Octicons name={icon} size={30} color={brand} />
-            </LeftIcon>
-            <StyledInputLabel>
+        <View >
+            <UULabel>
                 {label}
-            </StyledInputLabel>
-            <StyledTextInputs {...props} />
+            </UULabel>
+            <UUInput {...props} />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    logo: {
-        paddingTop: 20,
-        fontSize: 30,
-        textAlign: "center",
-        justifyContent: "center",
-        color: "white",
-    },
-    container: {
-        flex: 1,
-        backgroundColor: "#a85b3c",
-    },
     TouchableImage: {
         padding: 20,
         shadowColor: "#1F2937",
@@ -117,7 +110,31 @@ const styles = StyleSheet.create({
             width: 3
         }
     },
-
+    dropdown1BtnStyle: {
+        width: '100%',
+        height: 60,
+        backgroundColor: secondary,
+        borderRadius: 5,
+        marginVertical: 10,
+        marginBottom: 10,
+    },
+    dropdown1BtnTxtStyle: {
+        color: black,
+        textAlign: 'left',
+        textTransform: 'capitalize'
+    },
+    dropdown1DropdownStyle: {
+        backgroundColor: secondary
+    },
+    dropdown1RowStyle: {
+        backgroundColor: secondary,
+        borderBottomColor: blur
+    },
+    dropdown1RowTxtStyle: {
+        color: black,
+        textAlign: 'left',
+        textTransform: 'capitalize'
+    },
 })
 
 export default DrinkUpdating;
