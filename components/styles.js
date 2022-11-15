@@ -10,6 +10,7 @@ export const Colors = {
   tertiary: "#1F2937",
   darkLight: "#1F2937",
   brand: "#a85b3c",
+  light_brand :"#ce6b43",
   //green: "#10B981",
   green: "#6bad3a",
   //red: "#EF4444",
@@ -17,10 +18,11 @@ export const Colors = {
   // blue:"#0db1f0",
   blue: "#3a78ad",
   black: "#1d3240",
-  blur: "#adafb2"
+  blur: "#adafb2",
+  neon_blur:"#f0eeee",
 };
 
-const { primary, secondary, tertiary, blue, darkLight, brand, green, red, black, blur } = Colors;
+const { light_brand, primary, secondary, tertiary, blue, darkLight, brand, green, red, black, blur } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
@@ -188,11 +190,11 @@ export const StyledTouchableImage = styled.Image`
 export const StyledTouchableText = styled.Text`
   position: absolute;
   bottom:0;
-  color: ${brand};
-  font-size: 20px;
+  color: ${primary};
+  font-size: 16px;
   height: 60px;
   width: 150px;
-  padding-vertical: 15px;
+  padding-vertical: 20px;
   font-weight: bold;
   text-align: center;
 `
@@ -450,3 +452,6 @@ export const UUInput = styled.TextInput`
   color: ${black};
   margin-vertical: 10px;
 `
+
+
+//Test 
