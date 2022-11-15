@@ -11,13 +11,13 @@ import { DataTable } from 'react-native-paper';
 //note : justifyContent: 'center' : theo height || alignItems: 'center' : theo width || alignItems: 'center'
 //note : 2 cai tren chi co tac dung voi the cha chua no || ko dung dc trong ScrollView
 
-const Notification = ({ navigation }) => {
+const MonthTurnOver = ({ navigation }) => {
     return (
         <StyledContainer >
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br4.png')} ></OLPic>
                 <TableStyled style={styles.TouchableImage} >
-                    <PageTitle>Month Revenue</PageTitle>
+                    <PageTitle>Month's TurnOver</PageTitle>
                     <ScrollView style={styles.scrollView}>
                         <DataTable style={styles.container1}>
                             <DataTable.Header style={styles.tableHeader}>
@@ -170,4 +170,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 })
-export default Notification 
+export default MonthTurnOver 

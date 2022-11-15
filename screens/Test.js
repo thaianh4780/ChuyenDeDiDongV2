@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, } from 'react-native';
 import Button from '../components/Button';
-import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
+import { StyledHomeBrownImage, StyledHomeBrownText, SHBZ, StyledTouchable, StyledTouchableImage, StyledTouchableText, StyledContainer, InnerContainer, OLPic, TableStyled, PageTitle, StyledButton, ButtonText } from '../components/styles';
 import { Fontisto } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
@@ -13,45 +13,149 @@ import { DataTable } from 'react-native-paper';
 
 const Test = ({ navigation }) => {
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>
-                <DataTable style={styles.container}>
-                    <DataTable.Header style={styles.tableHeader}>
-                        <DataTable.Title>Name</DataTable.Title>
-                        <DataTable.Title>Favourite Food</DataTable.Title>
-                        <DataTable.Title>Age</DataTable.Title>
-                    </DataTable.Header>
-                    <DataTable.Row>
-                        <DataTable.Cell>Radhika</DataTable.Cell>
-                        <DataTable.Cell>Dosa</DataTable.Cell>
-                        <DataTable.Cell>23</DataTable.Cell>
-                    </DataTable.Row>
+        <StyledContainer >
+            <InnerContainer>
+                <OLPic resizeMode="cover" source={require('../assets/image/br4.png')} ></OLPic>
+                <TableStyled style={styles.TouchableImage} >
+                    <PageTitle>Revenue</PageTitle>
+                    <ScrollView style={styles.scrollView}>
+                        <DataTable style={styles.container1}>
+                            <DataTable.Header style={styles.tableHeader}>
+                                <DataTable.Title  >Drink Name</DataTable.Title>
+                                <DataTable.Title style={styles.text} >Number</DataTable.Title>
+                                <DataTable.Title style={styles.text}>Date</DataTable.Title>
+                                <DataTable.Title style={styles.text}>Total</DataTable.Title>
+                            </DataTable.Header>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                            <DataTable.Row>
+                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                            </DataTable.Row>
+                        </DataTable>
+                    </ScrollView>
+                    <StyledButton
+                        onPress={() => {
+                            navigation.navigate('Home')
+                        }} >
+                        <ButtonText>
+                            Submit
+                        </ButtonText>
+                    </StyledButton>
+                </TableStyled>
+            </InnerContainer>
+        </StyledContainer>
 
-                    <DataTable.Row>
-                        <DataTable.Cell>Krishna</DataTable.Cell>
-                        <DataTable.Cell>Uttapam</DataTable.Cell>
-                        <DataTable.Cell>26</DataTable.Cell>
-                    </DataTable.Row>
-                    <DataTable.Row>
-                        <DataTable.Cell>Vanshika</DataTable.Cell>
-                        <DataTable.Cell>Brownie</DataTable.Cell>
-                        <DataTable.Cell>20</DataTable.Cell>
-                    </DataTable.Row>
-                    <DataTable.Row>
-                        <DataTable.Cell>Teena</DataTable.Cell>
-                        <DataTable.Cell>Pizza</DataTable.Cell>
-                        <DataTable.Cell>24</DataTable.Cell>
-                    </DataTable.Row>
-                </DataTable>
-            </ScrollView>
-        </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: primary,
+    },
+    container1: {
+        borderRadius: 10,
+        backgroundColor: primary,
+    },
+    tableHeader: {
+        backgroundColor: '#DCDCDC',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+    },
     TouchableImage: {
         elevation: 1,
-        padding: 20,
-        backgroundColor: light_brand,
+        padding: 10,
+        backgroundColor: primary,
         shadowColor: black,
         shadowOpacity: .5,
         shadowRadius: 2,
@@ -60,19 +164,10 @@ const styles = StyleSheet.create({
             width: 2
         }
     },
-    container: {
-        flex: 1,
+    text: {
         justifyContent: 'center',
-    },
-    scrollView: {
-        flex: 1,
-        marginTop: "10%",
-    },
-    img: {
-        paddingHorizontal: 50
-    },
-    tableHeader: {
-        backgroundColor: '#DCDCDC',
+        textAlign: 'center',
+        alignItems: 'center',
     },
 })
 export default Test 

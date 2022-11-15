@@ -24,21 +24,20 @@ const AdminManagement = ({ navigation }) => {
                             <StyledTouchableText> TableChoosing </StyledTouchableText>
                         </StyledTouchable>
                         <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('RegistDateManagement')
+                            navigation.navigate('DateTurnOver')
                             console.log(' Dates TurnOver')
                         }} > 
                             <StyledTouchableImage resizeMode="cover" source={require('../assets/image/datesale.png')} ></StyledTouchableImage>
                             <StyledTouchableText> Date's TurnOver </StyledTouchableText>
                         </StyledTouchable>
                         <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('TableChoosing')
-                            console.log('TableManagement')
+                            navigation.navigate('MonthTurnOver')
+                            console.log('MonthTurnOver')
                         }} > 
                             <StyledTouchableImage resizeMode="cover" source={require('../assets/image/monthsale.png')} style={styles.img} ></StyledTouchableImage>
                             <StyledTouchableText >  Month's TurnOver </StyledTouchableText>
                         </StyledTouchable>
                     </View>
-
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
                         <StyledTouchable style={styles.TouchableImage} onPress={() => {
                             navigation.navigate('DateRegist')
@@ -48,15 +47,15 @@ const AdminManagement = ({ navigation }) => {
                             <StyledTouchableText> Regist Date </StyledTouchableText>
                         </StyledTouchable>
                         <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('Notification')
-                            console.log('Staff Salary')
+                            navigation.navigate('TotailExpenditure')
+                            console.log('Total Expenditure')
                         }} >
                             <StyledTouchableImage resizeMode="cover" source={require('../assets/image/total.png')} ></StyledTouchableImage>
                             <StyledTouchableText>Total Expenditure</StyledTouchableText>
                         </StyledTouchable>
                         <StyledTouchable style={styles.TouchableImage} onPress={() => {
                             navigation.navigate('SalaryManagement')
-                            console.log('Total Expenditure')
+                            console.log('SalaryManagement')
                         }} >
                             <StyledTouchableImage resizeMode="cover" source={require('../assets/image/salary.png')} ></StyledTouchableImage>
                             <StyledTouchableText>SalaryManagemen</StyledTouchableText>
