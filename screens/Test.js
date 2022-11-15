@@ -59,7 +59,7 @@ const Test = ({ navigation }) => {
                             console.log('Total Expenditure')
                         }} >
                             <StyledTouchableImage resizeMode="cover" source={require('../assets/image/salary.png')} ></StyledTouchableImage>
-                            <StyledTouchableText> Notification</StyledTouchableText>
+                            <StyledTouchableText>SalaryManagemen</StyledTouchableText>
                         </StyledTouchable>
                     </View>
                 </View>
