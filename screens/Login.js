@@ -20,11 +20,11 @@ import {
     FormLog,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
-const { brand, darkLight ,primary } = Colors;
+const { brand, darkLight ,primary,blur } = Colors;
 
 const Login = ({ navigation }) => {
     return (
@@ -43,7 +43,7 @@ const Login = ({ navigation }) => {
                                     label="User name"
                                     icon="mail"
                                     placeholder="NameAbc"
-                                    placeholderTextColor={darkLight}
+                                    placeholderTextColor={blur}
                                     onChangeText={handleChange('username')}
                                     onBlur={handleBlur('username')}
                                     value={values.username}
@@ -53,7 +53,7 @@ const Login = ({ navigation }) => {
                                     label="Password"
                                     icon="lock"
                                     placeholder="* * * * * *"
-                                    placeholderTextColor={darkLight}
+                                    placeholderTextColor={blur}
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
                                     value={values.password}
@@ -61,7 +61,10 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => { navigation.navigate('Home'), HandleSubmit }} >
+                                <StyledButton onPress={() => { navigation.navigate('Home'), 
+                                                                HandleSubmit ,
+                                                                Alert.alert(values.username) ,
+                                                                Alert.alert(values.password) }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
