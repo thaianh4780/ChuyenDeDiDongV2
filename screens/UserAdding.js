@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -25,76 +25,114 @@ import {
     UUInput,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View, Text, Alert } from "react-native";
+import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "react-native";
 import Button from "../components/Button";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import reactDom from "react-dom";
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
-const data = ["admin", "phuc vu", "thu ngan",]
+const data = ["Admin", "Phục Vụ", "Thu Ngân"];
 const UserAdding = ({ navigation }) => {
+    // const [fdata, setdata] = React.useState('');
+    const [errmsg, setErrmsg] = React.useState(null);
+    const sendBackEnd = (values) => {
+        // setdata(values);
+        // console.log(fdata);
+        if (!values.user_name || !values.password || !values.full_name || !values.phone) {
+            // setErrmsg("all fields must be required!");
+            Alert.alert("All fields must be required!")
+            return;
+        } else {
+            console.log(values);
+            fetch('http://192.168.117.119:3000/api/user/add', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(values),
+            }).then(res => res.json()).then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    Alert.alert("Login is success!");
+                    return navigation.navigate('Login');
+                }
+            })
+        }
+    };
     return (
         <StyledContainer >
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br3.png')} ></OLPic>
-                <FormAdd style={styles.TouchableImage} >
-                    <PageTitle>Adding User</PageTitle>
-                    <Formik
-                        initialValues={{ username: '', password: '', phoneNumber: '', address: '' }}
-                        onSubmit={(values) => { console.log(values); }} >
-                        {({ handleChange, handleBlur, HandleSubmit, values }) => (
-                            <StyledFormArea>
-                                <MyTextInput
-                                    autofocus
-                                    label="Username"
-                                    placeholder="Username"
-                                    placeholderTextColor={blur}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    value={values.username} >
-                                </MyTextInput>
-                                <MyTextInput
-                                    label="Password"
-                                    placeholder="Password"
-                                    placeholderTextColor={blur}
-                                    onChangeText={handleChange('password')}
-                                    onBlur={handleBlur('password')}
-                                    value={values.password}>
-                                </MyTextInput>
-                                <MyTextInput
-                                    label="PhoneNumber"
-                                    placeholder="0123456789"
-                                    placeholderTextColor={blur}
-                                    keyboardType='numeric'
-                                    onChangeText={handleChange('phoneNumber')}
-                                    onBlur={handleBlur('phoneNumber')}
-                                    value={values.phoneNumber} >
-                                </MyTextInput>
-                                <MyTextInput
-                                    label="Address"
-                                    placeholder="Address"
+                    <FormAdd style={styles.TouchableImage} >
+                        <PageTitle>Thêm Tài Khoản</PageTitle>
+
+                        <Formik
+                            initialValues={{ user_name: '', password: '', full_name: '', phone: '', role: '63731105fa3b63917784f678' }}
+                            onSubmit={(values) => { console.log(values); }} >
+                            {({ handleChange, handleBlur, HandleSubmit, values }) => (
+                                <StyledFormArea>
+                                    <MyTextInput
+                                        autofocus
+                                        label="Tên Tài Khoản"
+                                        placeholder="abc..."
+                                        placeholderTextColor={blur}
+                                        onChangeText={handleChange('user_name')}
+                                        onBlur={handleBlur('user_name')}
+                                        value={values.user_name} >
+                                    </MyTextInput>
+                                    <MyTextInput
+                                        label="Mật Khẩu"
+                                        placeholder="1235..."
+                                        placeholderTextColor={blur}
+                                        onChangeText={handleChange('password')}
+                                        onBlur={handleBlur('password')}
+                                        value={values.password}>
+                                    </MyTextInput>
+                                    <MyTextInput
+                                        autofocus
+                                        label="Họ và tên"
+                                        placeholder="Nguyễn Văn...."
+                                        placeholderTextColor={blur}
+                                        onChangeText={handleChange('full_name')}
+                                        onBlur={handleBlur('full_name')}
+                                        value={values.full_name} >
+                                    </MyTextInput>
+                                    <MyTextInput
+                                        label="Số Điện Thoại"
+                                        placeholder="0123456789"
+                                        placeholderTextColor={blur}
+                                        keyboardType='numeric'
+                                        onChangeText={handleChange('phone')}
+                                        onBlur={handleBlur('phone')}
+                                        value={values.phone} >
+                                    </MyTextInput>
+                                    {/* <MyTextInput
+                                    label="Địa Chỉ"
+                                    placeholder="32/16, 12Đ,..."
                                     placeholderTextColor={blur}
                                     onChangeText={handleChange('address')}
                                     onBlur={handleBlur('address')}
                                     value={values.address}>
-                                </MyTextInput>
-                                <DrorpDownInput
-                                    label="Permission">
-                                </DrorpDownInput>
-                                <Line />
-                                <StyledButton
-                                    onPress={() => {
-                                        navigation.navigate('Home'),
-                                            Alert.alert("Done Adding"),
-                                            HandleSubmit
-                                    }} >
-                                    <ButtonText>
-                                        Submit
-                                    </ButtonText>
-                                </StyledButton>
-                            </StyledFormArea>
-                        )}
-                    </Formik>
-                </FormAdd>
+                                </MyTextInput> */}
+                                    <DrorpDownInput
+                                        label="Vai Trò">
+                                    </DrorpDownInput>
+                                    <Line />
+                                    <StyledButton
+                                        onPress={() => {
+                                            sendBackEnd(values),
+                                                // navigation.navigate('Home'),
+                                                //     Alert.alert("Done Adding"),
+                                                HandleSubmit
+                                        }} >
+                                        <ButtonText>
+                                            Submit
+                                        </ButtonText>
+                                    </StyledButton>
+                                </StyledFormArea>
+                            )}
+                        </Formik>
+
+                    </FormAdd>
             </InnerContainer>
         </StyledContainer>
     );
