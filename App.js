@@ -22,6 +22,9 @@ import Test from './screens/Test';
 import TestTab from './screens/TestTab';
 import TabBtn from './screens/TabBtn';
 import AdminManagement from './screens/AdminManagement';
+import DateTurnOver from './screens/DateTurnOver';
+import MonthTurnOver from './screens/MonthTurnOver';
+import TotailExpenditure from './screens/TotailExpenditure';
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +57,9 @@ const MyStack = () => {
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="TestTab" component={TestTab} />
         <Stack.Screen name="TabBtn" component={TabBtn} />
+        <Stack.Screen name="DateTurnOver" component={DateTurnOver} />
+        <Stack.Screen name="MonthTurnOver" component={MonthTurnOver} />
+        <Stack.Screen name="TotailExpenditure" component={TotailExpenditure} />
         <Stack.Screen name="AdminManagement" component={AdminManagement} />
       </Stack.Navigator>
     </NavigationContainer>

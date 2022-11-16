@@ -41,7 +41,7 @@ const UserAdding = ({ navigation }) => {
                     <Formik
                         initialValues={{ username: '', password: '', phoneNumber: '', address: '' }}
                         onSubmit={(values) => { console.log(values); }} >
-                        {({ handleChange, handleBlur, HandleSubmit, values }) => (
+                        {({ handleChange, handleBlur, values }) => (
                             <StyledFormArea>
                                 <MyTextInput
                                     autofocus
@@ -84,8 +84,8 @@ const UserAdding = ({ navigation }) => {
                                 <StyledButton
                                     onPress={() => {
                                         navigation.navigate('Home'),
-                                            Alert.alert("Done Adding"),
-                                            HandleSubmit
+                                        Alert.alert("Done Adding"),
+                                        console.log(values.username,values.password,values.phoneNumber,values.address)
                                     }} >
                                     <ButtonText>
                                         Submit

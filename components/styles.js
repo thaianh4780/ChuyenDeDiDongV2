@@ -464,3 +464,11 @@ export const UUInput = styled.TextInput`
 
 
 //Test 
+export const TableStyled = styled.View`
+  position: absolute;
+  width: 107%;
+  height: 95%;
+  background-color: ${primary};
+  top:2%;
+  border-radius: 12px
+`
