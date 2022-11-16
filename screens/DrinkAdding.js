@@ -55,9 +55,7 @@ const DrinkAdding = ({ navigation }) => {
                                         borderRadius: 20,
                                         borderWidth:1,
                                         borderColor: 'black',
-
                                     }}>
-
                                     </Image>
                                 </View>
                                 <MyTextInput
