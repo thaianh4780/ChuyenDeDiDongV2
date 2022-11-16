@@ -20,7 +20,7 @@ import {
     FormLog,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View , Alert} from "react-native";
 import Button from "../components/Button";
 
 //Colors 
@@ -32,17 +32,18 @@ const Login = ({ navigation }) => {
             Alert.alert("All fields must be required!");
             return;
         } else {
-            console.log(values);
+            console.log(values.password);
             fetch('http://192.168.117.119:3000/api/user/login', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(values),
             }).then(res => res.json()).then(data => {
+                // console.log(data);
                 if (data.error) {
                     console.log(data.error);
                 } else {
-                    Alert.alert("Add user is success!");
-                    return navigation.navigate('Login');
+                    Alert.alert("Login is success!");
+                    return navigation.navigate('Home');
                 }
             })
         }
@@ -82,7 +83,8 @@ const Login = ({ navigation }) => {
                                 </MyTextInput>
                                 <Line />
                                 <StyledButton onPress={() => { 
-                                    navigation.navigate('Home'), 
+                                    login(values);
+                                    // navigation.navigate('Home'), 
                                     HandleSubmit 
                                     }} >
                                     <ButtonText>
