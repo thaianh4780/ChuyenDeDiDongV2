@@ -38,7 +38,7 @@ const UserAdding = ({ navigation }) => {
     const sendBackEnd = (values) => {
         // setdata(values);
         // console.log(fdata);
-        if (!values.user_name || !values.password || !values.full_name || !values.phone) {
+        if (values.user_name == "" || !values.password == "" || !values.full_name == "" || !values.phone == "") {
             // setErrmsg("all fields must be required!");
             Alert.alert("All fields must be required!")
             return;
@@ -52,7 +52,7 @@ const UserAdding = ({ navigation }) => {
                 if (data.error) {
                     console.log(data.error);
                 } else {
-                    Alert.alert("Login is success!");
+                    Alert.alert("Add user is success!");
                     return navigation.navigate('Login');
                 }
             })

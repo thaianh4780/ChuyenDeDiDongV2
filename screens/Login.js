@@ -27,6 +27,26 @@ import Button from "../components/Button";
 const { brand, darkLight ,primary } = Colors;
 
 const Login = ({ navigation }) => {
+    const login = (values) => {
+        if (values.user_name == "" || values.password == "") {
+            Alert.alert("All fields must be required!");
+            return;
+        } else {
+            console.log(values);
+            fetch('http://192.168.117.119:3000/api/user/login', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(values),
+            }).then(res => res.json()).then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    Alert.alert("Add user is success!");
+                    return navigation.navigate('Login');
+                }
+            })
+        }
+    };
     return (
         <StyledContainer >
             <InnerContainer>
@@ -34,7 +54,7 @@ const Login = ({ navigation }) => {
                 <FormLog style={styles.TouchableImage} >
                     <PageTitle>Login</PageTitle>
                     <Formik
-                        initialValues={{ username: '', password: '' }}
+                        initialValues={{ user_name: '', password: '' }}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
@@ -44,9 +64,9 @@ const Login = ({ navigation }) => {
                                     icon="mail"
                                     placeholder="NameAbc"
                                     placeholderTextColor={darkLight}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    value={values.username}
+                                    onChangeText={handleChange('user_name')}
+                                    onBlur={handleBlur('user_name')}
+                                    value={values.user_name}
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -61,7 +81,10 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => { navigation.navigate('Home'), HandleSubmit }} >
+                                <StyledButton onPress={() => { 
+                                    navigation.navigate('Home'), 
+                                    HandleSubmit 
+                                    }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
