@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, } from "react";
 import { StatusBar } from 'expo-status-bar';
 
 //Icon
@@ -24,9 +24,23 @@ import { Alert, StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
-const { brand, darkLight ,primary,blur } = Colors;
+const { brand, darkLight, primary, blur } = Colors;
 
-const Login = ({ navigation }) => {
+function Login({ navigation }) {
+    const [username, setusername] = useState("")
+    const [password, setpassword] = useState("")
+
+
+    function localLogin() {
+        setusername("username");
+        console.log('====================================');
+        console.log("login");
+        console.log('====================================');
+    }
+    useEffect(() => {
+        localLogin();
+
+    }, [username])
     return (
         <StyledContainer >
             <InnerContainer>
@@ -46,7 +60,8 @@ const Login = ({ navigation }) => {
                                     placeholderTextColor={blur}
                                     onChangeText={handleChange('username')}
                                     onBlur={handleBlur('username')}
-                                    value={values.username}
+                                    // value={values.username}
+                                    value={username}
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -61,12 +76,19 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => { navigation.navigate('Home'), 
-                                                                HandleSubmit ,
-                                                               console.log(values.username) ,
-                                                               console.log(values.password) }} >
+                                <StyledButton onPress={() => {
+                                    navigation.navigate('Home'),
+                                    HandleSubmit,
+                                    console.log(values.username),
+                                    console.log(values.password)
+                                }} >
                                     <ButtonText>
                                         Login
+                                    </ButtonText>
+                                </StyledButton>
+                                <StyledButton onPress={() => { navigation.navigate('Test') }}>
+                                    <ButtonText>
+                                        Test
                                     </ButtonText>
                                 </StyledButton>
                             </StyledFormArea>
