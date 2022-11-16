@@ -1,76 +1,106 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, } from 'react-native';
 import Button from '../components/Button';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
 import { Fontisto } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import TestTab from './TestTab';
+import { Colors } from '../components/styles';
+const { brand, darkLight, black, primary, secondary ,neon_blur ,light_brand } = Colors;
 
+//note : justifyContent: 'center' : theo height || alignItems: 'center' : theo width || alignItems: 'center'
+//note : 2 cai tren chi co tac dung voi the cha chua no || ko dung dc trong ScrollView
 
-const TableChoosing = ({ navigation }) => {
+const AdminManagement = ({ navigation }) => {
     return (
-        <SafeAreaView  >
-            <View style={styles.home} >
-
-                <ScrollView style={styles.scll}
-                    contentContainerStyle={{
-                        flexGrow: 1
-                    }}
-                    keyboardShouldPersistTaps='never    '>
-                    {/* <Text style={styles.title}>This is TableChoosing Page</Text> */}
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                </ScrollView>
-                <ScrollView style={styles.sclr}
-                    contentContainerStyle={{
-                        flexGrow: 1
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scrollView}>
+                <View style={{ flex: 1, justifyContent: 'center', textAlign: 'center', flexDirection: "row" }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} > 
+                        <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log(' Table')
+                        }} > 
+                        <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} > 
+                        <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
                         
-                    }}
-                    keyboardShouldPersistTaps='never    '>
-                    {/* <Text style={styles.title}>This is TableChoosing Page</Text> */}
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                    <TouchableOpacity >
-                        <MaterialCommunityIcons style={styles.icons} name='desk' />
-                    </TouchableOpacity>
-                </ScrollView>
-                <Text>Abc</Text>
-            </View>
-                <MaterialCommunityIcons style={styles.icons} name='desk' />
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                    </View>
 
-            <Button onPress={() => navigation.navigate('DrinkChoosing')} title='DrinkChoosing' ></Button>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
+                            navigation.navigate('DrinkChoosing')
+                            console.log('Table')
+                        }} >
+                            <Text style={styles.table}> Table  </Text>
+                        </StyledTouchable>
+                    </View>
+                </View>
+            </ScrollView>
         </SafeAreaView>
     )
 }
-
 const styles = StyleSheet.create({
-    home: {
+    TouchableImage: {
+        elevation: 1,
+        padding: 20,
+        backgroundColor: light_brand,
+        shadowColor: black,
+        shadowOpacity: .5,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 2
+        }
+    },
+    container: {
         flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start'
+        justifyContent: 'center',
     },
-    title: {
-        textAlign: 'center',
+    scrollView: {
+        flex: 1,
+        marginTop:"10%",
     },
-    iconic: {
-        height: 100,
-        width: 100
+    img:{
+       paddingHorizontal:50
     },
-    icons: {
-        fontSize: 100,
-        color: '#a85b3c',
-        margin: 20,
-    },
-    scll: {
-        width: '50%' // is 50% of container width
-    },
-    sclr: {
-        width: '-50%' // is 50% of container width
+    table:{
+        color: 'white',
+
     }
 })
-export default TableChoosing 
+export default AdminManagement 
