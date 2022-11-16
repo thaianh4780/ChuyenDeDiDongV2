@@ -28,7 +28,7 @@ import TotailExpenditure from './screens/TotailExpenditure';
 
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
+const App = () => {
   return (
     <NavigationContainer >
       <Stack.Navigator screenOptions={{
@@ -66,4 +66,4 @@ const MyStack = () => {
   );
 };
 
-export default MyStack 
+export default App

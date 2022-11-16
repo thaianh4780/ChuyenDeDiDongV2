@@ -7,6 +7,7 @@ import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 import { Formik } from 'formik';
 import { useFonts } from 'expo-font';
+import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
 // import AppLoading from 'expo-app-loading';
 
 //   let [fontsLoaded] = useFonts({
@@ -22,9 +23,9 @@ const Home = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <StyledHomeBrownZone>
-                <Fontisto style={styles.logo} name="coffeescript" />
+                <Fontisto style={styles.logo } name="coffeescript" />
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-                <StyledHomeBrownText>
+                <StyledHomeBrownText style={{fontFamily:AlexBrushRegular}} >
                     Coffee Shop
                 </StyledHomeBrownText>
             </StyledHomeBrownZone>
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         justifyContent: "center",
         color: primary,
-        // fontFamily:'AlexBrush-Regular',
     },
     container: {
         flex: 1.5,

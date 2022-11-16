@@ -63,8 +63,8 @@ const Login = ({ navigation }) => {
                                 <Line />
                                 <StyledButton onPress={() => { navigation.navigate('Home'), 
                                                                 HandleSubmit ,
-                                                                Alert.alert(values.username) ,
-                                                                Alert.alert(values.password) }} >
+                                                               console.log(values.username) ,
+                                                               console.log(values.password) }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>

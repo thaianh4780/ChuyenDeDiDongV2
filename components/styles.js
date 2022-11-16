@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
 import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
-
+import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
 
 //color
 export const Colors = {
@@ -306,6 +306,7 @@ export const StyledHomeBrownText = styled.Text`
   font-size: 40px;
   position: absolute;
   bottom: 0;
+  font-family: "AlexBrushRegular" ;
   `
 export const StyledHomeTab = styled.TouchableOpacity`
   background-color: ${primary};
