@@ -118,14 +118,24 @@ const TotailExpenditure = ({ navigation }) => {
                             </DataTable.Row>
                         </DataTable>
                     </ScrollView>
-                    <StyledButton
-                        onPress={() => {
-                            navigation.navigate('Home')
-                        }} >
-                        <ButtonText>
-                            Submit
-                        </ButtonText>
-                    </StyledButton>
+                    <View style={{ flexDirection: "row", justifyContent: "center", marginHorizontal: "10%" }}>
+                        <StyledButton
+                            onPress={() => {
+                                navigation.navigate('Home')
+                            }} >
+                            <ButtonText>
+                                Submit
+                            </ButtonText>
+                        </StyledButton>
+                        <StyledButton
+                            onPress={() => {
+                                navigation.navigate('TotalInput')
+                            }} >
+                            <ButtonText>
+                                Add
+                            </ButtonText>
+                        </StyledButton>
+                    </View>
                 </TableStyled>
             </InnerContainer>
         </StyledContainer>

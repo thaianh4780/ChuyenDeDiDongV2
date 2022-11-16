@@ -150,6 +150,7 @@ export const StyledButton = styled.TouchableOpacity`
   border-radius :5px;
   height: 60px;
   margin-vertical: 5px; 
+  margin-horizontal:20px;
 `
 export const ButtonText = styled.Text`
   color: ${primary};
@@ -441,6 +442,7 @@ export const UULabel = styled.Text`
   font-size: 16px;
   text-align:left; 
   font-weight: bold;
+  margin-left: 2%;
 `
 export const UUInput = styled.TextInput`
   background: ${secondary};
