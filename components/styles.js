@@ -405,7 +405,7 @@ export const SDTBtnText = styled.Text`
   color: ${primary};
   font-size: 15;
   text-align: center;
-  padding-vertical:15px;
+  padding-vertical:15px;      
   font-weight: bold;
 `
 
@@ -417,6 +417,15 @@ export const OLPic = styled.Image`
 `;
 
 export const FormUpdate = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 65%;
+  background-color: ${primary};
+  top:20%;
+  padding:30px;
+  border-radius: 12px
+`
+export const FormUpdates = styled.View`
   position: absolute;
   width: 105%;
   height: 65%;

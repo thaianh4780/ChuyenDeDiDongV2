@@ -44,22 +44,6 @@ const DrinkAdding = ({ navigation }) => {
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values }) => (
                             <StyledFormArea>
-                                <View >
-                                    <Button title={'image'} onPress={()=>{
-                                        Alert.alert("")
-                                    }}>
-                                    </Button>
-                                    <Image style={{
-                                        height: 100,
-                                        width: 100,
-                                        borderRadius: 20,
-                                        borderWidth:1,
-                                        borderColor: 'black',
-
-                                    }}>
-
-                                    </Image>
-                                </View>
                                 <MyTextInput
                                     autofocus
                                     label="Drinkname"
