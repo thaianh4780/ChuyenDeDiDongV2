@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   TouchableImage: {
+    elevation: 10,
     padding: 20,
     shadowColor: "#000000",
     shadowOpacity: 0.25,
