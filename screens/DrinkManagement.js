@@ -20,48 +20,163 @@ import {
   SafeAreaView,
 } from "react-native";
 import TabBtn from "./TabBtn";
+import SelectDropdown from "react-native-select-dropdown";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+
 const { brand, darkLight, black, primary } = Colors;
 
 //Colors
-const DrinkManagement = ({ navigation }) => {
+const DrinkManagement = ({ navigation, route }) => {
   // lấy tất cả đồ uống
-  const url = "http://192.168.1.144:3000/api/drink/list";
-
-  // lấy đồ uống theo id
-  //const url1 = "http://192.168.117.131:3000/api/drink/";
+  const urlDrinkAll = "http://192.168.1.144:3000/api/drink/list";
+  const urlCategory = "http://192.168.1.144:3000/api/category/list";
+  const urlDrinkByCategory = "http://192.168.1.144:3000/api/drink/category/";
 
   const [listDrink, setListDrink] = useState([]);
+  const [check, setCheck] = useState(false);
+  const [listCategory, setListCategory] = useState([]);
+  const [type, setType] = useState("");
+  const [listDrinkByCategory, setListDrinkByCategory] = useState([]);
 
-  const [drink, setDrink] = useState([]);
-
+  // chạy dữ liệu 1 lần đầu
   useEffect(() => {
-    getListDrink();
+    getListCategory();
   }, []);
 
-  const getListDrink = async (id) => {
-    await fetch(url)
+  // chạy dữ liệu khi có sự thay đổi
+  useEffect(() => {
+    if (!type) {
+      getListDrink();
+    } else {
+      getListDrinkByCategory();
+    }
+  }, [type, check]);
+
+  // lấy các danh mục ra
+  const getListCategory = async () => {
+    await fetch(urlCategory)
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res.data);
+        var data = res.data;
+        setListCategory(data);
+      })
+      .catch((err) => console.log("ERR", err));
+  };
+
+  // lấy các đồ uống thuộc 1 danh mục
+  const getListDrinkByCategory = async () => {
+    await fetch(urlDrinkByCategory + "" + type)
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log("drink by category: ");
+        // console.log(res.data);
+        var data = res.data;
+        setListDrinkByCategory(data);
+      })
+      .catch((err) => console.log("ERR", err));
+  };
+
+  // lấy tất cả đồ uống
+  const getListDrink = async () => {
+    await fetch(urlDrinkAll)
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
         var data = res.data;
+        //setCheck(check + 1);
         setListDrink(data);
       })
       .catch((err) => console.log("ERR", err));
   };
 
-  const getDrinkById = async (id) => {
-    console.log("id: " + id);
-  };
-  //   await fetch(url1 + "" + id)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       // console.log(res);
-  //       var data = res.data;
-  //       setDrink(data);
-  //     })
-  //     .catch((err) => console.log("ERR", err));
-  // };
+  // xuất danh mục xuống dropdown
+  const dataCategory = listCategory.map((item) => {
+    return (
+      <Text key={item._id} onPress={() => setType(item._id)}>
+        {item.name}
+      </Text>
+    );
+  });
 
+  // xuất các đồ uống thuộc 1 danh mục xuống giao diện
+  const listDrinkCategory = listDrinkByCategory.map((item) => {
+    return (
+      <StyledDrinkTouchable style={styles.TouchableImage}>
+        <StyledDrinkTouchableImage
+          resizeMode="cover"
+          source={{ uri: `${item.image}` }}
+        ></StyledDrinkTouchableImage>
+        <SDTText>{item.name}</SDTText>
+        <SDTPrice>{item.price}$</SDTPrice>
+        <StyledDrinkTouchableAdd
+          onPress={() => {
+            navigation.navigate("DrinkAdding");
+          }}
+        >
+          <SDTBtnText>Add</SDTBtnText>
+        </StyledDrinkTouchableAdd>
+        <StyledDrinkTouchableDelete
+          onPress={() => {
+            setCheck(!check), Alert.alert("Deleted");
+          }}
+        >
+          <SDTBtnText>Delete</SDTBtnText>
+        </StyledDrinkTouchableDelete>
+        <StyledDrinkTouchableEdit
+          onPress={() => {
+            navigation.navigate("DrinkUpdating", {
+              id: item._id,
+            }),
+              setCheck(!check);
+          }}
+        >
+          <SDTBtnText>Edit</SDTBtnText>
+        </StyledDrinkTouchableEdit>
+      </StyledDrinkTouchable>
+    );
+  });
+
+  // console.log("category: ");
+  // console.log(listCategory);
+
+  const DrorpDownInput = ({ label, icon, ...props }) => {
+    return (
+      <View>
+        <SelectDropdown
+          buttonStyle={styles.dropdown1BtnStyle}
+          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          dropdownStyle={styles.dropdown1DropdownStyle}
+          rowStyle={styles.dropdown1RowStyle}
+          rowTextStyle={styles.dropdown1RowTxtStyle}
+          dropdownIconPosition={"right"}
+          renderDropdownIcon={(isOpened) => {
+            return (
+              <FontAwesome
+                name={isOpened ? "chevron-up" : "chevron-down"}
+                color={darkLight}
+                size={18}
+              />
+            );
+          }}
+          data={dataCategory}
+          onSelect={(item, index) => {
+            // setCategoryId(item.key);
+            setType(item.key);
+            console.log("key: " + item.key);
+          }}
+          buttonTextAfterSelection={(selectedItem, index) => {
+            return selectedItem;
+          }}
+          rowTextForSelection={(item, index) => {
+            return item;
+          }}
+        />
+      </View>
+    );
+  };
+
+  // xuất các đồ uống xuống giao diện
   const drinks = listDrink.map((item, index) => {
     return (
       <StyledDrinkTouchable style={styles.TouchableImage}>
@@ -72,30 +187,49 @@ const DrinkManagement = ({ navigation }) => {
         <SDTText>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
         <StyledDrinkTouchableAdd
-          onPress={() => navigation.navigate("DrinkAdding")}
+          onPress={() => {
+            navigation.navigate("DrinkAdding");
+          }}
         >
           <SDTBtnText>Add</SDTBtnText>
         </StyledDrinkTouchableAdd>
-        <StyledDrinkTouchableDelete onPress={() => Alert.alert("Deleted")}>
+        <StyledDrinkTouchableDelete
+          onPress={() => {
+            setCheck(!check), Alert.alert("Deleted");
+          }}
+        >
           <SDTBtnText>Delete</SDTBtnText>
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
-          onPress={() =>
+          onPress={() => {
             navigation.navigate("DrinkUpdating", {
               id: item._id,
-            })
-          }
+            }),
+              setCheck(!check);
+          }}
         >
           <SDTBtnText>Edit</SDTBtnText>
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
   });
+
+  // check xem có đang chọn 1 danh mục nào hay không ?
+  const checkType = () => {
+    if (type) {
+      return listDrinkCategory;
+    } else {
+      return drinks;
+    }
+  };
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <ScrollView>
-          <StyledFormHome>{drinks}</StyledFormHome>
+          <StyledFormHome>
+            <DrorpDownInput label="Category"></DrorpDownInput>
+            {checkType()}
+          </StyledFormHome>
         </ScrollView>
       </SafeAreaView>
     </View>

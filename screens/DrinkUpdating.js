@@ -34,6 +34,7 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 // const data = ["admin", "phuc vu", "thu ngan"];
 
 const DrinkUpdating = ({ navigation, route }) => {
+  
   // link danh muc
   const urlCategory = "http://192.168.1.144:3000/api/category/list";
 
@@ -115,7 +116,7 @@ const DrinkUpdating = ({ navigation, route }) => {
           console.log(data.error);
         } else {
           Alert.alert("update is success!");
-          return navigation.navigate("Home");
+          
         }
       });
   };
@@ -160,6 +161,8 @@ const DrinkUpdating = ({ navigation, route }) => {
             updateDrink(values);
             console.log("value: ");
             console.log(values);
+            
+            navigation.navigate("Home", { id: 3 });
 
             // navigation.navigate("Home"),
             //   Alert.alert("Done Update"),
