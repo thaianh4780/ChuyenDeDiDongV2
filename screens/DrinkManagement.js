@@ -25,7 +25,7 @@ const { brand, darkLight, black, primary } = Colors;
 //Colors
 const DrinkManagement = ({ navigation }) => {
   // ""
-  const url = "http://192.168.1.144:3000/api/drink/list";
+  const url = "http://192.168.43.243:3000/api/drink/list";
 
   const [list, setList] = useState([]);
   useEffect(() => {
@@ -36,12 +36,28 @@ const DrinkManagement = ({ navigation }) => {
     await fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         var data = res.data;
         setList(data);
       })
       .catch((err) => console.log("ERR", err));
   };
+  //.
+  const urls = "http://192.168.43.243:3000/api/drink/delete/";
+
+  const deleteDrink =async (id)=>{
+    // console.log(urls+""+id)
+    await fetch(urls+""+ id, {
+        method: 'DELETE',
+    })
+      .then((res) => res.json()).then((res) => {
+          console.log(res);
+        // var data = res.data;
+        //  setList(res);
+      })
+      .catch((err) => console.log("ERR", err));
+  };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -62,7 +78,7 @@ const DrinkManagement = ({ navigation }) => {
                     <SDTBtnText>Add</SDTBtnText>
                   </StyledDrinkTouchableAdd>
                   <StyledDrinkTouchableDelete
-                    onPress={() => Alert.alert("Deleted")}
+                    onPress={() => deleteDrink(item._id)}
                   >
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>

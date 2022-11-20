@@ -1,106 +1,77 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, } from 'react-native';
-import Button from '../components/Button';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
+
+import styled from 'styled-components';
 import { Fontisto } from "@expo/vector-icons";
-import TestTab from './TestTab';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+const data=[{key:'1'},{key:'1'},{key:'1'},{key:'1'},{key:'1'},{key:'1'},{key:'1'},];
+const numColumns = 2;
+
 import { Colors } from '../components/styles';
 const { brand, darkLight, black, primary, secondary ,neon_blur ,light_brand } = Colors;
-
-//note : justifyContent: 'center' : theo height || alignItems: 'center' : theo width || alignItems: 'center'
-//note : 2 cai tren chi co tac dung voi the cha chua no || ko dung dc trong ScrollView
-
-const AdminManagement = ({ navigation }) => {
-    return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>
-                <View style={{ flex: 1, justifyContent: 'center', textAlign: 'center', flexDirection: "row" }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} > 
-                        <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log(' Table')
-                        }} > 
-                        <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} > 
-                        <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                        
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} >
-                            <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                    </View>
-
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} >
-                            <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} >
-                            <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} >
-                            <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                        <StyledTouchable style={styles.TouchableImage} onPress={() => {
-                            navigation.navigate('DrinkChoosing')
-                            console.log('Table')
-                        }} >
-                            <Text style={styles.table}> Table  </Text>
-                        </StyledTouchable>
-                    </View>
-                </View>
-            </ScrollView>
-        </SafeAreaView>
-    )
+const formatData =(data, numColumns)=>{
+    const numberOfFullRows = Math.floor(data.length / numColumns)
+    let munberOfElementsLastRow = data.length - (numberOfFullRows* numColumns);
+    while (munberOfElementsLastRow !== numColumns && munberOfElementsLastRow !== 0){
+        data.push({key:`blank-${munberOfElementsLastRow}`, empty: true});
+        munberOfElementsLastRow = munberOfElementsLastRow+1;
+    }
+    return data;
 }
-const styles = StyleSheet.create({
-    TouchableImage: {
-        elevation: 1,
-        padding: 20,
-        backgroundColor: light_brand,
-        shadowColor: black,
-        shadowOpacity: .5,
-        shadowRadius: 2,
-        shadowOffset: {
-            height: 2,
-            width: 2
+
+export default class TableChoosing extends React.Component{
+    renderItem = ({item, index})=>{
+        if(item.empty === true){
+            return (
+                <View style={[styleds.item,styleds.itemInvisible]}>
+                </View>
+            )
+
         }
-    },
+        return (
+            <View style = {styleds.item}>
+                    <Text style={styleds.itemText}>{item.key}</Text>
+            </View>
+        );
+    };
+    render(){
+        return (
+            <View style = {styleds.container}>
+                <FlatList
+                    data={data}
+                    style={styleds.container}
+                    renderItem={this.renderItem}
+                    // keyExtractor={(item, index) => index.toString()}
+                    numColumns = {numColumns}>
+                </FlatList>
+            </View>
+        )
+    }
+}
+
+const styleds = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-    },
-    scrollView: {
-        flex: 1,
-        marginTop:"10%",
-    },
-    img:{
-       paddingHorizontal:50
-    },
-    table:{
-        color: 'white',
+        marginVertical:20,
 
+    },
+    item: {
+        backgroundColor: light_brand,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        margin: 10,
+        height: Dimensions.get('window').width/ numColumns,
+        
+    },
+    itemInvisible: {
+    backgroundColor: 'transparent',
+    },   
+     itemText: {
+        color: 'white',
+        fontSize: 20,
     }
-})
-export default AdminManagement 
+
+});
