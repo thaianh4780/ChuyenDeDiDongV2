@@ -8,6 +8,8 @@ import {
   StyledDrinkTouchableAdd,
   SDTBtnText,
   StyledDrinkTouchableDelete,
+  StyledButton,
+  ButtonText,
   StyledDrinkTouchableEdit,
   Colors,
 } from "../components/styles";
@@ -22,6 +24,7 @@ import {
 import TabBtn from "./TabBtn";
 import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Button from "../components/Button";
 
 const { brand, darkLight, black, primary } = Colors;
 
@@ -45,12 +48,16 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // chạy dữ liệu khi có sự thay đổi
   useEffect(() => {
+    getListDrink();
+  }, [check]);
+
+  useEffect(() => {
     if (!type) {
       getListDrink();
     } else {
       getListDrinkByCategory();
     }
-  }, [type, check]);
+  }, [type]);
 
   // lấy các danh mục ra
   const getListCategory = async () => {
@@ -227,6 +234,13 @@ const DrinkManagement = ({ navigation, route }) => {
       <SafeAreaView>
         <ScrollView>
           <StyledFormHome>
+            <StyledButton
+              onPress={() => {
+                setCheck(!check), setType(null);
+              }}
+            >
+              <ButtonText>All</ButtonText>
+            </StyledButton>
             <DrorpDownInput label="Category"></DrorpDownInput>
             {checkType()}
           </StyledFormHome>
@@ -260,4 +274,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DrinkManagement;
+export default { DrinkManagement, check };
