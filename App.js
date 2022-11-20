@@ -22,15 +22,29 @@ import Test from './screens/Test';
 import TestTab from './screens/TestTab';
 import TabBtn from './screens/TabBtn';
 import AdminManagement from './screens/AdminManagement';
+<<<<<<< HEAD
 import DateTurnOver from './screens/DateTurnOver';
 import MonthTurnOver from './screens/MonthTurnOver';
 import TotailExpenditure from './screens/TotailExpenditure';
+=======
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList } from 'react-native-web';
+>>>>>>> Dung
 
 const Stack = createNativeStackNavigator();
-
+const Table = [{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},]
 const MyStack = () => {
   return (
     <NavigationContainer >
+      {/* <SafeAreaView>
+        <FlatList
+        numColumns={2}
+        data={Table}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item})=>(<TableChoosing table={item}/>)}>
+
+        </FlatList>
+      </SafeAreaView> */}
       <Stack.Navigator screenOptions={{
         cardStyle: {
           backgroundColor: 'transparent',

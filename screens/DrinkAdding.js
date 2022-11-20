@@ -33,6 +33,25 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const data = ["admin", "phuc vu", "thu ngan",]
 const DrinkAdding = ({ navigation }) => {
+    const drink =(values)=>{
+        if (!values.drinkname || !values.price || !values.category) {
+            console.log("them khong thanh cong!");
+        } else {
+            fetch('http://192.168.43.243:3000/api/drink/add', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(values),
+            }).then(res=>res.json()).then(data =>{
+                if (data.error) {
+                    console .log(data.error);
+                } else {
+                    console.log(data);
+                    Alert.alert("them thanh cong!");
+                    return navigation.navigate('Home');
+                }
+            })
+        }
+    }
     return (
         <StyledContainer >
             <InnerContainer>
@@ -44,6 +63,10 @@ const DrinkAdding = ({ navigation }) => {
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values }) => (
                             <StyledFormArea>
+<<<<<<< HEAD
+=======
+                                
+>>>>>>> Dung
                                 <MyTextInput
                                     autofocus
                                     label="Drinkname"
@@ -72,8 +95,9 @@ const DrinkAdding = ({ navigation }) => {
                                 <Line />
                                 <StyledButton
                                     onPress={() => {
-                                        navigation.navigate('Home'),
-                                            Alert.alert("Done Adding"),
+                                        drink(values);
+                                        // navigation.navigate('Home'),
+                                        //     Alert.alert("Done Adding"),
                                             HandleSubmit
                                     }} >
                                     <ButtonText>

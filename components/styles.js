@@ -198,6 +198,17 @@ export const StyledTouchableText = styled.Text`
   font-weight: bold;
   text-align: center;
 `
+export const StyledTouchableTexts = styled.Text`
+  position: absolute;
+  bottom:0;
+  color: black;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
+  padding-vertical: 20px;
+  font-weight: bold;
+  text-align: center;
+`
 export const WhiteZone = styled.View`
   background-color: ${primary};
   border-radius: 10px;
