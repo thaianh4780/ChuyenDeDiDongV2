@@ -25,7 +25,11 @@ const { brand, darkLight, black, primary } = Colors;
 //Colors
 const DrinkManagement = ({ navigation }) => {
   // ""
+<<<<<<< HEAD
   const url = "http://192.168.43.243:3000/api/drink/list";
+=======
+  const url = "http://192.168.1.144:3000/api/drink/list";
+>>>>>>> MinhThang
 
   const [list, setList] = useState([]);
   useEffect(() => {
@@ -36,12 +40,17 @@ const DrinkManagement = ({ navigation }) => {
     await fetch(url)
       .then((res) => res.json())
       .then((res) => {
+<<<<<<< HEAD
         console.log(res);
+=======
+        // console.log(res);
+>>>>>>> MinhThang
         var data = res.data;
         setList(data);
       })
       .catch((err) => console.log("ERR", err));
   };
+<<<<<<< HEAD
   //.
   const urls = "http://192.168.43.243:3000/api/drink/delete/";
 
@@ -58,6 +67,8 @@ const DrinkManagement = ({ navigation }) => {
       .catch((err) => console.log("ERR", err));
   };
 
+=======
+>>>>>>> MinhThang
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -78,7 +89,11 @@ const DrinkManagement = ({ navigation }) => {
                     <SDTBtnText>Add</SDTBtnText>
                   </StyledDrinkTouchableAdd>
                   <StyledDrinkTouchableDelete
+<<<<<<< HEAD
                     onPress={() => deleteDrink(item._id)}
+=======
+                    onPress={() => Alert.alert("Deleted")}
+>>>>>>> MinhThang
                   >
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>
