@@ -25,50 +25,54 @@ const { brand, darkLight, black, primary } = Colors;
 //Colors
 const DrinkManagement = ({ navigation }) => {
   // ""
-<<<<<<< HEAD
   const url = "http://192.168.43.243:3000/api/drink/list";
-=======
-  const url = "http://192.168.1.144:3000/api/drink/list";
->>>>>>> MinhThang
+  const [check, setCheck] = useState(false);
 
   const [list, setList] = useState([]);
   useEffect(() => {
-    getListDrink();
-  }, []);
 
+    getListDrink();
+  }, [check]);
+  
   const getListDrink = async () => {
     await fetch(url)
       .then((res) => res.json())
       .then((res) => {
-<<<<<<< HEAD
-        console.log(res);
-=======
         // console.log(res);
->>>>>>> MinhThang
         var data = res.data;
         setList(data);
       })
       .catch((err) => console.log("ERR", err));
   };
-<<<<<<< HEAD
   //.
   const urls = "http://192.168.43.243:3000/api/drink/delete/";
 
+  const createTwoButtonAlert = (id) =>
+    Alert.alert(
+      "Thông báo",
+      "bạn có chắc muốn xóa không",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress:()=> deleteDrink(id)}
+      ]
+    );
+
   const deleteDrink =async (id)=>{
-    // console.log(urls+""+id)
+    console.log(urls+""+id)
     await fetch(urls+""+ id, {
         method: 'DELETE',
     })
       .then((res) => res.json()).then((res) => {
-          console.log(res);
-        // var data = res.data;
-        //  setList(res);
+          // console.log(res);
+          setCheck(!check);
       })
       .catch((err) => console.log("ERR", err));
   };
 
-=======
->>>>>>> MinhThang
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -89,11 +93,7 @@ const DrinkManagement = ({ navigation }) => {
                     <SDTBtnText>Add</SDTBtnText>
                   </StyledDrinkTouchableAdd>
                   <StyledDrinkTouchableDelete
-<<<<<<< HEAD
-                    onPress={() => deleteDrink(item._id)}
-=======
-                    onPress={() => Alert.alert("Deleted")}
->>>>>>> MinhThang
+                    onPress={() => createTwoButtonAlert(item._id)}
                   >
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>

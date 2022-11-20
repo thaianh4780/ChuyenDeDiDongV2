@@ -21,22 +21,14 @@ import {
 import TabBtn from "./TabBtn";
 //Colors
 const UserManagement = ({ navigation }) => {
-<<<<<<< HEAD
   const url = "http://192.168.43.243:3000/api/user/all";
-=======
-  const url = "http://192.168.1.144:3000/api/user/all";
->>>>>>> MinhThang
   //const url = "http://192.168.1.144:3000/api/drink/list";
   const [listUser, setListUser] = useState([]);
   useEffect(() => {
     getListUser();
   }, []);
-<<<<<<< HEAD
   
   const urls = "http://192.168.43.243:3000/api/user/delete/";
-=======
-
->>>>>>> MinhThang
   const getListUser = async () => {
     await fetch(url)
       .then((res) => res.json())
@@ -47,7 +39,6 @@ const UserManagement = ({ navigation }) => {
       })
       .catch((err) => console.log("ERR", err));
   };
-<<<<<<< HEAD
 
   const deleteUser =async (id)=>{
     //console.log(urls+""+id)
@@ -88,44 +79,12 @@ const UserManagement = ({ navigation }) => {
       </StyledDrinkTouchable>
     );
   })
-=======
->>>>>>> MinhThang
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <ScrollView>
           <StyledFormHome>
-<<<<<<< HEAD
             {users}
-=======
-            {listUser.map((item, index) => {
-              return (
-                <StyledDrinkTouchable style={styles.TouchableImage}>
-                  <StyledDrinkTouchableImage
-                    resizeMode="cover"
-                    source={require("../assets/image/u3.png")}
-                  ></StyledDrinkTouchableImage>
-                  <SDTText> {item.user_name}</SDTText>
-                  <SDTPrice>{item.role.role_name}</SDTPrice>
-                  <StyledDrinkTouchableAdd
-                    onPress={() => navigation.navigate("UserAdding")}
-                  >
-                    <SDTBtnText>Add</SDTBtnText>
-                  </StyledDrinkTouchableAdd>
-                  <StyledDrinkTouchableDelete
-                    onPress={() => Alert.alert("Deleted")}
-                  >
-                    <SDTBtnText>Delete</SDTBtnText>
-                  </StyledDrinkTouchableDelete>
-                  <StyledDrinkTouchableEdit
-                    onPress={() => navigation.navigate("UserUpdating")}
-                  >
-                    <SDTBtnText>Edit</SDTBtnText>
-                  </StyledDrinkTouchableEdit>
-                </StyledDrinkTouchable>
-              );
-            })}
->>>>>>> MinhThang
           </StyledFormHome>
         </ScrollView>
       </SafeAreaView>
