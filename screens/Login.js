@@ -86,11 +86,11 @@ function Login({ navigation }) {
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                                <StyledButton onPress={() => { navigation.navigate('Test') }}>
+                                {/* <StyledButton onPress={() => { navigation.navigate('Test') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>
-                                </StyledButton>
+                                </StyledButton> */}
                             </StyledFormArea>
                         )}
                     </Formik>

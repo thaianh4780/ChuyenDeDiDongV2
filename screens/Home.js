@@ -25,7 +25,7 @@ const Home = ({ navigation }) => {
             <StyledHomeBrownZone>
                 <Fontisto style={styles.logo } name="coffeescript" />
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-                <StyledHomeBrownText style={{fontFamily:AlexBrushRegular}} >
+                <StyledHomeBrownText >
                     Coffee Shop
                 </StyledHomeBrownText>
             </StyledHomeBrownZone>
