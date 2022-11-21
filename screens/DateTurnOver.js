@@ -23,7 +23,7 @@ const DateTurnOver = ({ navigation }) => {
                             <DataTable.Header style={styles.tableHeader}>
                                 <DataTable.Title  >Drink Name</DataTable.Title>
                                 <DataTable.Title style={styles.text} >Number</DataTable.Title>
-                                <DataTable.Title style={styles.text}>Date</DataTable.Title>
+                                <DataTable.Title style={styles.text}>Time</DataTable.Title>
                                 <DataTable.Title style={styles.text}>Total</DataTable.Title>
                             </DataTable.Header>
                             <DataTable.Row>

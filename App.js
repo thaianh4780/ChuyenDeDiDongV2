@@ -26,6 +26,7 @@ import AdminManagement from './screens/AdminManagement';
 import DateTurnOver from './screens/DateTurnOver';
 import MonthTurnOver from './screens/MonthTurnOver';
 import TotailExpenditure from './screens/TotailExpenditure';
+<<<<<<< HEAD
 =======
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList } from 'react-native-web';
@@ -34,6 +35,13 @@ import { FlatList } from 'react-native-web';
 const Stack = createNativeStackNavigator();
 const Table = [{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},{name: 'Table'},]
 const MyStack = () => {
+=======
+import TotalInput from './screens/TotailInput';
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+>>>>>>> Thai_Anh
   return (
     <NavigationContainer >
       {/* <SafeAreaView>
@@ -75,9 +83,10 @@ const MyStack = () => {
         <Stack.Screen name="MonthTurnOver" component={MonthTurnOver} />
         <Stack.Screen name="TotailExpenditure" component={TotailExpenditure} />
         <Stack.Screen name="AdminManagement" component={AdminManagement} />
+        <Stack.Screen name="TotalInput" component={TotalInput} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default MyStack 
+export default App
