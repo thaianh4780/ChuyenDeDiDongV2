@@ -34,15 +34,14 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 // const data = ["admin", "phuc vu", "thu ngan"];
 
 const DrinkUpdating = ({ navigation, route }) => {
-  
   // link danh muc
-  const urlCategory = "http://192.168.1.144:3000/api/category/list";
+  const urlCategory = "http://192.168.117.131:3000/api/category/list";
 
   // link đồ uống theo id
-  const urlProductById = "http://192.168.1.144:3000/api/drink/";
+  const urlProductById = "http://192.168.117.131:3000/api/drink/";
 
   // link update đồ uống
-  const urlUpdateProduct = "http://192.168.1.144:3000/api/drink/update/";
+  const urlUpdateProduct = "http://192.168.117.131:3000/api/drink/update/";
 
   useEffect(() => {
     getListCategory();
@@ -115,8 +114,8 @@ const DrinkUpdating = ({ navigation, route }) => {
         if (data.error) {
           console.log(data.error);
         } else {
+          navigation.replace("Home");
           Alert.alert("update is success!");
-          
         }
       });
   };
@@ -161,8 +160,6 @@ const DrinkUpdating = ({ navigation, route }) => {
             updateDrink(values);
             console.log("value: ");
             console.log(values);
-            
-            navigation.navigate("Home", { id: 3 });
 
             // navigation.navigate("Home"),
             //   Alert.alert("Done Update"),

@@ -21,7 +21,7 @@ import {
 import TabBtn from "./TabBtn";
 //Colors
 const UserManagement = ({ navigation }) => {
-  const url = "http://192.168.1.144:3000/api/user/all";
+  const url = "http://192.168.117.131:3000/api/user/all";
   //const url = "http://192.168.1.144:3000/api/drink/list";
   const [listUser, setListUser] = useState([]);
   useEffect(() => {

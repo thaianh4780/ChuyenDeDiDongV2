@@ -31,9 +31,9 @@ const { brand, darkLight, black, primary } = Colors;
 //Colors
 const DrinkManagement = ({ navigation, route }) => {
   // lấy tất cả đồ uống
-  const urlDrinkAll = "http://192.168.1.144:3000/api/drink/list";
-  const urlCategory = "http://192.168.1.144:3000/api/category/list";
-  const urlDrinkByCategory = "http://192.168.1.144:3000/api/drink/category/";
+  const urlDrinkAll = "http://192.168.117.131:3000/api/drink/list";
+  const urlCategory = "http://192.168.117.131:3000/api/category/list";
+  const urlDrinkByCategory = "http://192.168.117.131:3000/api/drink/category/";
 
   const [listDrink, setListDrink] = useState([]);
   const [check, setCheck] = useState(false);
@@ -274,4 +274,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default { DrinkManagement, check };
+export default DrinkManagement;
