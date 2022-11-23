@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     TouchableImage: {
         padding: 20,
         shadowColor: "#1F2937",
-        shadowOpacity: .25,
+        shadowOpacity: .25, 
         shadowRadius: 2,
         shadowOffset: {
             height: 1,

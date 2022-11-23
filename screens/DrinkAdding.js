@@ -63,10 +63,6 @@ const DrinkAdding = ({ navigation }) => {
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values }) => (
                             <StyledFormArea>
-<<<<<<< HEAD
-=======
-                                
->>>>>>> Dung
                                 <MyTextInput
                                     autofocus
                                     label="Drinkname"
@@ -162,5 +158,3 @@ const styles = StyleSheet.create({
 })
 
 export default DrinkAdding;
-
-
