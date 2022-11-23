@@ -33,17 +33,25 @@ import reactDom from "react-dom";
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const data = ["Admin", "Phục Vụ", "Thu Ngân"];
 const UserAdding = ({ navigation }) => {
-    // const [fdata, setdata] = React.useState('');
-    const [errmsg, setErrmsg] = React.useState(null);
+    // const getListUser = async () => {
+    //     await fetch(url)
+    //       .then((res) => res.json())
+    //       .then((res) => {
+    //         // console.log(res);
+    //         var data = res;
+    //         setListUser(data);
+    //       })
+    //       .catch((err) => console.log("ERR", err));
+    //   };
+    // const [errmsg, setErrmsg] = React.useState(null);
     const sendBackEnd = (values) => {
         // setdata(values);
-        // console.log(fdata);
-        if (values.user_name == "" || !values.password == "" || !values.full_name == "" || !values.phone == "") {
-            // setErrmsg("all fields must be required!");
+        console.log(values);
+        if (!values.user_name|| !values.password|| !values.full_name|| !values.phone) {
             Alert.alert("All fields must be required!")
             return;
         } else {
-            console.log(values);
+            console.log(values.user_name);
             fetch('http://192.168.117.119:3000/api/user/add', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
@@ -52,8 +60,9 @@ const UserAdding = ({ navigation }) => {
                 if (data.error) {
                     console.log(data.error);
                 } else {
+                    console.log(data);
                     Alert.alert("Add user is success!");
-                    return navigation.navigate('Login');
+                    return navigation.goBack();
                 }
             })
         }

@@ -1,6 +1,7 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
 
+
 //Icon
 import { Octicons, IonicIcon } from '@expo/vector-icons';
 
@@ -40,9 +41,10 @@ const Login = ({ navigation }) => {
             }).then(res => res.json()).then(data => {
                 // console.log(data);
                 if (data.error) {
+                    Alert.alert(data.error);
                     console.log(data.error);
                 } else {
-                    Alert.alert("Login is success!");
+                    // Alert.alert("Login is success!");
                     return navigation.navigate('Home');
                 }
             })
@@ -91,11 +93,11 @@ const Login = ({ navigation }) => {
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                                <StyledButton onPress={() => { navigation.navigate('Test')}} >
+                                {/* <StyledButton onPress={() => { navigation.navigate('Test')}} >
                                     <ButtonText>
                                         Test
                                     </ButtonText>
-                                </StyledButton>
+                                </StyledButton> */}
                             </StyledFormArea>
                         )}
                     </Formik>

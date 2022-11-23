@@ -10,6 +10,7 @@ import {
   StyledDrinkTouchableDelete,
   StyledDrinkTouchableEdit,
 } from "../components/styles";
+import { useIsFocused } from '@react-navigation/native';
 import {
   Alert,
   ScrollView,
@@ -19,15 +20,17 @@ import {
   SafeAreaView,
 } from "react-native";
 import TabBtn from "./TabBtn";
+
+
+
 //Colors
-const UserManagement = ({ navigation }) => {
-  const url = "http://192.168.1.144:3000/api/user/all";
+const UserManagement = ({route , navigation }) => {
+  const url = "http://192.168.117.119:3000/api/user/all";
   //const url = "http://192.168.1.144:3000/api/drink/list";
   const [listUser, setListUser] = useState([]);
-  useEffect(() => {
-    getListUser();
-  }, []);
-
+  const isFocused = useIsFocused();
+  const [check, setCheck] = useState(false);
+  useEffect(() => { getListUser(); }, [check,isFocused]);
   const getListUser = async () => {
     await fetch(url)
       .then((res) => res.json())
@@ -38,6 +41,27 @@ const UserManagement = ({ navigation }) => {
       })
       .catch((err) => console.log("ERR", err));
   };
+
+  //delete user by id
+  const deleteUser = (id) => {
+    const url = 'http://192.168.117.119:3000/api/user/delete/' + id;
+    fetch(url, {
+      method: 'DELETE',
+      // headers: { 'content-type': 'application/json' },
+      // body: JSON.stringify(id)
+    }).then(res => res).then(data => {
+      console.log(data);
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        // Alert.alert("Deleted is success!");
+        setCheck(!check);
+        console.log(check);
+      }
+    })
+    // useEffect(() => { getListUser(); }, []);
+  };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -58,14 +82,16 @@ const UserManagement = ({ navigation }) => {
                     <SDTBtnText>Add</SDTBtnText>
                   </StyledDrinkTouchableAdd>
                   <StyledDrinkTouchableDelete
-                    onPress={() => Alert.alert("Deleted")}
+                    onPress={() => {
+                      deleteUser(item._id);
+                    }}
                   >
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>
                   <StyledDrinkTouchableEdit
-                    onPress={() => navigation.navigate("UserUpdating")}
+                    onPress={() => navigation.navigate("UserUpdating", {id: item._id})}
                   >
-                    <SDTBtnText>Edit</SDTBtnText>
+                    <SDTBtnText>Edit</SDTBtnText> 
                   </StyledDrinkTouchableEdit>
                 </StyledDrinkTouchable>
               );
