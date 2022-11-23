@@ -106,6 +106,20 @@ const DrinkManagement = ({ navigation, route }) => {
   //.
   const urls = "http://192.168.43.243:3000/api/drink/delete/";
 
+  const createTwoButtonAlert = (id) =>
+  Alert.alert(
+    "Thông báo",
+    "bạn có chắc muốn xóa không",
+    [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel"
+      },
+      { text: "OK", onPress:()=> deleteDrink(id)}
+    ]
+  );
+  
   const deleteDrink =async (id)=>{
     // console.log(urls+""+id)
     await fetch(urls+""+ id, {
@@ -237,9 +251,7 @@ const DrinkManagement = ({ navigation, route }) => {
           <SDTBtnText>Add</SDTBtnText>
         </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
-          onPress={() => {
-            setCheck(!check), Alert.alert("Deleted");
-          }}
+          onPress={() => createTwoButtonAlert(item._id)}
         >
           <SDTBtnText>Delete</SDTBtnText>
         </StyledDrinkTouchableDelete>
