@@ -25,7 +25,7 @@ const { brand, darkLight, black, primary } = Colors;
 //Colors
 const DrinkManagement = ({ navigation }) => {
   // ""
-  const url = "http://192.168.43.243:3000/api/drink/list";
+  const url = "http://192.168.1.123:3000/api/drink/list";
   const [check, setCheck] = useState(false);
 
   const [list, setList] = useState([]);
@@ -45,7 +45,7 @@ const DrinkManagement = ({ navigation }) => {
       .catch((err) => console.log("ERR", err));
   };
   //.
-  const urls = "http://192.168.43.243:3000/api/drink/delete/";
+  const urls = "http://192.168.1.123:3000/api/drink/delete/";
 
   const createTwoButtonAlert = (id) =>
     Alert.alert(
@@ -60,6 +60,7 @@ const DrinkManagement = ({ navigation }) => {
         { text: "OK", onPress:()=> deleteDrink(id)}
       ]
     );
+
 
   const deleteDrink =async (id)=>{
     console.log(urls+""+id)
@@ -88,7 +89,7 @@ const DrinkManagement = ({ navigation }) => {
                   <SDTText>{item.name}</SDTText>
                   <SDTPrice>{item.price}$</SDTPrice>
                   <StyledDrinkTouchableAdd
-                    onPress={() => navigation.navigate("DrinkAdding")}
+                         
                   >
                     <SDTBtnText>Add</SDTBtnText>
                   </StyledDrinkTouchableAdd>
@@ -98,7 +99,7 @@ const DrinkManagement = ({ navigation }) => {
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>
                   <StyledDrinkTouchableEdit
-                    onPress={() => navigation.navigate("DrinkUpdating")}
+                    onPress={() => {setCheck(!check), navigation.navigate("DrinkUpdating")}}
                   >
                     <SDTBtnText>Edit</SDTBtnText>
                   </StyledDrinkTouchableEdit>

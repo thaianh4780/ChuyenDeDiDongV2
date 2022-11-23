@@ -180,8 +180,8 @@ export const StyledTouchable = styled.TouchableOpacity`
 `
 export const StyledTouchableImage = styled.Image`
   position: absolute;
-  height: 120px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   z-index: 1;
   top: 0;
   border-radius :8px;
@@ -241,8 +241,8 @@ export const StyledDrinkTouchable = styled.TouchableOpacity`
 
 export const StyledDrinkTouchableImage = styled.Image`
   position: absolute;
-  height: 90px;
-  width: 85px;
+  height: 75px;
+  width: 75px;
   z-index: 1;
   bottom: 0;
   left:-30px;
@@ -356,7 +356,7 @@ export const StyledHomeBrownImage = styled.Image`
 export const SDTText = styled.Text`
   position: absolute;
   color: ${brand};
-  font-size: 16px;
+  font-size: 15px;
   height: 50px;
   width: 130px;
   font-weight: bold;
@@ -380,7 +380,7 @@ export const SDTPrice = styled.Text`
 // css 3 btn 
 export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
   position: absolute;
-  left: 140px;
+  left: 155px;
   margin-vertical:25px;
   width: 55px;
   height: 50px;
@@ -391,7 +391,7 @@ export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
 `
 export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
   position: absolute;
-  left: 200px;
+  left: 215px;
   width: 55px;
   height: 50px;
   font-weight: bold;
@@ -403,7 +403,7 @@ export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
 `
 export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   position: absolute;
-  left: 260px;
+  left: 275px;
   width: 55px;
   height: 50px;
   font-weight: bold;

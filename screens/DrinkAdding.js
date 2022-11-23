@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect } from "react";
 import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -29,15 +29,52 @@ import { Formik } from "formik";
 import { StyleSheet, View, Text, Alert,Image } from "react-native";
 import Button from "../components/Button";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import CurryImagePicker from '../components/CurryImagePicker';
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const data = ["admin", "phuc vu", "thu ngan",]
 const DrinkAdding = ({ navigation }) => {
+
+    setImage =(image)=>{
+        props.setFielsValue('image', image.uri);
+    }
+    const urlCategory = "http://192.168.1.123:3000/api/category/list";
+    useEffect(() => {
+        getListCategory();
+        // getDrinkById(id);
+      }, []);
+    const [listCategory, setListCategory] = useState([]);
+    const [categoryId, setCategoryId] = useState("");
+    const getListCategory = async () => {
+        await fetch(urlCategory)
+          .then((res) => res.json())
+          .then((res) => {
+            // console.log("category: ");
+            // console.log(res.data);
+            var data = res.data;
+            setListCategory(data);
+          })
+          .catch((err) => console.log("ERR", err));
+      };
     const drink =(values)=>{
-        if (!values.drinkname || !values.price || !values.category) {
+        // console.log(values);
+        if (!values.name || !values.price ) {
             console.log("them khong thanh cong!");
-        } else {
-            fetch('http://192.168.43.243:3000/api/drink/add', {
+            return;
+        } 
+        if (!values.price) {
+      values.price = drink.price;
+    }
+    if (!values.name) {
+      values.name = drink.name;
+    }
+    if (!categoryId) {
+      values.category = drink.category;
+    } else {
+      values.category = categoryId;
+    }
+            fetch('http://192.168.1.123:3000/api/drink/add', {
                 method: 'POST',
                 headers: {'content-type': 'application/json'},
                 body: JSON.stringify(values),
@@ -45,13 +82,54 @@ const DrinkAdding = ({ navigation }) => {
                 if (data.error) {
                     console .log(data.error);
                 } else {
-                    console.log(data);
+                    console.log(data.data);
                     Alert.alert("them thanh cong!");
-                    return navigation.navigate('Home');
+                    return navigation.replace('Home');
                 }
             })
-        }
+        
     }
+    const categories = listCategory.map((item, index) => {
+        return <Text key={item._id}>{item.name}</Text>;
+      });
+
+      console.log(categories);
+    const DrorpDownInput = ({ label, icon, ...props }) => {
+        return (
+          <View>
+            <UULabel>{label}</UULabel>
+            <SelectDropdown
+              buttonStyle={styles.dropdown1BtnStyle}
+              buttonTextStyle={styles.dropdown1BtnTxtStyle}
+              dropdownStyle={styles.dropdown1DropdownStyle}
+              rowStyle={styles.dropdown1RowStyle}
+              rowTextStyle={styles.dropdown1RowTxtStyle}
+              dropdownIconPosition={"right"}
+              renderDropdownIcon={(isOpened) => {
+                return (
+                  <FontAwesome
+                    name={isOpened ? "chevron-up" : "chevron-down"}
+                    color={darkLight}
+                    size={18}
+                  />
+                );
+              }}
+              data={categories}
+              onSelect={(item, index) => {
+                setCategoryId(item.key);
+                console.log("key: " + item.key);
+              }}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+            />
+          </View>
+        );
+      };
+      
     return (
         <StyledContainer >
             <InnerContainer>
@@ -59,36 +137,35 @@ const DrinkAdding = ({ navigation }) => {
                 <FormUpdate style={styles.TouchableImage} >
                     <PageTitle>Adding Drink</PageTitle>
                     <Formik
-                        initialValues={{ drinkname: '', price: '', category: '',}}
+
+                        initialValues={{image:'', name: '', price: '', category: '',}}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values }) => (
                             <StyledFormArea>
+                                <CurryImagePicker image ={values.image} onImagePicker={setImage}></CurryImagePicker>
+                                <DrorpDownInput
+                                    value={values.category}
+                                    label="Category">
 
+                                </DrorpDownInput>
                                 <MyTextInput
                                     autofocus
-                                    label="Drinkname"
-                                    placeholder="Drinkname"
+                                    label="name"
+                                    placeholder="name"
                                     placeholderTextColor={blur}
-                                    onChangeText={handleChange('drinkname')}
-                                    onBlur={handleBlur('drinkname')}
-                                    value={values.drinkname} >
+                                    onChangeText={handleChange('name')}
+                                    onBlur={handleBlur('name')}
+                                    value={values.name} >
                                 </MyTextInput>
                                 <MyTextInput
                                     label="Price"
-                                    placeholder="Price"
+                                    placeholder="price"
                                     placeholderTextColor={blur}
                                     onChangeText={handleChange('price')}
                                     onBlur={handleBlur('price')}
                                     value={values.price}>
                                 </MyTextInput>
-                                <MyTextInput
-                                    label="Category"
-                                    placeholder="Category"
-                                    placeholderTextColor={blur}
-                                    onChangeText={handleChange('category')}
-                                    onBlur={handleBlur('category')}
-                                    value={values.category}>
-                                </MyTextInput>
+                                
                                 <Line />
                                 <StyledButton
                                     onPress={() => {
@@ -99,11 +176,12 @@ const DrinkAdding = ({ navigation }) => {
                                     }} >
                                     <ButtonText>
                                         Submit
+                                        
                                     </ButtonText>
                                 </StyledButton>
                             </StyledFormArea>
                         )}
-                    </Formik>
+                    </Formik> 
                 </FormUpdate>
             </InnerContainer>
         </StyledContainer>

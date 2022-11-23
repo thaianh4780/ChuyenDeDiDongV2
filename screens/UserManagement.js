@@ -21,14 +21,14 @@ import {
 import TabBtn from "./TabBtn";
 //Colors
 const UserManagement = ({ navigation }) => {
-  const url = "http://192.168.43.243:3000/api/user/all";
+  const url = "http://192.168.1.123:3000/api/user/all";
   //const url = "http://192.168.1.144:3000/api/drink/list";
   const [listUser, setListUser] = useState([]);
   useEffect(() => {
     getListUser();
   }, []);
   
-  const urls = "http://192.168.43.243:3000/api/user/delete/";
+  const urls = "http://192.168.1.123:3000/api/user/delete/";
   const getListUser = async () => {
     await fetch(url)
       .then((res) => res.json())
