@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import React, { useState, useEffect } from "react";
+
 import {
   StyledFormHome,
   StyledDrinkTouchable,
@@ -37,6 +37,7 @@ const DrinkManagement = ({ navigation, route }) => {
   const urlDrinkByCategory = "http://192.168.117.131:3000/api/drink/category/";
   const urlSortIncreaseOnPrice =
     "http://192.168.117.131:3000/api/drink/sortIncrease";
+  const urls = "http://192.168.117.131:3000/api/drink/delete/";
 
   const [listDrink, setListDrink] = useState([]);
 
@@ -101,35 +102,32 @@ const DrinkManagement = ({ navigation, route }) => {
         var data = res.data;
         //setCheck(check + 1);
         setListDrink(data);
-      }).catch((err) => console.log("ERR", err));
-    };
+      })
+      .catch((err) => console.log("ERR", err));
+  };
   //.
-  const urls = "http://192.168.43.243:3000/api/drink/delete/";
 
   const createTwoButtonAlert = (id) =>
-  Alert.alert(
-    "Thông báo",
-    "bạn có chắc muốn xóa không",
-    [
+    Alert.alert("Thông báo", "bạn có chắc muốn xóa không", [
       {
         text: "Cancel",
         onPress: () => console.log("Cancel Pressed"),
-        style: "cancel"
+        style: "cancel",
       },
-      { text: "OK", onPress:()=> deleteDrink(id)}
-    ]
-  );
-  
-  const deleteDrink =async (id)=>{
+      { text: "OK", onPress: () => deleteDrink(id) },
+    ]);
+
+  const deleteDrink = async (id) => {
     // console.log(urls+""+id)
-    await fetch(urls+""+ id, {
-        method: 'DELETE',
+    await fetch(urls + "" + id, {
+      method: "DELETE",
     })
-      .then((res) => res.json()).then((res) => {
-          console.log(res);
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setCheck(!check);
         // var data = res.data;
         //  setList(res);
-
       })
       .catch((err) => console.log("ERR", err));
   };
@@ -292,14 +290,12 @@ const DrinkManagement = ({ navigation, route }) => {
             </StyledButton>
             <DrorpDownInput label="Category"></DrorpDownInput>
             {checkType()}
-
           </StyledFormHome>
         </ScrollView>
       </SafeAreaView>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
