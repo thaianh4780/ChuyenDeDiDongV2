@@ -6,15 +6,26 @@ import { Fontisto, Octicons } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 import { Formik } from 'formik';
+import { useFonts } from 'expo-font';
+import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
+// import AppLoading from 'expo-app-loading';
+
+//   let [fontsLoaded] = useFonts({
+//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+//   });
+//   if (!fontsLoaded) {
+//     return <AppLoading />;
+//   }
 const { brand, darkLight, black, primary, secondary } = Colors;
 
 const Home = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <StyledHomeBrownZone>
-                <Fontisto style={styles.logo} name="coffeescript" />
+                <Fontisto style={styles.logo } name="coffeescript" />
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-                <StyledHomeBrownText>
+                <StyledHomeBrownText >
                     Coffee Shop
                 </StyledHomeBrownText>
             </StyledHomeBrownZone>
@@ -22,20 +33,6 @@ const Home = ({ navigation }) => {
         </SafeAreaView>
     )
 }
-const MyTextInput = ({ label, icon, ...props }) => {
-    return (
-        <View style={styles.search} >
-            <LeftIcon>
-                <Octicons name={icon} size={30} color={brand} />
-            </LeftIcon>
-            <StyledInputLabel>
-                {label}
-            </StyledInputLabel>
-            <StyledTextInputs {...props} />
-        </View>
-    )
-}
-
 
 const styles = StyleSheet.create({
     logo: {

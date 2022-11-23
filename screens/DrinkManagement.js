@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyledFormHome,
   StyledDrinkTouchable,
@@ -100,6 +101,21 @@ const DrinkManagement = ({ navigation, route }) => {
         var data = res.data;
         //setCheck(check + 1);
         setListDrink(data);
+      }).catch((err) => console.log("ERR", err));
+    };
+  //.
+  const urls = "http://192.168.43.243:3000/api/drink/delete/";
+
+  const deleteDrink =async (id)=>{
+    // console.log(urls+""+id)
+    await fetch(urls+""+ id, {
+        method: 'DELETE',
+    })
+      .then((res) => res.json()).then((res) => {
+          console.log(res);
+        // var data = res.data;
+        //  setList(res);
+
       })
       .catch((err) => console.log("ERR", err));
   };
@@ -249,6 +265,7 @@ const DrinkManagement = ({ navigation, route }) => {
       return drinks;
     }
   };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -263,12 +280,14 @@ const DrinkManagement = ({ navigation, route }) => {
             </StyledButton>
             <DrorpDownInput label="Category"></DrorpDownInput>
             {checkType()}
+
           </StyledFormHome>
         </ScrollView>
       </SafeAreaView>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {

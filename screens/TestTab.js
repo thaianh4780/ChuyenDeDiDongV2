@@ -40,7 +40,7 @@ const TestTab = () => {
     >
       <Tab.Screen name="Nước Uống" component={DrinkManagement} />
       <Tab.Screen name="Nhân Viên" component={UserManagement} />
-      <Tab.Screen name="Doanh Thu" component={Test} />
+      <Tab.Screen name="Doanh Thu" component={AdminManagement} />
     </Tab.Navigator>
   );
 };

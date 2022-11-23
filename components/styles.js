@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Button,
-  Icon,
-} from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
+import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
 
 //color
 export const Colors = {
@@ -17,6 +10,7 @@ export const Colors = {
   tertiary: "#1F2937",
   darkLight: "#1F2937",
   brand: "#a85b3c",
+  light_brand :"#ce6b43",
   //green: "#10B981",
   green: "#6bad3a",
   //red: "#EF4444",
@@ -25,20 +19,10 @@ export const Colors = {
   blue: "#3a78ad",
   black: "#1d3240",
   blur: "#adafb2",
+  neon_blur:"#f0eeee",
 };
 
-const {
-  primary,
-  secondary,
-  tertiary,
-  blue,
-  darkLight,
-  brand,
-  green,
-  red,
-  black,
-  blur,
-} = Colors;
+const { light_brand, primary, secondary, tertiary, blue, darkLight, brand, green, red, black, blur } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
@@ -161,8 +145,9 @@ export const StyledButton = styled.TouchableOpacity`
   align-items: center;
   border-radius: 5px;
   height: 60px;
-  margin-vertical: 5px;
-`;
+  margin-vertical: 5px; 
+  margin-horizontal:20px;
+`
 export const ButtonText = styled.Text`
   color: ${primary};
   font-size: 20px;
@@ -201,12 +186,23 @@ export const StyledTouchableImage = styled.Image`
 `;
 export const StyledTouchableText = styled.Text`
   position: absolute;
-  bottom: 0;
-  color: ${brand};
-  font-size: 20px;
+  bottom:0;
+  color: ${primary};
+  font-size: 16px;
   height: 60px;
   width: 150px;
-  padding-vertical: 15px;
+  padding-vertical: 20px;
+  font-weight: bold;
+  text-align: center;
+`
+export const StyledTouchableTexts = styled.Text`
+  position: absolute;
+  bottom:0;
+  color: black;
+  font-size: 16px;
+  height: 60px;
+  width: 150px;
+  padding-vertical: 20px;
   font-weight: bold;
   text-align: center;
 `;
@@ -316,7 +312,8 @@ export const StyledHomeBrownText = styled.Text`
   font-size: 40px;
   position: absolute;
   bottom: 0;
-`;
+  font-family: "AlexBrushRegular" ;
+  `
 export const StyledHomeTab = styled.TouchableOpacity`
   background-color: ${primary};
   border-radius: 10px;
@@ -413,7 +410,7 @@ export const SDTBtnText = styled.Text`
   color: ${primary};
   font-size: 15;
   text-align: center;
-  padding-vertical: 15px;
+  padding-vertical:15px;      
   font-weight: bold;
 `;
 
@@ -429,10 +426,19 @@ export const FormUpdate = styled.View`
   width: 105%;
   height: 80%;
   background-color: ${primary};
-  top: 15%;
-  padding: 30px;
-  border-radius: 12px;
-`;
+  top:20%;
+  padding:30px;
+  border-radius: 12px
+`
+export const FormUpdates = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 65%;
+  background-color: ${primary};
+  top:20%;
+  padding:30px;
+  border-radius: 12px
+`
 
 export const FormAdd = styled.View`
   position: absolute;
@@ -448,7 +454,7 @@ export const UULabel = styled.Text`
   font-size: 16px;
   text-align: left;
   font-weight: bold;
-`;
+`
 export const UUInput = styled.TextInput`
   background: ${secondary};
   padding: 20px;
@@ -460,3 +466,25 @@ export const UUInput = styled.TextInput`
   color: ${black};
   margin-vertical: 10px;
 `;
+
+
+//Test 
+export const TableStyled = styled.View`
+  position: absolute;
+  width: 107%;
+  height: 95%;
+  background-color: ${primary};
+  top:2%;
+  border-radius: 12px
+`
+
+
+//Test 
+export const TableStyled = styled.View`
+  position: absolute;
+  width: 107%;
+  height: 95%;
+  background-color: ${primary};
+  top:2%;
+  border-radius: 12px
+`
