@@ -34,12 +34,21 @@ const DrinkManagement = ({ navigation, route }) => {
   const urlDrinkAll = "http://192.168.117.131:3000/api/drink/list";
   const urlCategory = "http://192.168.117.131:3000/api/category/list";
   const urlDrinkByCategory = "http://192.168.117.131:3000/api/drink/category/";
+  const urlSortIncreaseOnPrice =
+    "http://192.168.117.131:3000/api/drink/sortIncrease";
 
   const [listDrink, setListDrink] = useState([]);
+
+  //check load dữ liệu tất cả đồ uống
   const [check, setCheck] = useState(false);
+
+  //load dữ liệu tất cả category
   const [listCategory, setListCategory] = useState([]);
+
+  // check load category
   const [type, setType] = useState("");
   const [listDrinkByCategory, setListDrinkByCategory] = useState([]);
+  const [listDrinkOnPrice, setListDrinkOnPrice] = useState([]);
 
   // chạy dữ liệu 1 lần đầu
   useEffect(() => {
@@ -52,9 +61,7 @@ const DrinkManagement = ({ navigation, route }) => {
   }, [check]);
 
   useEffect(() => {
-    if (!type) {
-      getListDrink();
-    } else {
+    if (type) {
       getListDrinkByCategory();
     }
   }, [type]);
@@ -93,6 +100,19 @@ const DrinkManagement = ({ navigation, route }) => {
         var data = res.data;
         //setCheck(check + 1);
         setListDrink(data);
+      })
+      .catch((err) => console.log("ERR", err));
+  };
+
+  //
+  const getListDrinkOnPrice = async () => {
+    await fetch(urlDrinkAll)
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res);
+        var data = res.data;
+        //setCheck(check + 1);
+        setListDrinkOnPrice(data);
       })
       .catch((err) => console.log("ERR", err));
   };
