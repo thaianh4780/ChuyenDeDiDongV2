@@ -31,103 +31,133 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const data = ["admin", "phuc vu", "thu ngan",]
-const UserUpdatding = ({route, navigation }) => {
-    const {id} = route.params;
+const UserUpdatding = ({ route, navigation }) => {
+    const { id } = route.params;
     const [user, setUser] = useState("");
-    useEffect(() => { getUser();  console.log(user.user_name); }, []);
+    useEffect(() => { getUser(); console.log(user.user_name); }, []);
     const getUser = async () => {
-        await fetch('http://192.168.117.119:3000/api/user/getbyid/'+ id)
-          .then((res) => res.json())
-          .then((res) => {
-            // console.log(res);
-            var data = res;
-            setUser(data);
-          })
-          .catch((err) => console.log("ERR", err));
-      };
-
-    const sendBackEnd = (values) => {
-        // setdata(values);
-        console.log(values);
-        if (!values.user_name|| !values.password|| !values.full_name|| !values.phone) {
-            Alert.alert("All fields must be required!")
-            return;
-        } else {
-            console.log(values.user_name);
-            fetch('http://192.168.117.119:3000/api/user/update/' + id, {
-                method: 'PUT',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(values),
-            }).then(res => res).then(data => {
-                if (data.error) {
-                    console.log(data.error);
-                } else {
-                    console.log(data);
-                    Alert.alert("Add user is success!");
-                    return navigation.goBack();
-                }
+        await fetch('http://192.168.1.8:3000/api/user/getbyid/' + id)
+            .then((res) => res.json())
+            .then((res) => {
+                // console.log(res);
+                var data = res;
+                setUser(data);
             })
-        }
+            .catch((err) => console.log("ERR", err));
     };
+
+    const sendBackEnd = (user) => {
+        //console.log(user);
+        Alert.alert(
+            "Thông báo",
+            "bạn có chắc muốn sửa không",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                {
+                    text: "OK", onPress: () => {
+                        if (user.full_name == "" || user.phone == "") {
+                            Alert.alert("Vui lòng điền đầy đủ thông tin!!");
+                            return;
+                        } else {
+                            //console.log(user);
+                            fetch('http://192.168.1.8:3000/api/user/update/' + id, {
+                                method: 'PUT',
+                                headers: { 'content-type': 'application/json' },
+                                body: JSON.stringify(user),
+                            }).then(res => res).then(data => {
+                                if (data.error) {
+                                    console.log(data.error);
+                                } else {
+                                    //console.log(data);
+                                    Alert.alert("Add user is success!");
+                                    return navigation.goBack();
+                                }
+                            })
+                            return;
+                        }
+                    }
+                }
+            ]
+        );
+
+
+    };
+
     return (
         <StyledContainer >
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br1.png')} ></OLPic>
                 <FormAdd style={styles.TouchableImage} >
-                    <PageTitle>Cập nhật người dụng</PageTitle>
+                    <PageTitle>update User</PageTitle>
                     <Formik
-                        initialValues= {{ user_name: '', password: '',full_name: '' , phone: '' }}
+                        initialValues={{ user_name: '', password: '', full_name: '', phone: '' }}
                         onSubmit={(values) => { console.log(values); }} >
-                        {({ handleChange, handleBlur, HandleSubmit, values = user }) => (
-            <StyledFormArea>
-                <MyTextInput
-                        autofocus
-                        label="Tên Tài Khoản"
-                        placeholder= {user.user_name}
-                        editable={false}
-                        selectTextOnFocus={false}
-                        placeholderTextColor={blur}
-                        onChangeText={(text) => setUser({ ...user, user_name: text})}
-                        onBlur={handleBlur('user_name')}
-                        value={user.user_name} >
-                    </MyTextInput>
-                    <MyTextInput
-                        label="Mật Khẩu (nếu có)"
-                        placeholder={user.password}
-                        placeholderTextColor={blur}
-                        onChangeText={(text) => setUser({ ...user, password: text})}
-                        onBlur={handleBlur('password')}
-                        value={user.password}>
-                    </MyTextInput>
-                    <MyTextInput
-                        autofocus
-                        label="Họ và Tên"
-                        placeholder={user.full_name}
-                        placeholderTextColor={blur}
-                        onChangeText={(text) => setUser({ ...user, full_name: text})}
-                        onBlur={handleBlur('full_name')}
-                        value={user.full_name} >
-                    </MyTextInput>
-                    <MyTextInput
-                        label="Số Điện Thoại"
-                        placeholder={user.phone}
-                        placeholderTextColor={blur}
-                        keyboardType='numeric'
-                        onChangeText={(text) => setUser({ ...user, phone: text})}
-                        onBlur={handleBlur('phone')}
-                        value={user.phone} >
-                    </MyTextInput>
-                <DrorpDownInput
-                    label="Permission">
-                </DrorpDownInput>
-                <Line />
-                <StyledButton onPress={() => { sendBackEnd(user), HandleSubmit }} >
-                    <ButtonText>
-                        Submit
-                    </ButtonText>
-                </StyledButton>
-            </StyledFormArea>
-        )}
+                        {({ handleChange, handleBlur, HandleSubmit, values }) => (
+                            <StyledFormArea>
+                                <MyTextInput
+                                    autofocus
+                                    label="Tên Tài Khoản"
+                                    placeholder={user.user_name}
+                                    editable={false}
+                                    selectTextOnFocus={false}
+                                    placeholderTextColor={blur}
+                                    onChangeText={(text) => setUser({ ...user, user_name: text })}
+                                    onBlur={handleBlur('user_name')}
+                                    value={user.user_name} >
+                                </MyTextInput>
+                                <MyTextInput
+                                    label="Mật Khẩu (nếu có)"
+                                    placeholder={user.password}
+                                    placeholderTextColor={blur}
+                                    onChangeText={handleChange('password')}
+                                    onBlur={handleBlur('password')}
+                                    value={values.password}>
+                                </MyTextInput>
+                                <MyTextInput
+                                    autofocus
+                                    label="Họ và Tên"
+                                    placeholder={user.full_name}
+                                    placeholderTextColor={blur}
+                                    onChangeText={(text) => setUser({ ...user, full_name: text })}
+                                    onBlur={handleBlur('full_name')}
+                                    value={user.full_name} >
+                                </MyTextInput>
+                                <MyTextInput
+                                    label="Số Điện Thoại"
+                                    placeholder={user.phone}
+                                    placeholderTextColor={blur}
+                                    keyboardType='numeric'
+                                    onChangeText={(text) => setUser({ ...user, phone: text })}
+                                    onBlur={handleBlur('phone')}
+                                    value={user.phone} >
+                                </MyTextInput>
+                                <DrorpDownInput
+                                    label="Permission">
+                                </DrorpDownInput>
+                                <Line />
+                                <StyledButton onPress={() => {
+                                    if (values.password != "" || values.password != user.password) {
+                                        user.password = values.password;
+                                        console.log("okla");
+                                        console.log(user);
+                                        sendBackEnd(user);
+
+                                    } else {
+                                        // console.log("ok");
+                                        return sendBackEnd(user);
+                                    };
+                                    HandleSubmit
+                                }} >
+                                    <ButtonText>
+                                        Submit
+                                    </ButtonText>
+                                </StyledButton>
+                            </StyledFormArea>
+                        )}
                     </Formik>
                 </FormAdd>
             </InnerContainer>

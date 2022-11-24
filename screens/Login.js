@@ -1,10 +1,7 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-
-
 //Icon
 import { Octicons, IonicIcon } from '@expo/vector-icons';
-
 import {
     StyledContainer,
     InnerContainer,
@@ -21,34 +18,27 @@ import {
     FormLog,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View , Alert} from "react-native";
-import Button from "../components/Button";
-
+import { StyleSheet, View, Alert } from "react-native";
+// import Button from "../components/Button";
 //Colors 
-const { brand, darkLight ,primary } = Colors;
+const { brand, darkLight, primary } = Colors;
 
 const Login = ({ navigation }) => {
     const login = (values) => {
-        if (values.user_name == "" || values.password == "") {
-            Alert.alert("All fields must be required!");
-            return;
-        } else {
-            console.log(values.password);
-            fetch('http://192.168.117.119:3000/api/user/login', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(values),
-            }).then(res => res.json()).then(data => {
-                // console.log(data);
-                if (data.error) {
-                    Alert.alert(data.error);
-                    console.log(data.error);
-                } else {
-                    // Alert.alert("Login is success!");
-                    return navigation.navigate('Home');
-                }
-            })
-        }
+        console.log(values.password);
+        fetch('http://192.168.1.8:3000/api/user/login', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(values),
+        }).then(res => res.json()).then(data => {
+            // console.log(data);
+            if (data.error) {
+                Alert.alert(data.error);
+            } else {
+                // Alert.alert("Login is success!");
+                return navigation.navigate('Home');
+            }
+        })
     };
     return (
         <StyledContainer >
@@ -84,11 +74,11 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => { 
+                                <StyledButton onPress={() => {
                                     login(values);
                                     // navigation.navigate('Home'), 
-                                    HandleSubmit 
-                                    }} >
+                                    HandleSubmit
+                                }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>

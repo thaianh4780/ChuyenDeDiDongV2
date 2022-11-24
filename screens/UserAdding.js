@@ -52,7 +52,7 @@ const UserAdding = ({ navigation }) => {
             return;
         } else {
             console.log(values.user_name);
-            fetch('http://192.168.117.119:3000/api/user/add', {
+            fetch('http://192.168.1.8:3000/api/user/add', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(values),
@@ -62,7 +62,7 @@ const UserAdding = ({ navigation }) => {
                 } else {
                     console.log(data);
                     Alert.alert("Add user is success!");
-                    return navigation.goBack();
+                    return navigation.navigate('Home');
                 }
             })
         }

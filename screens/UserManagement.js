@@ -24,13 +24,14 @@ import TabBtn from "./TabBtn";
 
 
 //Colors
-const UserManagement = ({route , navigation }) => {
-  const url = "http://192.168.117.119:3000/api/user/all";
-  //const url = "http://192.168.1.144:3000/api/drink/list";
+const UserManagement = ({ route, navigation }) => {
+  //Values
+  const url = "http://192.168.1.8:3000/api/user/all";
   const [listUser, setListUser] = useState([]);
   const isFocused = useIsFocused();
   const [check, setCheck] = useState(false);
-  useEffect(() => { getListUser(); }, [check,isFocused]);
+  useEffect(() => { getListUser(); }, [check, isFocused]);
+  //get list user
   const getListUser = async () => {
     await fetch(url)
       .then((res) => res.json())
@@ -41,10 +42,22 @@ const UserManagement = ({route , navigation }) => {
       })
       .catch((err) => console.log("ERR", err));
   };
-
   //delete user by id
+  const createTwoButtonAlert = (id) =>
+    Alert.alert(
+      "Thông báo",
+      "bạn có chắc muốn xóa không",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => deleteUser(id) }
+      ]
+    );
   const deleteUser = (id) => {
-    const url = 'http://192.168.117.119:3000/api/user/delete/' + id;
+    const url = 'http://192.168.1.8:3000/api/user/delete/' + id;
     fetch(url, {
       method: 'DELETE',
       // headers: { 'content-type': 'application/json' },
@@ -83,15 +96,15 @@ const UserManagement = ({route , navigation }) => {
                   </StyledDrinkTouchableAdd>
                   <StyledDrinkTouchableDelete
                     onPress={() => {
-                      deleteUser(item._id);
+                      createTwoButtonAlert(item._id);
                     }}
                   >
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>
                   <StyledDrinkTouchableEdit
-                    onPress={() => navigation.navigate("UserUpdating", {id: item._id})}
+                    onPress={() => navigation.navigate("UserUpdating", { id: item._id })}
                   >
-                    <SDTBtnText>Edit</SDTBtnText> 
+                    <SDTBtnText>Edit</SDTBtnText>
                   </StyledDrinkTouchableEdit>
                 </StyledDrinkTouchable>
               );
