@@ -21,117 +21,121 @@ const TotailExpenditure = ({ navigation }) => {
                     <ScrollView style={styles.scrollView}>
                         <DataTable style={styles.container1}>
                             <DataTable.Header style={styles.tableHeader}>
-                                <DataTable.Title  >Drink Name</DataTable.Title>
+                                <DataTable.Title >Material </DataTable.Title>
                                 <DataTable.Title style={styles.text} >Number</DataTable.Title>
                                 <DataTable.Title style={styles.text}>Date</DataTable.Title>
                                 <DataTable.Title style={styles.text}>Total</DataTable.Title>
                             </DataTable.Header>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Đường</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>30$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Cafe</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >4 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>180$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Milk</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >5 Box</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>70$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Đường</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>30$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Cafe</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >4 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>180$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Milk</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >5 Box</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>70$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Đường</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>30$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Cafe</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >4 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>180$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Milk</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >5 Box</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>70$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Đường</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>30$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Cafe</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >4 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>180$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Milk</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >5 Box</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>70$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Đường</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >1 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>30$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Cafe</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >4 Bag</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>180$</DataTable.Cell>
                             </DataTable.Row>
                             <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
-                            </DataTable.Row>
-                            <DataTable.Row>
-                                <DataTable.Cell>Cà Phê Đá</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >1</DataTable.Cell>
-                                <DataTable.Cell style={styles.text} >11:30</DataTable.Cell>
-                                <DataTable.Cell style={styles.text}>23$</DataTable.Cell>
+                                <DataTable.Cell>Milk</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >5 Box</DataTable.Cell>
+                                <DataTable.Cell style={styles.text} >10/2/2022</DataTable.Cell>
+                                <DataTable.Cell style={styles.text}>70$</DataTable.Cell>
                             </DataTable.Row>
                         </DataTable>
                     </ScrollView>
-                    <StyledButton
-                        onPress={() => {
-                            navigation.navigate('Home')
-                        }} >
-                        <ButtonText>
-                            Submit
-                        </ButtonText>
-                    </StyledButton>
+                    <View style={{ flexDirection: "row", justifyContent: "center", marginHorizontal: "10%" }}>
+                        <StyledButton
+                            onPress={() => {
+                                navigation.navigate('Home')
+                            }} >
+                            <ButtonText>
+                                Submit
+                            </ButtonText>
+                        </StyledButton>
+                        <StyledButton
+                            onPress={() => {
+                                navigation.navigate('TotalInput')
+                            }} >
+                            <ButtonText>
+                                Add
+                            </ButtonText>
+                        </StyledButton>
+                    </View>
                 </TableStyled>
             </InnerContainer>
         </StyledContainer>

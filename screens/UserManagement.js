@@ -19,6 +19,7 @@ import {
   SafeAreaView,
 } from "react-native";
 //Colors
+<<<<<<< HEAD
 const UserManagement = ({navigation }) => {
   //Values
   const url = "http://192.168.1.8:3000/api/user/all";
@@ -27,6 +28,17 @@ const UserManagement = ({navigation }) => {
   const [check, setCheck] = useState(false);
   useEffect(() => { getListUser(); }, [check, isFocused]);
   //get list user
+=======
+const UserManagement = ({ navigation }) => {
+  const url = "http://192.168.43.243:3000/api/user/all";
+  //const url = "http://192.168.1.144:3000/api/drink/list";
+  const [listUser, setListUser] = useState([]);
+  useEffect(() => {
+    getListUser();
+  }, []);
+  
+  const urls = "http://192.168.43.243:3000/api/user/delete/";
+>>>>>>> origin/main
   const getListUser = async () => {
     await fetch(url)
       .then((res) => res.json())
@@ -37,6 +49,7 @@ const UserManagement = ({navigation }) => {
       })
       .catch((err) => console.log("ERR", err));
   };
+<<<<<<< HEAD
   //delete user by id
   const createTwoButtonAlert = (id) =>
     Alert.alert(
@@ -70,11 +83,54 @@ const UserManagement = ({navigation }) => {
     // useEffect(() => { getListUser(); }, []);
   };
 
+=======
+
+  const deleteUser =async (id)=>{
+    //console.log(urls+""+id)
+    await fetch(urls+""+ id)
+      .then((res) => res.json())
+      .then((res) => {
+          console.log(res);
+        var data = res;
+        // setListUser(data);
+      })
+      .catch((err) => console.log("ERR", err));
+  };
+
+  const users = listUser.map((item, index) => {
+    return (
+      <StyledDrinkTouchable style={styles.TouchableImage}>
+        <StyledDrinkTouchableImage
+          resizeMode="cover"
+          source={require("../assets/image/u3.png")}
+        ></StyledDrinkTouchableImage>
+        <SDTText> {item.user_name}</SDTText>
+        <SDTPrice>{item.role.role_name}</SDTPrice>
+        <StyledDrinkTouchableAdd
+          onPress={() => navigation.navigate("UserAdding")}
+        >
+          <SDTBtnText>Add</SDTBtnText>
+        </StyledDrinkTouchableAdd>
+        <StyledDrinkTouchableDelete
+          onPress={() => deleteUser(item._id)}
+        >
+          <SDTBtnText>Delete</SDTBtnText>
+        </StyledDrinkTouchableDelete>
+        <StyledDrinkTouchableEdit
+          onPress={() => navigation.navigate("UserUpdating")}
+        >
+          <SDTBtnText>Edit</SDTBtnText>
+        </StyledDrinkTouchableEdit>
+      </StyledDrinkTouchable>
+    );
+  })
+>>>>>>> origin/main
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <ScrollView>
           <StyledFormHome>
+<<<<<<< HEAD
             {listUser.map((item) => {
               return (
                 <StyledDrinkTouchable style={styles.TouchableImage}>
@@ -104,6 +160,9 @@ const UserManagement = ({navigation }) => {
                 </StyledDrinkTouchable>
               );
             })}
+=======
+            {users}
+>>>>>>> origin/main
           </StyledFormHome>
         </ScrollView>
       </SafeAreaView>
