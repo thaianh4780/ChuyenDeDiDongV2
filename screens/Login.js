@@ -18,19 +18,11 @@ import {
     FormLog,
 } from "../components/styles"
 import { Formik } from "formik";
-<<<<<<< HEAD
 import { Alert, StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
 const { brand, darkLight ,primary,blur } = Colors;
-=======
-import { StyleSheet, View, Alert } from "react-native";
-// import Button from "../components/Button";
-//Colors 
-const { brand, darkLight, primary } = Colors;
->>>>>>> HoaiPhuong
-
 const Login = ({ navigation }) => {
     const login = (values) => {
         console.log(values.password);
@@ -43,7 +35,6 @@ const Login = ({ navigation }) => {
             if (data.error) {
                 Alert.alert(data.error);
             } else {
-                // Alert.alert("Login is success!");
                 return navigation.navigate('Home');
             }
         })
@@ -64,17 +55,10 @@ const Login = ({ navigation }) => {
                                     label="User name"
                                     icon="mail"
                                     placeholder="NameAbc"
-<<<<<<< HEAD
                                     placeholderTextColor={blur}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    value={values.username}
-=======
-                                    placeholderTextColor={darkLight}
                                     onChangeText={handleChange('user_name')}
                                     onBlur={handleBlur('user_name')}
                                     value={values.user_name}
->>>>>>> HoaiPhuong
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -89,30 +73,14 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-<<<<<<< HEAD
-                                <StyledButton onPress={() => { navigation.navigate('Home'), 
-                                                                HandleSubmit ,
-                                                                Alert.alert(values.username) ,
-                                                                Alert.alert(values.password) }} >
-=======
                                 <StyledButton onPress={() => {
                                     login(values);
-                                    // navigation.navigate('Home'), 
                                     HandleSubmit
                                 }} >
->>>>>>> HoaiPhuong
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-<<<<<<< HEAD
-=======
-                                {/* <StyledButton onPress={() => { navigation.navigate('Test')}} >
-                                    <ButtonText>
-                                        Test
-                                    </ButtonText>
-                                </StyledButton> */}
->>>>>>> HoaiPhuong
                             </StyledFormArea>
                         )}
                     </Formik>
@@ -135,7 +103,6 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     logo: {
         paddingTop: 20,

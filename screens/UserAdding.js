@@ -34,6 +34,8 @@ const UserAdding = ({ navigation }) => {
     //values
     const [listRole, setListRole] = useState([""]);
     const [role, setRole] = useState("");
+    // const isFocused = useIsFocused();
+    // const [check, setCheck] = useState(false);
     useEffect(() => { getAllRole() }, []);
     //get all role
     const getAllRole = async () => {
