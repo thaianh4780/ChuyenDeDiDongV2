@@ -22,7 +22,6 @@ import { Formik } from "formik";
 import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "react-native";
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
-const data = ["Admin", "Phục Vụ", "Thu Ngân"];
 const UserAdding = ({ navigation }) => {
     //values
     const [listRole, setListRole] = useState([""]);
@@ -151,8 +150,6 @@ const UserAdding = ({ navigation }) => {
                                         onPress={() => {
                                             console.log(values.role);
                                             addUser(values),
-                                                // navigation.navigate('Home'),
-                                                //     Alert.alert("Done Adding"),
                                                 HandleSubmit
                                         }} >
                                         <ButtonText>
