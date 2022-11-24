@@ -1,9 +1,7 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-
 //Icon
 import { Octicons, IonicIcon } from '@expo/vector-icons';
-
 import {
     StyledContainer,
     InnerContainer,
@@ -20,13 +18,36 @@ import {
     FormLog,
 } from "../components/styles"
 import { Formik } from "formik";
+<<<<<<< HEAD
 import { Alert, StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
 const { brand, darkLight ,primary,blur } = Colors;
+=======
+import { StyleSheet, View, Alert } from "react-native";
+// import Button from "../components/Button";
+//Colors 
+const { brand, darkLight, primary } = Colors;
+>>>>>>> HoaiPhuong
 
 const Login = ({ navigation }) => {
+    const login = (values) => {
+        console.log(values.password);
+        fetch('http://192.168.1.8:3000/api/user/login', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(values),
+        }).then(res => res.json()).then(data => {
+            // console.log(data);
+            if (data.error) {
+                Alert.alert(data.error);
+            } else {
+                // Alert.alert("Login is success!");
+                return navigation.navigate('Home');
+            }
+        })
+    };
     return (
         <StyledContainer >
             <InnerContainer>
@@ -34,7 +55,7 @@ const Login = ({ navigation }) => {
                 <FormLog style={styles.TouchableImage} >
                     <PageTitle>Login</PageTitle>
                     <Formik
-                        initialValues={{ username: '', password: '' }}
+                        initialValues={{ user_name: '', password: '' }}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
@@ -43,10 +64,17 @@ const Login = ({ navigation }) => {
                                     label="User name"
                                     icon="mail"
                                     placeholder="NameAbc"
+<<<<<<< HEAD
                                     placeholderTextColor={blur}
                                     onChangeText={handleChange('username')}
                                     onBlur={handleBlur('username')}
                                     value={values.username}
+=======
+                                    placeholderTextColor={darkLight}
+                                    onChangeText={handleChange('user_name')}
+                                    onBlur={handleBlur('user_name')}
+                                    value={values.user_name}
+>>>>>>> HoaiPhuong
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -61,14 +89,30 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
+<<<<<<< HEAD
                                 <StyledButton onPress={() => { navigation.navigate('Home'), 
                                                                 HandleSubmit ,
                                                                 Alert.alert(values.username) ,
                                                                 Alert.alert(values.password) }} >
+=======
+                                <StyledButton onPress={() => {
+                                    login(values);
+                                    // navigation.navigate('Home'), 
+                                    HandleSubmit
+                                }} >
+>>>>>>> HoaiPhuong
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
+<<<<<<< HEAD
+=======
+                                {/* <StyledButton onPress={() => { navigation.navigate('Test')}} >
+                                    <ButtonText>
+                                        Test
+                                    </ButtonText>
+                                </StyledButton> */}
+>>>>>>> HoaiPhuong
                             </StyledFormArea>
                         )}
                     </Formik>

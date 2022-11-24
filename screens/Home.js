@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import Button from '../components/Button';
 import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
 import { Fontisto, Octicons } from "@expo/vector-icons";
@@ -23,7 +23,9 @@ const Home = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
             <StyledHomeBrownZone>
                 <Fontisto style={styles.logo} name="coffeescript" />
+                <TouchableWithoutFeedback  onPress={() => {navigation.navigate('Login')}}>
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
+                </TouchableWithoutFeedback >
                 <StyledHomeBrownText>
                     Coffee Shop
                 </StyledHomeBrownText>

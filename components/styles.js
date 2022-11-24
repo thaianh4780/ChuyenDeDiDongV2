@@ -429,9 +429,9 @@ export const FormUpdate = styled.View`
 export const FormAdd = styled.View`
   position: absolute;
   width: 105%;
-  height: 88%;
+  height: 100%;
   background-color: ${primary};
-  top:5%;
+  top:1%;
   padding:20px;
   border-radius: 12px
 `
