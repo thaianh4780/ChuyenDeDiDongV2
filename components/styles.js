@@ -464,18 +464,11 @@ export const FormAdd = styled.View`
   position: absolute;
   width: 105%;
   height: 100%;
-  background-color: ${primary};
-<<<<<<< HEAD
-  top:1%;
-  padding:20px;
-  border-radius: 12px
-`
-=======
+  background-color: ${primary}
   top: 5%;
   padding: 20px;
   border-radius: 12px;
 `;
->>>>>>> origin/main
 export const UULabel = styled.Text`
   color: ${tertiary};
   font-size: 16px;
