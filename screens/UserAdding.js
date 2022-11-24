@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -11,9 +10,6 @@ import {
     OLPic,
     PageTitle,
     StyledFormArea,
-    LeftIcon,
-    StyledTextInput,
-    StyledInputLabel,
     StyledButton,
     ButtonText,
     Line,
@@ -24,9 +20,6 @@ import {
 } from "../components/styles"
 import { Formik } from "formik";
 import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "react-native";
-import Button from "../components/Button";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import reactDom from "react-dom";
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const data = ["Admin", "Phục Vụ", "Thu Ngân"];
@@ -148,14 +141,6 @@ const UserAdding = ({ navigation }) => {
                                         onBlur={handleBlur('phone')}
                                         value={values.phone} >
                                     </MyTextInput>
-                                    {/* <MyTextInput
-                                    label="Địa Chỉ"
-                                    placeholder="32/16, 12Đ,..."
-                                    placeholderTextColor={blur}
-                                    onChangeText={handleChange('address')}
-                                    onBlur={handleBlur('address')}
-                                    value={values.address}>
-                                </MyTextInput> */}
                                     <DrorpDownInput
                                         label="Vai Trò"
                                         onSelect={handleChange('role')}
