@@ -22,7 +22,6 @@ import { Formik } from "formik";
 import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "react-native";
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
-const data = ["Admin", "Phục Vụ", "Thu Ngân"];
 const UserAdding = ({ navigation }) => {
     //values
     const [listRole, setListRole] = useState([""]);
