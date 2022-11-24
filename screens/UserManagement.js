@@ -75,7 +75,7 @@ const UserManagement = ({navigation }) => {
       <SafeAreaView>
         <ScrollView>
           <StyledFormHome>
-            {listUser.map((item, index) => {
+            {listUser.map((item) => {
               return (
                 <StyledDrinkTouchable style={styles.TouchableImage}>
                   <StyledDrinkTouchableImage

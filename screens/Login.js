@@ -121,6 +121,7 @@ const Login = ({ navigation }) => {
         </StyledContainer>
     );
 }
+
 const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
     return (
         <View>

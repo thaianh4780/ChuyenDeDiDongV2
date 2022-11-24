@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-//Icon
-import { Octicons, IonicIcon, Feather } from '@expo/vector-icons';
+import { useIsFocused } from '@react-navigation/native';
 
 import SelectDropdown from 'react-native-select-dropdown'
 
@@ -51,38 +49,20 @@ const UserAdding = ({ navigation }) => {
     const addUser = async (values) => {
         values.role = role;
         console.log(values);
-            console.log(values.user_name);
-            fetch('http://192.168.1.8:3000/api/user/add', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(values),
-            }).then(res => res.json()).then(data => {
-                if (data.error) {
-                    Alert.alert(data.error);
-                } else {
-                    if (values.user_name == "" && values.password == "" && values.full_name == "" && values.phone == "" && values.role == "") {
-                        Alert.alert(data);
-                        return navigation.avigate('UserUpdating');
-                    } if (values.user_name == "") {
-                        Alert.alert(data);
-                        return navigation.avigate('UserUpdating');
-                    } if (values.password == "") {
-                        Alert.alert(data);
-                        return navigation.avigate('UserUpdating');
-                    } if (values.full_name == "") {
-                        Alert.alert(data);
-                        return navigation.avigate('UserUpdating');
-                    } if (values.phone == "") {
-                        Alert.alert(data);
-                        return navigation.avigate('UserUpdating');
-                    } if (values.role == "") {
-                        Alert.alert(data);
-                        return navigation.avigate('UserUpdating');
-                    } else {
-                        return navigation.navigate('Home');
-                    }
-                }
-            })
+        console.log(values.user_name);
+        fetch('http://192.168.1.8:3000/api/user/add', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(values),
+        }).then(res => res.json()).then(data => {
+            if (data.error) {
+                Alert.alert(JSON.stringify(data.error));
+                return navigation.avigate('UserUpdating');
+            } else {
+                // Alert.alert(data);
+                return navigation.navigate('Home');
+            }
+        })
     };
     //get id role in lost role
     const getIdRole = listRole.map((item, index) => {
