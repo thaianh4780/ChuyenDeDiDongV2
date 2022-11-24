@@ -15,16 +15,11 @@ import {
   Alert,
   ScrollView,
   StyleSheet,
-  Text,
   View,
   SafeAreaView,
 } from "react-native";
-import TabBtn from "./TabBtn";
-
-
-
 //Colors
-const UserManagement = ({ route, navigation }) => {
+const UserManagement = ({navigation }) => {
   //Values
   const url = "http://192.168.1.8:3000/api/user/all";
   const [listUser, setListUser] = useState([]);

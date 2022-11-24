@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -33,24 +33,24 @@ import reactDom from "react-dom";
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const data = ["Admin", "Phục Vụ", "Thu Ngân"];
 const UserAdding = ({ navigation }) => {
-    // const getListUser = async () => {
-    //     await fetch(url)
-    //       .then((res) => res.json())
-    //       .then((res) => {
-    //         // console.log(res);
-    //         var data = res;
-    //         setListUser(data);
-    //       })
-    //       .catch((err) => console.log("ERR", err));
-    //   };
-    // const [errmsg, setErrmsg] = React.useState(null);
-    const sendBackEnd = (values) => {
-        // setdata(values);
+    //values
+    const [listRole, setListRole] = useState([""]);
+    const [role, setRole] = useState("");
+    useEffect(() => { getAllRole() }, []);
+    //get all role
+    const getAllRole = async () => {
+        await fetch('http://192.168.1.8:3000/api/role/all')
+            .then((res) => res.json())
+            .then((res) => {
+                var data = res;
+                setListRole(data);
+            })
+            .catch((err) => console.log("ERR", err));
+    };
+    //add user
+    const addUser = async (values) => {
+        values.role = role;
         console.log(values);
-        if (!values.user_name|| !values.password|| !values.full_name|| !values.phone) {
-            Alert.alert("All fields must be required!")
-            return;
-        } else {
             console.log(values.user_name);
             fetch('http://192.168.1.8:3000/api/user/add', {
                 method: 'POST',
@@ -58,24 +58,75 @@ const UserAdding = ({ navigation }) => {
                 body: JSON.stringify(values),
             }).then(res => res.json()).then(data => {
                 if (data.error) {
-                    console.log(data.error);
+                    Alert.alert(data.error);
                 } else {
-                    console.log(data);
-                    Alert.alert("Add user is success!");
-                    return navigation.navigate('Home');
+                    if (values.user_name == "" && values.password == "" && values.full_name == "" && values.phone == "" && values.role == "") {
+                        Alert.alert(data);
+                        return navigation.avigate('UserUpdating');
+                    } if (values.user_name == "") {
+                        Alert.alert(data);
+                        return navigation.avigate('UserUpdating');
+                    } if (values.password == "") {
+                        Alert.alert(data);
+                        return navigation.avigate('UserUpdating');
+                    } if (values.full_name == "") {
+                        Alert.alert(data);
+                        return navigation.avigate('UserUpdating');
+                    } if (values.phone == "") {
+                        Alert.alert(data);
+                        return navigation.avigate('UserUpdating');
+                    } if (values.role == "") {
+                        Alert.alert(data);
+                        return navigation.avigate('UserUpdating');
+                    } else {
+                        return navigation.navigate('Home');
+                    }
                 }
             })
-        }
     };
+    //get id role in lost role
+    const getIdRole = listRole.map((item, index) => {
+        return <Text key={item._id}>{item.role_name}</Text>;
+    });
+    //setup DrorpDownInput
+    const DrorpDownInput = ({ label, icon, ...props }) => {
+        return (
+            <View>
+                <UULabel>
+                    {label}
+                </UULabel>
+                <SelectDropdown
+                    buttonStyle={styles.dropdown1BtnStyle}
+                    buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                    dropdownStyle={styles.dropdown1DropdownStyle}
+                    rowStyle={styles.dropdown1RowStyle}
+                    rowTextStyle={styles.dropdown1RowTxtStyle}
+                    dropdownIconPosition={'right'}
+                    renderDropdownIcon={isOpened => {
+                        return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={darkLight} size={18} />;
+                    }}
+                    data={getIdRole}
+                    onSelect={(selectedItem, index) => {
+                        setRole(selectedItem.key);
+                    }}
+                    buttonTextAfterSelection={(selectedItem, index) => {
+                        return selectedItem
+                    }}
+                    rowTextForSelection={(item, index) => {
+                        return item
+                    }} />
+            </View>
+        )
+    };
+
     return (
         <StyledContainer >
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br3.png')} ></OLPic>
-                    <FormAdd style={styles.TouchableImage} >
-                        <PageTitle>Thêm Tài Khoản</PageTitle>
-
+                <FormAdd style={styles.TouchableImage} >
+                    <ScrollView><PageTitle>Add User</PageTitle>
                         <Formik
-                            initialValues={{ user_name: '', password: '', full_name: '', phone: '', role: '63731105fa3b63917784f678' }}
+                            initialValues={{ user_name: '', password: '', full_name: '', phone: '', role: '' }}
                             onSubmit={(values) => { console.log(values); }} >
                             {({ handleChange, handleBlur, HandleSubmit, values }) => (
                                 <StyledFormArea>
@@ -90,11 +141,12 @@ const UserAdding = ({ navigation }) => {
                                     </MyTextInput>
                                     <MyTextInput
                                         label="Mật Khẩu"
-                                        placeholder="1235..."
+                                        placeholder="* * * * * *"
                                         placeholderTextColor={blur}
                                         onChangeText={handleChange('password')}
                                         onBlur={handleBlur('password')}
-                                        value={values.password}>
+                                        value={values.password}
+                                        secureTextEntry={true}>
                                     </MyTextInput>
                                     <MyTextInput
                                         autofocus
@@ -123,12 +175,15 @@ const UserAdding = ({ navigation }) => {
                                     value={values.address}>
                                 </MyTextInput> */}
                                     <DrorpDownInput
-                                        label="Vai Trò">
+                                        label="Vai Trò"
+                                        onSelect={handleChange('role')}
+                                        value={values.role}>
                                     </DrorpDownInput>
                                     <Line />
                                     <StyledButton
                                         onPress={() => {
-                                            sendBackEnd(values),
+                                            console.log(values.role);
+                                            addUser(values),
                                                 // navigation.navigate('Home'),
                                                 //     Alert.alert("Done Adding"),
                                                 HandleSubmit
@@ -140,8 +195,8 @@ const UserAdding = ({ navigation }) => {
                                 </StyledFormArea>
                             )}
                         </Formik>
-
-                    </FormAdd>
+                    </ScrollView>
+                </FormAdd>
             </InnerContainer>
         </StyledContainer>
     );
@@ -156,35 +211,7 @@ const MyTextInput = ({ label, icon, ...props }) => {
         </View>
     )
 }
-const DrorpDownInput = ({ label, icon, ...props }) => {
-    return (
-        <View>
-            <UULabel>
-                {label}
-            </UULabel>
-            <SelectDropdown
-                buttonStyle={styles.dropdown1BtnStyle}
-                buttonTextStyle={styles.dropdown1BtnTxtStyle}
-                dropdownStyle={styles.dropdown1DropdownStyle}
-                rowStyle={styles.dropdown1RowStyle}
-                rowTextStyle={styles.dropdown1RowTxtStyle}
-                dropdownIconPosition={'right'}
-                renderDropdownIcon={isOpened => {
-                    return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={darkLight} size={18} />;
-                }}
-                data={data}
-                onSelect={(selectedItem, index) => {
-                    console.log(selectedItem, index)
-                }}
-                buttonTextAfterSelection={(selectedItem, index) => {
-                    return selectedItem
-                }}
-                rowTextForSelection={(item, index) => {
-                    return item
-                }} />
-        </View>
-    )
-}
+
 
 const styles = StyleSheet.create({
     TouchableImage: {

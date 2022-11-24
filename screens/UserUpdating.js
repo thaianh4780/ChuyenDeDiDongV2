@@ -25,29 +25,32 @@ import {
     UUInput,
 } from "../components/styles"
 import { Formik } from "formik";
-import { StyleSheet, View, Text, Alert } from "react-native";
+import { StyleSheet, View, Text, Alert, ScrollView } from "react-native";
 import Button from "../components/Button";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
-const data = ["admin", "phuc vu", "thu ngan",]
+const data = []
+
 const UserUpdatding = ({ route, navigation }) => {
+    
+    //values
     const { id } = route.params;
     const [user, setUser] = useState("");
-    useEffect(() => { getUser(); console.log(user.user_name); }, []);
+    const [listRole, setListRole] = useState([""]);
+    // const [role, setRole] = useState("");
+    //get user by id
     const getUser = async () => {
         await fetch('http://192.168.1.8:3000/api/user/getbyid/' + id)
             .then((res) => res.json())
             .then((res) => {
-                // console.log(res);
                 var data = res;
                 setUser(data);
             })
             .catch((err) => console.log("ERR", err));
     };
-
-    const sendBackEnd = (user) => {
-        //console.log(user);
+    //update user
+    const updateUser = (user) => {
         Alert.alert(
             "Thông báo",
             "bạn có chắc muốn sửa không",
@@ -72,7 +75,6 @@ const UserUpdatding = ({ route, navigation }) => {
                                 if (data.error) {
                                     console.log(data.error);
                                 } else {
-                                    //console.log(data);
                                     Alert.alert("Add user is success!");
                                     return navigation.goBack();
                                 }
@@ -86,84 +88,139 @@ const UserUpdatding = ({ route, navigation }) => {
 
 
     };
+    //get all role
+    const getAllRole = async () => {
+        await fetch('http://192.168.1.8:3000/api/role/all')
+            .then((res) => res.json())
+            .then((res) => {
+                var data = res;
+                setListRole(data);
+            })
+            .catch((err) => console.log("ERR", err));
+    };
+    useEffect(() => { getUser(); getAllRole()}, []);
+    const getIdRole = listRole.map((item, index) => {
+        return <Text key={item._id}>{item.role_name}</Text>;
+    });
+
+    
+    //setup DrorpDownInput
+    const DrorpDownInput = ({ label, icon, ...props }) => {
+        return (
+            <View>
+                <UULabel>
+                    {label}
+                </UULabel>
+                <SelectDropdown
+                    buttonStyle={styles.dropdown1BtnStyle}
+                    buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                    dropdownStyle={styles.dropdown1DropdownStyle}
+                    rowStyle={styles.dropdown1RowStyle}
+                    rowTextStyle={styles.dropdown1RowTxtStyle}
+                    dropdownIconPosition={'right'}
+                    renderDropdownIcon={isOpened => {
+                        return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={darkLight} size={18} />;
+                    }}
+                    data={getIdRole}
+                    onSelect={(selectedItem, index) => {
+                        user.role = selectedItem.key;
+                    }}
+                    buttonTextAfterSelection={(selectedItem, index) => {
+                        return selectedItem
+                    }}
+                    rowTextForSelection={(item, index) => {
+                        return item
+                    }} />
+            </View>
+        )
+    };
+    
 
     return (
         <StyledContainer >
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br1.png')} ></OLPic>
                 <FormAdd style={styles.TouchableImage} >
-                    <PageTitle>update User</PageTitle>
-                    <Formik
-                        initialValues={{ user_name: '', password: '', full_name: '', phone: '' }}
-                        onSubmit={(values) => { console.log(values); }} >
-                        {({ handleChange, handleBlur, HandleSubmit, values }) => (
-                            <StyledFormArea>
-                                <MyTextInput
-                                    autofocus
-                                    label="Tên Tài Khoản"
-                                    placeholder={user.user_name}
-                                    editable={false}
-                                    selectTextOnFocus={false}
-                                    placeholderTextColor={blur}
-                                    onChangeText={(text) => setUser({ ...user, user_name: text })}
-                                    onBlur={handleBlur('user_name')}
-                                    value={user.user_name} >
-                                </MyTextInput>
-                                <MyTextInput
-                                    label="Mật Khẩu (nếu có)"
-                                    placeholder={user.password}
-                                    placeholderTextColor={blur}
-                                    onChangeText={handleChange('password')}
-                                    onBlur={handleBlur('password')}
-                                    value={values.password}>
-                                </MyTextInput>
-                                <MyTextInput
-                                    autofocus
-                                    label="Họ và Tên"
-                                    placeholder={user.full_name}
-                                    placeholderTextColor={blur}
-                                    onChangeText={(text) => setUser({ ...user, full_name: text })}
-                                    onBlur={handleBlur('full_name')}
-                                    value={user.full_name} >
-                                </MyTextInput>
-                                <MyTextInput
-                                    label="Số Điện Thoại"
-                                    placeholder={user.phone}
-                                    placeholderTextColor={blur}
-                                    keyboardType='numeric'
-                                    onChangeText={(text) => setUser({ ...user, phone: text })}
-                                    onBlur={handleBlur('phone')}
-                                    value={user.phone} >
-                                </MyTextInput>
-                                <DrorpDownInput
-                                    label="Permission">
-                                </DrorpDownInput>
-                                <Line />
-                                <StyledButton onPress={() => {
-                                    if (values.password != "" || values.password != user.password) {
-                                        user.password = values.password;
-                                        console.log("okla");
-                                        console.log(user);
-                                        sendBackEnd(user);
+                    <ScrollView>
+                        <PageTitle>update User</PageTitle>
+                        <Formik
+                            initialValues={{ user_name: '', password: '', full_name: '', phone: '' , role: ''}}
+                            onSubmit={(values) => { console.log(values); }} >
+                            {({ handleChange, handleBlur, HandleSubmit, values }) => (
+                                <StyledFormArea>
+                                    <MyTextInput
+                                        autofocus
+                                        label="Tên Tài Khoản"
+                                        placeholder={user.user_name}
+                                        editable={false}
+                                        selectTextOnFocus={false}
+                                        placeholderTextColor={blur}
+                                        onChangeText={(text) => setUser({ ...user, user_name: text })}
+                                        onBlur={handleBlur('user_name')}
+                                        value={user.user_name} >
+                                    </MyTextInput>
+                                    <MyTextInput
+                                        label="Mật Khẩu (nếu có)"
+                                        placeholder="* * * * * *"
+                                        placeholderTextColor={blur}
+                                        onChangeText={handleChange('password')}
+                                        onBlur={handleBlur('password')}
+                                        value={values.password}
+                                        secureTextEntry={true}>
+                                    </MyTextInput>
+                                    <MyTextInput
+                                        autofocus
+                                        label="Họ và Tên"
+                                        placeholder={user.full_name}
+                                        placeholderTextColor={blur}
+                                        onChangeText={(text) => setUser({ ...user, full_name: text })}
+                                        onBlur={handleBlur('full_name')}
+                                        value={user.full_name} >
+                                    </MyTextInput>
+                                    <MyTextInput
+                                        label="Số Điện Thoại"
+                                        placeholder={user.phone}
+                                        placeholderTextColor={blur}
+                                        keyboardType='numeric'
+                                        onChangeText={(text) => setUser({ ...user, phone: text })}
+                                        onBlur={handleBlur('phone')}
+                                        value={user.phone} >
+                                    </MyTextInput>
+                                    <DrorpDownInput
+                                        label="Permission"
+                                        value = {user.role}>
+                                    </DrorpDownInput>
+                                    <Line />
+                                    <StyledButton onPress={() => {
+                                        console.log(values.password);
+                                        console.log(values.password != user.password);
+                                        console.log(values.password != "");
+                                        if (values.password != "" && values.password != user.password) {
+                                            user.password = values.password;
+                                            console.log("ok");
+                                            return updateUser(user);
 
-                                    } else {
-                                        // console.log("ok");
-                                        return sendBackEnd(user);
-                                    };
-                                    HandleSubmit
-                                }} >
-                                    <ButtonText>
-                                        Submit
-                                    </ButtonText>
-                                </StyledButton>
-                            </StyledFormArea>
-                        )}
-                    </Formik>
+                                        } else {
+                                            console.log("ok la");
+                                            return updateUser(user);
+                                        };
+                                        console.log(user);
+                                        HandleSubmit
+                                    }} >
+                                        <ButtonText>
+                                            Submit
+                                        </ButtonText>
+                                    </StyledButton>
+                                </StyledFormArea>
+                            )}
+                        </Formik>
+                    </ScrollView>
                 </FormAdd>
             </InnerContainer>
         </StyledContainer>
     );
 }
+//setup MyTextInput
 const MyTextInput = ({ label, icon, ...props }) => {
     return (
         <View >
@@ -173,37 +230,7 @@ const MyTextInput = ({ label, icon, ...props }) => {
             <UUInput {...props} />
         </View>
     )
-}
-const DrorpDownInput = ({ label, icon, ...props }) => {
-    return (
-        <View>
-            <UULabel>
-                {label}
-            </UULabel>
-            <SelectDropdown
-                buttonStyle={styles.dropdown1BtnStyle}
-                buttonTextStyle={styles.dropdown1BtnTxtStyle}
-                dropdownStyle={styles.dropdown1DropdownStyle}
-                rowStyle={styles.dropdown1RowStyle}
-                rowTextStyle={styles.dropdown1RowTxtStyle}
-                dropdownIconPosition={'right'}
-                renderDropdownIcon={isOpened => {
-                    return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={darkLight} size={18} />;
-                }}
-                data={data}
-                onSelect={(selectedItem, index) => {
-                    console.log(selectedItem, index)
-                }}
-                buttonTextAfterSelection={(selectedItem, index) => {
-                    return selectedItem
-                }}
-                rowTextForSelection={(item, index) => {
-                    return item
-                }} />
-        </View>
-    )
-}
-
+};
 const styles = StyleSheet.create({
     TouchableImage: {
         padding: 20,
