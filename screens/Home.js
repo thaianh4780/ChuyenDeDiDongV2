@@ -23,17 +23,11 @@ const Home = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <StyledHomeBrownZone>
-<<<<<<< HEAD
                 <Fontisto style={styles.logo} name="coffeescript" />
                 <TouchableWithoutFeedback  onPress={() => {navigation.navigate('Login')}}>
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
                 </TouchableWithoutFeedback >
                 <StyledHomeBrownText>
-=======
-                <Fontisto style={styles.logo } name="coffeescript" />
-                <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-                <StyledHomeBrownText >
->>>>>>> origin/main
                     Coffee Shop
                 </StyledHomeBrownText>
             </StyledHomeBrownZone>

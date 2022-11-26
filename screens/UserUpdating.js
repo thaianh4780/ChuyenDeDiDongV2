@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
 //Icon
-import { Octicons, IonicIcon, Feather } from '@expo/vector-icons';
-
 import SelectDropdown from 'react-native-select-dropdown'
-
 import {
     StyledContainer,
     InnerContainer,
     OLPic,
     PageTitle,
     StyledFormArea,
-    LeftIcon,
-    StyledTextInput,
-    StyledInputLabel,
     StyledButton,
     ButtonText,
     Line,
@@ -26,19 +18,13 @@ import {
 } from "../components/styles"
 import { Formik } from "formik";
 import { StyleSheet, View, Text, Alert, ScrollView } from "react-native";
-import Button from "../components/Button";
-import Ionicons from 'react-native-vector-icons/Ionicons';
 //Colors 
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
-const data = []
-
 const UserUpdatding = ({ route, navigation }) => {
-    
     //values
     const { id } = route.params;
     const [user, setUser] = useState("");
     const [listRole, setListRole] = useState([""]);
-    // const [role, setRole] = useState("");
     //get user by id
     const getUser = async () => {
         await fetch('http://192.168.1.8:3000/api/user/getbyid/' + id)
@@ -85,8 +71,6 @@ const UserUpdatding = ({ route, navigation }) => {
                 }
             ]
         );
-
-
     };
     //get all role
     const getAllRole = async () => {
@@ -99,11 +83,10 @@ const UserUpdatding = ({ route, navigation }) => {
             .catch((err) => console.log("ERR", err));
     };
     useEffect(() => { getUser(); getAllRole()}, []);
+    //get id role from list role
     const getIdRole = listRole.map((item, index) => {
         return <Text key={item._id}>{item.role_name}</Text>;
     });
-
-    
     //setup DrorpDownInput
     const DrorpDownInput = ({ label, icon, ...props }) => {
         return (

@@ -22,7 +22,6 @@ import { Alert, StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 
 //Colors 
-<<<<<<< HEAD
 const { brand, darkLight ,primary,blur } = Colors;
 const Login = ({ navigation }) => {
     const login = (values) => {
@@ -40,25 +39,6 @@ const Login = ({ navigation }) => {
             }
         })
     };
-=======
-const { brand, darkLight, primary, blur } = Colors;
-
-function Login({ navigation }) {
-    const [username, setusername] = useState("")
-    const [password, setpassword] = useState("")
-
-
-    function localLogin() {
-        setusername("username");
-        console.log('====================================');
-        console.log("login");
-        console.log('====================================');
-    }
-    useEffect(() => {
-        localLogin();
-
-    }, [username])
->>>>>>> origin/main
     return (
         <StyledContainer >
             <InnerContainer>
@@ -76,16 +56,9 @@ function Login({ navigation }) {
                                     icon="mail"
                                     placeholder="NameAbc"
                                     placeholderTextColor={blur}
-<<<<<<< HEAD
                                     onChangeText={handleChange('user_name')}
                                     onBlur={handleBlur('user_name')}
                                     value={values.user_name}
-=======
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    // value={values.username}
-                                    value={username}
->>>>>>> origin/main
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -100,17 +73,7 @@ function Login({ navigation }) {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => {
-<<<<<<< HEAD
-                                    login(values);
-                                    HandleSubmit
-=======
-                                    navigation.navigate('Home'),
-                                    HandleSubmit,
-                                    console.log(values.username),
-                                    console.log(values.password)
->>>>>>> origin/main
-                                }} >
+                                <StyledButton onPress={() => {login(values);}} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>

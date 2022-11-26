@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useIsFocused } from '@react-navigation/native';
-
 import SelectDropdown from 'react-native-select-dropdown'
-
 import {
     StyledContainer,
     InnerContainer,
@@ -26,8 +23,6 @@ const UserAdding = ({ navigation }) => {
     //values
     const [listRole, setListRole] = useState([""]);
     const [role, setRole] = useState("");
-    // const isFocused = useIsFocused();
-    // const [check, setCheck] = useState(false);
     useEffect(() => { getAllRole() }, []);
     //get all role
     const getAllRole = async () => {
@@ -53,7 +48,6 @@ const UserAdding = ({ navigation }) => {
                 Alert.alert(JSON.stringify(data.error));
                 return navigation.avigate('UserUpdating');
             } else {
-                // Alert.alert(data);
                 return navigation.navigate('Home');
             }
         })
@@ -175,8 +169,6 @@ const MyTextInput = ({ label, icon, ...props }) => {
         </View>
     )
 }
-
-
 const styles = StyleSheet.create({
     TouchableImage: {
         padding: 20,
