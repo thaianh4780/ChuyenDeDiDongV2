@@ -65,6 +65,8 @@ const UserManagement = ({navigation }) => {
       }
     })
   };
+
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -91,12 +93,15 @@ const UserManagement = ({navigation }) => {
                   >
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>
-                  <StyledDrinkTouchableEdit onPress={() => navigation.navigate("UserUpdating", { id: item._id })}>
+                  <StyledDrinkTouchableEdit
+                    onPress={() => navigation.navigate("UserUpdating", { id: item._id })}
+                  >
                     <SDTBtnText>Edit</SDTBtnText>
                   </StyledDrinkTouchableEdit>
                 </StyledDrinkTouchable>
               );
             })}
+            {/* {users} */}
           </StyledFormHome>
         </ScrollView>
       </SafeAreaView>

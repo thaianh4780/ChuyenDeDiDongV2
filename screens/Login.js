@@ -59,6 +59,7 @@ const Login = ({ navigation }) => {
                                     onChangeText={handleChange('user_name')}
                                     onBlur={handleBlur('user_name')}
                                     value={values.user_name}
+
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -73,7 +74,11 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => {login(values);}} >
+                                <StyledButton onPress={() => {
+                                    login(values);
+                                    HandleSubmit
+
+                                }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
