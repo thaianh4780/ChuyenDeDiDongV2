@@ -5,18 +5,6 @@ import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrow
 import { Fontisto, Octicons } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
-import { Formik } from 'formik';
-import { useFonts } from 'expo-font';
-import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
-// import AppLoading from 'expo-app-loading';
-
-//   let [fontsLoaded] = useFonts({
-//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
-//   });
-//   if (!fontsLoaded) {
-//     return <AppLoading />;
-//   }
 const { brand, darkLight, black, primary, secondary } = Colors;
 
 const Home = ({ navigation }) => {

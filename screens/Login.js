@@ -1,5 +1,4 @@
 import React, { useState, useEffect, } from "react";
-import { StatusBar } from 'expo-status-bar';
 //Icon
 import { Octicons, IonicIcon } from '@expo/vector-icons';
 import {
@@ -19,14 +18,14 @@ import {
 } from "../components/styles"
 import { Formik } from "formik";
 import { Alert, StyleSheet, View } from "react-native";
-import Button from "../components/Button";
 
 //Colors 
 const { brand, darkLight ,primary,blur } = Colors;
 const Login = ({ navigation }) => {
+    const url = "http://192.168.117.119:3000/api";
     const login = (values) => {
         console.log(values.password);
-        fetch('http://192.168.1.8:3000/api/user/login', {
+        fetch(url + '/user/login', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(values),

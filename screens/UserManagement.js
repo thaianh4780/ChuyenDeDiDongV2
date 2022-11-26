@@ -21,14 +21,14 @@ import {
 //Colors
 const UserManagement = ({navigation }) => {
   //Values
-  const url = "http://192.168.1.8:3000/api/user/all";
+  const url = "http://192.168.117.119:3000/api";
   const [listUser, setListUser] = useState([]);
   const isFocused = useIsFocused();
   const [check, setCheck] = useState(false);
   useEffect(() => { getListUser(); }, [check, isFocused]);
   //get list user
   const getListUser = async () => {
-    await fetch(url)
+    await fetch(url + '/user/all')
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
@@ -52,7 +52,7 @@ const UserManagement = ({navigation }) => {
       ]
     );
   const deleteUser = (id) => {
-    const url = 'http://192.168.1.8:3000/api/user/delete/' + id;
+    const url = url + '/user/delete/' + id;
     fetch(url, {
       method: 'DELETE',
     }).then(res => res).then(data => {

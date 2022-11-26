@@ -21,12 +21,13 @@ import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserAdding = ({ navigation }) => {
     //values
+    const url = "http://192.168.117.119:3000/api";
     const [listRole, setListRole] = useState([""]);
     const [role, setRole] = useState("");
     useEffect(() => { getAllRole() }, []);
     //get all role
     const getAllRole = async () => {
-        await fetch('http://192.168.1.8:3000/api/role/all')
+        await fetch(url + '/role/all')
             .then((res) => res.json())
             .then((res) => {
                 var data = res;
@@ -39,7 +40,7 @@ const UserAdding = ({ navigation }) => {
         values.role = role;
         console.log(values);
         console.log(values.user_name);
-        fetch('http://192.168.1.8:3000/api/user/add', {
+        fetch(url + '/user/add', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(values),

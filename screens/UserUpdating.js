@@ -23,11 +23,12 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserUpdatding = ({ route, navigation }) => {
     //values
     const { id } = route.params;
+    const url = "http://192.168.117.119:3000/api";
     const [user, setUser] = useState("");
     const [listRole, setListRole] = useState([""]);
     //get user by id
     const getUser = async () => {
-        await fetch('http://192.168.1.8:3000/api/user/getbyid/' + id)
+        await fetch(url + '/user/getbyid/' + id)
             .then((res) => res.json())
             .then((res) => {
                 var data = res;
@@ -53,7 +54,7 @@ const UserUpdatding = ({ route, navigation }) => {
                             return;
                         } else {
                             //console.log(user);
-                            fetch('http://192.168.1.8:3000/api/user/update/' + id, {
+                            fetch(url + '/user/update/' + id, {
                                 method: 'PUT',
                                 headers: { 'content-type': 'application/json' },
                                 body: JSON.stringify(user),
