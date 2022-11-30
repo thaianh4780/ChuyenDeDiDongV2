@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
 import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
-import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
 
 //color
 export const Colors = {
