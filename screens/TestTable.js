@@ -64,7 +64,7 @@ import React, { useState } from 'react';
 
 // import all the components we are going to use
 import { SafeAreaView, StyleSheet, View, FlatList, Image, Text, Alert, Dimensions } from 'react-native';
-import { Colors, LayoutTable, PageTitle, StyledHomeBrownImage, StyledHomeWhiteZone, TableArea, TableName, TouchableHomeImage } from '../components/styles';
+import { Colors, LayoutTable, PageTitle, StyledHomeBrownImage, TableArea, TableName, TouchableHomeImage } from '../components/styles';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const { brand, darkLight, primary, blur, neon_light_brand } = Colors;
 
@@ -87,27 +87,23 @@ const App = (navigation) => {
     { key: 'Bàn 7' },];
 
     return (
-
         <SafeAreaView style={styles.container}>
-            <PageTitle style={{ color: brand }}>TableChoosing</PageTitle>
-            <View style={{ backgroundColor: brand }}>
-                <FlatList
-                    data={data}
-                    renderItem={({ item }) => (
-                        <View style={styles.item}>
-                            <LayoutTable style={styles.TouchableImage}>
-                                <MaterialCommunityIcons style={styles.icons} name='desk' />
-                                <View style={styles.text}>
-                                    <TableName>{item.key}</TableName>
-                                    <TableArea>{item.key}</TableArea>
-                                </View>
-                            </LayoutTable>
-                        </View>
-                    )}
-                    numColumns={2}
-                    // style={styles.abc}
-                />
-            </View>
+            <PageTitle style={{color: primary}}>TableChoosing</PageTitle>
+            <FlatList
+                data={data}
+                renderItem={({ item }) => (
+                    <View style={styles.item}>
+                        <LayoutTable style={styles.TouchableImage}>
+                            <MaterialCommunityIcons style={styles.icons} name='desk' />
+                            <View style={styles.text}>
+                                <TableName>{item.key}</TableName>
+                                <TableArea>{item.key}</TableArea>
+                            </View>
+                        </LayoutTable>
+                    </View>
+                )}
+                numColumns={2}
+            />
         </SafeAreaView>
     );
 };
@@ -116,7 +112,8 @@ export default App;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: primary,
+        justifyContent: 'center',
+        backgroundColor: brand,
     },
     icons: {
         fontSize: 140,
@@ -140,8 +137,5 @@ const styles = StyleSheet.create({
             height: 1,
             width: 3
         }
-    },
-    abc: {
-        marginTop: "-10%"
     },
 });

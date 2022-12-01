@@ -3,22 +3,25 @@ import { Constants } from "expo-constants";
 import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
 
 //color
+//color
 export const Colors = {
   primary: "#ffffff",
   secondary: "#E5E7EB",
   tertiary: "#1F2937",
   darkLight: "#1F2937",
   brand: "#a85b3c",
-  light_brand :"#ce6b43",
+  light_brand: "#ce6b43",
+  neon_light_brand: "#f6bda5",
   //green: "#10B981",
   green: "#6bad3a",
+  deep_green: "#426a24",
   //red: "#EF4444",
   red: "#ad3a3a",
   // blue:"#0db1f0",
   blue: "#3a78ad",
   black: "#1d3240",
   blur: "#adafb2",
-  neon_blur:"#f0eeee",
+  neon_blur: "#f0eeee",
 };
 
 const { light_brand, primary, secondary, tertiary, blue, darkLight, brand, green, red, black, blur } = Colors;
@@ -464,4 +467,49 @@ export const TableStyled = styled.View`
   background-color: ${primary};
   top:2%;
   border-radius: 12px
+`
+export const TouchableHomeImage = styled.TouchableOpacity`
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+`
+
+//IconComponent
+export const LayoutTable = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+  border: 2px solid ${primary} ;
+  background-color: ${primary};
+  border-radius:10%;
+  padding-bottom:5% ;
+`
+
+export const TableName = styled.Text`
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: ${brand};
+  font-size:18%;
+`
+
+export const TableArea = styled.Text`
+  text-align: center;
+  color: ${brand};
+  font-size:22%;
+  font-weight: bold;
+`
+export const StyledHomeWhiteZone = styled.Text`
+  background-color: ${red};
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: ${brand};
+  padding: 10px;
+  border-radius:15px;
 `

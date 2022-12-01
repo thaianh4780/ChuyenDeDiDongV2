@@ -86,11 +86,11 @@ function Login({ navigation }) {
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                                {/* <StyledButton onPress={() => { navigation.navigate('Test') }}>
+                                <StyledButton onPress={() => { navigation.navigate('TestTable') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>
-                                </StyledButton> */}
+                                </StyledButton>
                             </StyledFormArea>
                         )}
                     </Formik>
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
         backgroundColor: brand,
     },
     TouchableImage: {
+        elevation: 10,
         padding: 20,
         shadowColor: "#1F2937",
         shadowOpacity: .25,

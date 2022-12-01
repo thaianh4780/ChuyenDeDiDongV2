@@ -26,6 +26,7 @@ import DateTurnOver from './screens/DateTurnOver';
 import MonthTurnOver from './screens/MonthTurnOver';
 import TotailExpenditure from './screens/TotailExpenditure';
 import TotalInput from './screens/TotailInput';
+import TestTable from './screens/TestTable';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +64,7 @@ const App = () => {
         <Stack.Screen name="TotailExpenditure" component={TotailExpenditure} />
         <Stack.Screen name="AdminManagement" component={AdminManagement} />
         <Stack.Screen name="TotalInput" component={TotalInput} />
+        <Stack.Screen name="TestTable" component={TestTable} />
       </Stack.Navigator>
     </NavigationContainer>
   );
