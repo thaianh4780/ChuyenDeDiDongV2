@@ -75,7 +75,7 @@ const UserUpdatding = ({ route, navigation }) => {
     };
     //get all role
     const getAllRole = async () => {
-        await fetch('http://192.168.1.8:3000/api/role/all')
+        await fetch(url + '/role/all')
             .then((res) => res.json())
             .then((res) => {
                 var data = res;
@@ -83,7 +83,7 @@ const UserUpdatding = ({ route, navigation }) => {
             })
             .catch((err) => console.log("ERR", err));
     };
-    useEffect(() => { getUser(); getAllRole()}, []);
+    useEffect(() => { getUser(); getAllRole() }, []);
     //get id role from list role
     const getIdRole = listRole.map((item, index) => {
         return <Text key={item._id}>{item.role_name}</Text>;
@@ -109,6 +109,13 @@ const UserUpdatding = ({ route, navigation }) => {
                     onSelect={(selectedItem, index) => {
                         user.role = selectedItem.key;
                     }}
+                    defaultButtonText={
+                        listRole.map((role, index) => {
+                            if (role._id == user.role) {
+                                return <Text>{role.role_name}</Text>;
+                            }
+                        })
+                    }
                     buttonTextAfterSelection={(selectedItem, index) => {
                         return selectedItem
                     }}
@@ -118,7 +125,7 @@ const UserUpdatding = ({ route, navigation }) => {
             </View>
         )
     };
-    
+
 
     return (
         <StyledContainer >
@@ -126,9 +133,9 @@ const UserUpdatding = ({ route, navigation }) => {
                 <OLPic resizeMode="cover" source={require('../assets/image/br1.png')} ></OLPic>
                 <FormAdd style={styles.TouchableImage} >
                     <ScrollView>
-                        <PageTitle>update User</PageTitle>
+                        <PageTitle>Update User</PageTitle>
                         <Formik
-                            initialValues={{ user_name: '', password: '', full_name: '', phone: '' , role: ''}}
+                            initialValues={{ user_name: '', password: '', full_name: '', phone: '', role: '' }}
                             onSubmit={(values) => { console.log(values); }} >
                             {({ handleChange, handleBlur, HandleSubmit, values }) => (
                                 <StyledFormArea>
@@ -172,7 +179,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                     </MyTextInput>
                                     <DrorpDownInput
                                         label="Permission"
-                                        value = {user.role}>
+                                        value={user.role}>
                                     </DrorpDownInput>
                                     <Line />
                                     <StyledButton onPress={() => {
