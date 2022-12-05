@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
         backgroundColor: brand,
     },
     TouchableImage: {
+        elevation:10,
         padding: 20,
         shadowColor: "#1F2937",
         shadowOpacity: .25, 

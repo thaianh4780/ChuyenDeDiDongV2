@@ -85,7 +85,7 @@ export const Avatar = styled.Image`
 export const FormLog = styled.View`
   position: absolute;
   width: 105%;
-  height: 53%;
+  height: 60%;
   background-color: ${primary};
   top: 35%;
   padding: 30px;
