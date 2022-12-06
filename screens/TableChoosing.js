@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 // import React, { Component, useState } from 'react';
 // import { View, StyleSheet, FlatList, Alert, Text } from 'react-native';
 // import { StyledHomeBrownImage, TouchableHomeImage } from '../components/styles';
-=======
-import React from 'react';
-
-import { StyleSheet, Text, View, FlatList, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
-import { PageTitle, StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
->>>>>>> main
 
 // const name = [{ key: 'a' },
 // { key: 'b' },
@@ -75,20 +68,8 @@ import { Colors, LayoutTable, PageTitle, StyledHomeBrownImage, StyledHomeWhiteZo
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const { brand, darkLight, primary, blur, neon_light_brand } = Colors;
 
-<<<<<<< HEAD
 const App = (navigation) => {
     const [dataSource, setDataSource] = useState([]);
-=======
-
-const data = [{ key: 'Bàn 1' },
-{ key: 'Bàn 2' },
-{ key: 'Bàn 3' },
-{ key: 'Bàn 4' },
-{ key: 'Bàn 5' },
-{ key: 'Bàn 6' },
-{ key: 'Bàn 7' },];
-const numColumns = 2;
->>>>>>> main
 
     // useState(() => {
     //     let items = Array.apply(null, Array(60)).map((v, i) => {

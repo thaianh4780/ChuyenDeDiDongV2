@@ -2,33 +2,6 @@ import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-<<<<<<< HEAD
-import Home from './screens/Home'
-import Login from './screens/Login'
-import Notification from './screens/Notification'
-import DateRegist from './screens/DateRegist'
-import DrinkChoosing from './screens/DrinkChoosing'
-import TableChoosing from './screens/TableChoosing'
-import Total from './screens/Total'
-import DrinkManagement from './screens/DrinkManagement';
-import TableManagement from './screens/TableManagement';
-import UserManagement from './screens/UserManagement';
-import DrinkAdding from './screens/DrinkAdding';
-import DrinkUpdating from './screens/DrinkUpdating';
-import RegistDateManagement from './screens/RegistDateManagement';
-import SalaryManagement from './screens/SalaryManagement';
-import UserAdding from './screens/UserAdding';
-import UserUpdating from './screens/UserUpdating';
-import Test from './screens/Test';
-import TestTab from './screens/TestTab';
-import TabBtn from './screens/TabBtn';
-import AdminManagement from './screens/AdminManagement';
-import DateTurnOver from './screens/DateTurnOver';
-import MonthTurnOver from './screens/MonthTurnOver';
-import TotailExpenditure from './screens/TotailExpenditure';
-import TotalInput from './screens/TotailInput';
-import TestTable from './screens/TestTable';
-=======
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import Notification from "./screens/Notification";
@@ -57,7 +30,6 @@ import TotailExpenditure from "./screens/TotailExpenditure";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList } from "react-native-web";
 import TotalInput from "./screens/TotailInput";
->>>>>>> main
 
 const Stack = createNativeStackNavigator();
 const Table = [

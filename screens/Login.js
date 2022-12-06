@@ -74,7 +74,8 @@ const Login = ({ navigation }) => {
                                 </MyTextInput>
                                 <Line />
                                 <StyledButton onPress={() => {
-                                    login(values);
+                                    // login(values);
+                                    navigation.navigate('Home')
                                     HandleSubmit
 
                                 }} >
@@ -82,15 +83,11 @@ const Login = ({ navigation }) => {
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-<<<<<<< HEAD
-                                <StyledButton onPress={() => { navigation.navigate('TestTable') }}>
-=======
-                                <StyledButton onPress={() => { navigation.navigate('Home') }}>
->>>>>>> main
+                                {/* <StyledButton onPress={() => { navigation.navigate('Home') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>
-                                </StyledButton>
+                                </StyledButton> */}
                             </StyledFormArea>
                         )}
                     </Formik>
@@ -126,11 +123,7 @@ const styles = StyleSheet.create({
         backgroundColor: brand,
     },
     TouchableImage: {
-<<<<<<< HEAD
-        elevation: 10,
-=======
         elevation:10,
->>>>>>> main
         padding: 20,
         shadowColor: "#1F2937",
         shadowOpacity: .25, 

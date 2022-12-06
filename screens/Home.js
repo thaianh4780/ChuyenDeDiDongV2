@@ -5,7 +5,6 @@ import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrow
 import { Fontisto, Octicons } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
-<<<<<<< HEAD
 import { Formik } from 'formik';
 import { useFonts } from 'expo-font';
 // import AppLoading from 'expo-app-loading';
@@ -17,8 +16,6 @@ import { useFonts } from 'expo-font';
 //   if (!fontsLoaded) {
 //     return <AppLoading />;
 //   }
-=======
->>>>>>> main
 const { brand, darkLight, black, primary, secondary } = Colors;
 
 const Home = ({ navigation }) => {
@@ -26,16 +23,10 @@ const Home = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
             <StyledHomeBrownZone>
                 <Fontisto style={styles.logo} name="coffeescript" />
-                <TouchableWithoutFeedback  onPress={() => {navigation.navigate('Login')}}>
-                <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-<<<<<<< HEAD
-                <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')}/>
-=======
+                <TouchableWithoutFeedback onPress={() => { navigation.navigate('Login') }}>
+                    <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
+                    <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
                 </TouchableWithoutFeedback >
-                <StyledHomeBrownText>
-                    Coffee Shop
-                </StyledHomeBrownText>
->>>>>>> main
             </StyledHomeBrownZone>
             <TestTab style={styles.tab} ></TestTab>
         </SafeAreaView>

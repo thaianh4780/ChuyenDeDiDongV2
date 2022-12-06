@@ -1,19 +1,6 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
-<<<<<<< HEAD
 import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
-=======
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Button,
-  Icon,
-} from "react-native";
-import { AlexBrushRegular } from "../assets/fonts/AlexBrushRegular.ttf";
->>>>>>> main
 
 //color
 //color
@@ -24,10 +11,7 @@ export const Colors = {
   darkLight: "#1F2937",
   brand: "#a85b3c",
   light_brand: "#ce6b43",
-<<<<<<< HEAD
   neon_light_brand: "#f79166",
-=======
->>>>>>> main
   //green: "#10B981",
   green: "#6bad3a",
   deep_green: "#426a24",
@@ -65,15 +49,12 @@ export const InnerContainer = styled.View`
   width: 100%;
   align-items: center;
 `;
-<<<<<<< HEAD
 
 export const WelcomeContainer = styled(InnerContainer)`
   padding-top:10px;
   justify-content: center;
 `
 
-=======
->>>>>>> main
 export const PageLogo = styled.Image`
   width: 150%;
   height: 55%;
@@ -144,18 +125,6 @@ export const ButtonText = styled.Text`
   font-size: 20%;
   font-weight: bold;
 `;
-
-
-
-
-
-
-export const WelcomeContainer = styled(InnerContainer)`
-  padding-top: 10px;
-  justify-content: center;
-`;
-
-
 
 export const HomePageLogo = styled.Image`
   width: 450px;
@@ -526,7 +495,6 @@ export const TableStyled = styled.View`
   width: 107%;
   height: 95%;
   background-color: ${primary};
-<<<<<<< HEAD
   top:2%;
   border-radius: 12px
 `
@@ -571,8 +539,3 @@ export const StyledHomeBrownLogo = styled.Image`
   bottom: 15%;
   left: 5%;
   `
-=======
-  top: 2%;
-  border-radius: 12px;
-`;
->>>>>>> main
