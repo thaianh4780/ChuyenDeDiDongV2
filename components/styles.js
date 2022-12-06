@@ -44,9 +44,10 @@ const {
   blur,
 } = Colors;
 
+//Login css 
 export const StyledContainer = styled.View`
   flex: 1;
-  padding: 25px;
+  padding: 5%;
   background-color: ${primary};
 `;
 export const InnerContainer = styled.View`
@@ -54,18 +55,88 @@ export const InnerContainer = styled.View`
   width: 100%;
   align-items: center;
 `;
+export const PageLogo = styled.Image`
+  width: 150%;
+  height: 55%;
+  margin-top: -10%;
+`;
+
+export const FormLog = styled.View`
+  position: absolute;
+  width: 105%;
+  height: 55%;
+  background-color: ${primary};
+  top: 35%;
+  padding: 7%;
+  border-radius: 12px;
+`;
+
+export const StyledInputLabel = styled.Text`
+  color: ${tertiary};
+  font-size: 18%;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 2%;
+`;
+
+export const StyledTextInput = styled.TextInput`
+  background: ${secondary};
+  padding-left: 20%;
+  border-radius: 5px;
+  font-size: 16%;
+  height: 60px;
+  color: ${tertiary};
+  margin-vertical: 3%;
+`;
+
+export const StyledFormArea = styled.View`
+  width: 100%; 
+  //useless
+`;
+
+export const LeftIcon = styled.View`
+  left: 7%;
+  top: 45%;
+  position: absolute;
+  z-index: 1;
+`;
+
+export const PageTitle = styled.Text`
+  font-size: 35%;
+  text-align: center;
+  font-weight: bold;
+  color: ${brand};
+  padding: 2%;
+  margin-bottom: 2%;
+`;
+
+
+export const StyledButton = styled.TouchableOpacity`
+  background-color: ${brand};
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 60px;
+  margin-vertical: 2%;
+`;
+
+export const ButtonText = styled.Text`
+  color: ${primary};
+  font-size: 20%;
+  font-weight: bold;
+`;
+
+
+
+
+
 
 export const WelcomeContainer = styled(InnerContainer)`
   padding-top: 10px;
   justify-content: center;
 `;
 
-export const PageLogo = styled.Image`
-  width: 150%;
-  height: 50%;
-  margin-top: -10%;
-  margin-bottom: 10px;
-`;
+
 
 export const HomePageLogo = styled.Image`
   width: 450px;
@@ -82,24 +153,6 @@ export const Avatar = styled.Image`
   margin: auto;
   border-radius: 50px;
 `;
-export const FormLog = styled.View`
-  position: absolute;
-  width: 105%;
-  height: 60%;
-  background-color: ${primary};
-  top: 35%;
-  padding: 30px;
-  border-radius: 12px;
-`;
-
-export const PageTitle = styled.Text`
-  font-size: 30px;
-  text-align: center;
-  font-weight: bold;
-  color: ${brand};
-  padding: 10px;
-  margin-bottom: 5px;
-`;
 
 export const SubTittle = styled.Text`
   font-size: 20px;
@@ -109,9 +162,7 @@ export const SubTittle = styled.Text`
   color: ${tertiary};
   letter-spacing: 1px;
 `;
-export const StyledFormArea = styled.View`
-  width: 100%;
-`;
+
 
 export const StyledFormHome = styled.View`
   flex: 1;
@@ -120,18 +171,7 @@ export const StyledFormHome = styled.View`
   align-items: flex-start;
   width: 100%;
 `;
-export const StyledTextInput = styled.TextInput`
-  background: ${secondary};
-  padding: 10px;
-  padding-left: 65px;
-  padding-right: 55px;
-  border-radius: 5px;
-  font-size: 16px;
-  height: 60px;
-  margin-bottom: 10px;
-  color: ${tertiary};
-  margin-vertical: 8px;
-`;
+
 export const StyledTextInputs = styled.TextInput`
   background: ${secondary};
   padding: 10px;
@@ -144,35 +184,9 @@ export const StyledTextInputs = styled.TextInput`
   margin-vertical: 8px;
 `;
 
-export const StyledInputLabel = styled.Text`
-  color: ${tertiary};
-  font-size: 16px;
-  text-align: left;
-  font-weight: bold;
-  padding-left: 5px;
-`;
-export const LeftIcon = styled.View`
-  left: 20px;
-  top: 42px;
-  position: absolute;
-  z-index: 1;
-`;
 
-export const StyledButton = styled.TouchableOpacity`
-  padding: 15px;
-  background-color: ${brand};
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  height: 60px;
-  margin-vertical: 5px;
-  margin-horizontal: 20px;
-`;
-export const ButtonText = styled.Text`
-  color: ${primary};
-  font-size: 20px;
-  font-weight: bold;
-`;
+
+
 
 export const MsgBox = styled.Text`
   text-align: center;
