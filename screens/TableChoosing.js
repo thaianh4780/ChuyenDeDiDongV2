@@ -93,9 +93,10 @@ const App = (navigation) => {
             <View style={{ backgroundColor: brand }}>
                 <FlatList
                     data={data}
-                    renderItem={({ item }) => (
+                    renderItem={({ item ,navigation }) => (
                         <View style={styles.item}>
-                            <LayoutTable style={styles.TouchableImage}>
+                            <LayoutTable style={styles.TouchableImage}
+                            onPress={() => { navigation.navigate('TestTab') }}>
                                 <MaterialCommunityIcons style={styles.icons} name='desk' />
                                 <View style={styles.text}>
                                     <TableName>{item.key}</TableName>

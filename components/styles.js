@@ -11,7 +11,7 @@ export const Colors = {
   darkLight: "#1F2937",
   brand: "#a85b3c",
   light_brand: "#ce6b43",
-  neon_light_brand: "#f6bda5",
+  neon_light_brand: "#f79166",
   //green: "#10B981",
   green: "#6bad3a",
   deep_green: "#426a24",
@@ -37,8 +37,7 @@ export const InnerContainer = styled.View`
   align-items: center;
 `;
 
-export const WelcomeContainer = styled(InnerContainer)
-  `
+export const WelcomeContainer = styled(InnerContainer)`
   padding-top:10px;
   justify-content: center;
 `
@@ -501,15 +500,11 @@ export const TableArea = styled.Text`
   font-size:22%;
   font-weight: bold;
 `
-export const StyledHomeWhiteZone = styled.Text`
-  background-color: ${red};
-  width: 100%;
-  height: 170px;
-  overflow: hidden;
-  font-size: 30px;
-  text-align: center;
-  font-weight: bold;
-  color: ${brand};
-  padding: 10px;
-  border-radius:15px;
-`
+export const StyledHomeBrownLogo = styled.Image`
+  color: ${primary};
+  height: 60px;
+  width: 250px;
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  `

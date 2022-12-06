@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, } from 'react-native';
 import Button from '../components/Button';
-import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
+import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownLogo, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
 import { Fontisto, Octicons } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 import { Formik } from 'formik';
 import { useFonts } from 'expo-font';
-import {AlexBrushRegular} from '../assets/fonts/AlexBrushRegular.ttf'
 // import AppLoading from 'expo-app-loading';
 
 //   let [fontsLoaded] = useFonts({
@@ -25,9 +24,7 @@ const Home = ({ navigation }) => {
             <StyledHomeBrownZone>
                 <Fontisto style={styles.logo } name="coffeescript" />
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-                <StyledHomeBrownText >
-                    Coffee Shop
-                </StyledHomeBrownText>
+                <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')}/>
             </StyledHomeBrownZone>
             <TestTab style={styles.tab} ></TestTab>
         </SafeAreaView>
