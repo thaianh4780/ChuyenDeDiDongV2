@@ -1,9 +1,6 @@
 import React, { useState, useEffect, } from "react";
-import { StatusBar } from 'expo-status-bar';
-
 //Icon
 import { Octicons, IonicIcon } from '@expo/vector-icons';
-
 import {
     StyledContainer,
     InnerContainer,
@@ -21,26 +18,26 @@ import {
 } from "../components/styles"
 import { Formik } from "formik";
 import { Alert, StyleSheet, View } from "react-native";
-import Button from "../components/Button";
 
 //Colors 
-const { brand, darkLight, primary, blur } = Colors;
-
-function Login({ navigation }) {
-    const [username, setusername] = useState("")
-    const [password, setpassword] = useState("")
-
-
-    function localLogin() {
-        setusername("username");
-        console.log('====================================');
-        console.log("login");
-        console.log('====================================');
-    }
-    useEffect(() => {
-        localLogin();
-
-    }, [username])
+const { brand, darkLight ,primary,blur } = Colors;
+const Login = ({ navigation }) => {
+    const url = "http://192.168.1.147:3000/api";
+    const login = (values) => {
+        console.log(values.password);
+        fetch(url + '/user/login', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(values),
+        }).then(res => res.json()).then(data => {
+            // console.log(data);
+            if (data.error) {
+                Alert.alert(data.error);
+            } else {
+                return navigation.navigate('Home');
+            }
+        })
+    };
     return (
         <StyledContainer >
             <InnerContainer>
@@ -48,7 +45,7 @@ function Login({ navigation }) {
                 <FormLog style={styles.TouchableImage} >
                     <PageTitle>Login</PageTitle>
                     <Formik
-                        initialValues={{ username: '', password: '' }}
+                        initialValues={{ user_name: '', password: '' }}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values, hidePassword, setHidePassword }) => (
                             <StyledFormArea>
@@ -58,10 +55,10 @@ function Login({ navigation }) {
                                     icon="mail"
                                     placeholder="NameAbc"
                                     placeholderTextColor={blur}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={handleBlur('username')}
-                                    // value={values.username}
-                                    value={username}
+                                    onChangeText={handleChange('user_name')}
+                                    onBlur={handleBlur('user_name')}
+                                    value={values.user_name}
+
                                 >
                                 </MyTextInput>
                                 <MyTextInput
@@ -77,16 +74,19 @@ function Login({ navigation }) {
                                 </MyTextInput>
                                 <Line />
                                 <StyledButton onPress={() => {
-                                    navigation.navigate('Home'),
-                                    HandleSubmit,
-                                    console.log(values.username),
-                                    console.log(values.password)
+                                    login(values);
+                                    HandleSubmit
+
                                 }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
+<<<<<<< HEAD
                                 <StyledButton onPress={() => { navigation.navigate('TestTable') }}>
+=======
+                                <StyledButton onPress={() => { navigation.navigate('Home') }}>
+>>>>>>> main
                                     <ButtonText>
                                         Test
                                     </ButtonText>
@@ -99,6 +99,7 @@ function Login({ navigation }) {
         </StyledContainer>
     );
 }
+
 const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
     return (
         <View>
@@ -112,7 +113,6 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     logo: {
         paddingTop: 20,
@@ -126,10 +126,14 @@ const styles = StyleSheet.create({
         backgroundColor: brand,
     },
     TouchableImage: {
+<<<<<<< HEAD
         elevation: 10,
+=======
+        elevation:10,
+>>>>>>> main
         padding: 20,
         shadowColor: "#1F2937",
-        shadowOpacity: .25,
+        shadowOpacity: .25, 
         shadowRadius: 2,
         shadowOffset: {
             height: 1,
