@@ -171,8 +171,12 @@ const DrinkManagement = ({ navigation, route }) => {
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
-        ></StyledDrinkTouchableImage>
-        <SDTText>{item.name}</SDTText>
+        />
+
+
+        <SDTText>
+          {item.name}
+        </SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
         <StyledDrinkTouchableAdd
           onPress={() => {
@@ -333,7 +337,6 @@ const DrinkManagement = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <ScrollView>
           <StyledFormHome>
             <StyledButton
               onPress={() => {
@@ -359,7 +362,6 @@ const DrinkManagement = ({ navigation, route }) => {
             <DrorpDownInput label="Category"></DrorpDownInput>
             {checkType()}
           </StyledFormHome>
-        </ScrollView>
       </SafeAreaView>
     </View>
   );

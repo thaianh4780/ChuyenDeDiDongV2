@@ -30,6 +30,7 @@ import TotailExpenditure from "./screens/TotailExpenditure";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList } from "react-native-web";
 import TotalInput from "./screens/TotailInput";
+import TestThang from "./screens/TestThang";
 
 const Stack = createNativeStackNavigator();
 const Table = [
@@ -44,15 +45,6 @@ const Table = [
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <SafeAreaView>
-        <FlatList
-        numColumns={2}
-        data={Table}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item})=>(<TableChoosing table={item}/>)}>
-
-        </FlatList>
-      </SafeAreaView> */}
       <Stack.Navigator
         screenOptions={{
           cardStyle: {
@@ -76,10 +68,7 @@ const App = () => {
         <Stack.Screen name="DrinkUpdating" component={DrinkUpdating} />
         <Stack.Screen name="UserAdding" component={UserAdding} />
         <Stack.Screen name="UserUpdating" component={UserUpdating} />
-        <Stack.Screen
-          name="RegistDateManagement"
-          component={RegistDateManagement}
-        />
+        <Stack.Screen name="RegistDateManagement"  component={RegistDateManagement}/>
         <Stack.Screen name="SalaryManagement" component={SalaryManagement} />
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="TestTab" component={TestTab} />
@@ -89,7 +78,11 @@ const App = () => {
         <Stack.Screen name="TotailExpenditure" component={TotailExpenditure} />
         <Stack.Screen name="AdminManagement" component={AdminManagement} />
         <Stack.Screen name="TotalInput" component={TotalInput} />
+<<<<<<< HEAD
         <Stack.Screen name="TestTable" component={TestTable} />
+=======
+        <Stack.Screen name="TestThang" component={TestThang} />
+>>>>>>> main
       </Stack.Navigator>
     </NavigationContainer>
   );

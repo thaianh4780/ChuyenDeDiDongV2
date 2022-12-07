@@ -495,6 +495,7 @@ export const TableStyled = styled.View`
   width: 107%;
   height: 95%;
   background-color: ${primary};
+<<<<<<< HEAD
   top:2%;
   border-radius: 12px
 `
@@ -531,6 +532,13 @@ export const TableArea = styled.Text`
   font-size:22%;
   font-weight: bold;
 `
+=======
+  top: 2%;
+  border-radius: 12px;
+`;
+
+
+>>>>>>> main
 export const StyledHomeBrownLogo = styled.Image`
   color: ${primary};
   height: 60px;
@@ -538,4 +546,8 @@ export const StyledHomeBrownLogo = styled.Image`
   position: absolute;
   bottom: 15%;
   left: 5%;
+<<<<<<< HEAD
   `
+=======
+  `
+>>>>>>> main

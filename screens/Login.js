@@ -83,7 +83,11 @@ const Login = ({ navigation }) => {
                                         Login
                                     </ButtonText>
                                 </StyledButton>
+<<<<<<< HEAD
                                 {/* <StyledButton onPress={() => { navigation.navigate('Home') }}>
+=======
+                                <StyledButton onPress={() => { navigation.navigate('TestThang') }}>
+>>>>>>> main
                                     <ButtonText>
                                         Test
                                     </ButtonText>
