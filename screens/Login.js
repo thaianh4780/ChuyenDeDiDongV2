@@ -76,13 +76,12 @@ const Login = ({ navigation }) => {
                                 <StyledButton onPress={() => {
                                     login(values);
                                     HandleSubmit
-
                                 }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                                <StyledButton onPress={() => { navigation.navigate('TestThang') }}>
+                                <StyledButton onPress={() => { navigation.navigate('Home') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>
