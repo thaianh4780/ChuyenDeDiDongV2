@@ -34,14 +34,15 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 // const data = ["admin", "phuc vu", "thu ngan"];
 
 const DrinkUpdating = ({ navigation, route }) => {
+  const url = "http://172.20.10.4:3000/api/";
   // link danh muc
-  const urlCategory = "http://192.168.117.131:3000/api/category/list";
+  //const urlCategory = "http://192.168.117.131:3000/api/category/list";
 
   // link đồ uống theo id
-  const urlProductById = "http://192.168.117.131:3000/api/drink/";
+  //const urlProductById = "http://192.168.117.131:3000/api/drink/";
 
   // link update đồ uống
-  const urlUpdateProduct = "http://192.168.117.131:3000/api/drink/update/";
+  //const urlUpdateProduct = "http://192.168.117.131:3000/api/drink/update/";
 
   useEffect(() => {
     getListCategory();
@@ -60,7 +61,7 @@ const DrinkUpdating = ({ navigation, route }) => {
 
   const getDrinkById = async (id) => {
     //console.log("id: " + id);
-    await fetch(urlProductById + "" + id)
+    await fetch(url + "api/drink/" + id)
       .then((res) => res.json())
       .then((res) => {
         // console.log("DrinkById: ");
@@ -72,7 +73,7 @@ const DrinkUpdating = ({ navigation, route }) => {
   };
 
   const getListCategory = async () => {
-    await fetch(urlCategory)
+    await fetch(url + "category/list")
       .then((res) => res.json())
       .then((res) => {
         // console.log("category: ");
@@ -99,7 +100,7 @@ const DrinkUpdating = ({ navigation, route }) => {
     console.log("category: " + values.category);
     //console.log("key: " + categoryId);
 
-    fetch(urlUpdateProduct + "" + drinkId, {
+    fetch(url + "drink/update/" + drinkId, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({

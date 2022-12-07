@@ -22,7 +22,7 @@ import { Alert, StyleSheet, View } from "react-native";
 //Colors 
 const { brand, darkLight ,primary,blur } = Colors;
 const Login = ({ navigation }) => {
-    const url = "http://192.168.1.147:3000/api";
+    const url = "http://172.20.10.4:3000/api";
     const login = (values) => {
         console.log(values.password);
         fetch(url + '/user/login', {
