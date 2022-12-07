@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import Button from '../components/Button';
-import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
-import { Fontisto, Octicons } from "@expo/vector-icons";
+import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownLogo, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
+import { Fontisto, Octicons ,MaterialCommunityIcons } from "@expo/vector-icons";
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 const { brand, darkLight, black, primary, secondary } = Colors;
@@ -15,9 +15,7 @@ const Home = ({ navigation }) => {
                 <TouchableWithoutFeedback  onPress={() => {navigation.navigate('Login')}}>
                 <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
                 </TouchableWithoutFeedback >
-                <StyledHomeBrownText>
-                    Coffee Shop
-                </StyledHomeBrownText>
+                <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
             </StyledHomeBrownZone>
             <TestTab style={styles.tab} ></TestTab>
         </SafeAreaView>

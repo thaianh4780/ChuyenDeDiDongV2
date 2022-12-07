@@ -510,3 +510,13 @@ export const TableStyled = styled.View`
   top: 2%;
   border-radius: 12px;
 `;
+
+
+export const StyledHomeBrownLogo = styled.Image`
+  color: ${primary};
+  height: 60px;
+  width: 250px;
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  `
