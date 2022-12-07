@@ -14,9 +14,6 @@ const TestTab = () => {
       initialRouteName={"Critic"}
       tabBarOptions={{
         activeTintColor: brand,
-        // tabStyle: {
-        //   width: 100,
-        // },
         inactiveTintColor: black,
         indicatorStyle: {
           height: 2.1,
@@ -24,7 +21,6 @@ const TestTab = () => {
           width: 10,
           backgroundColor: brand,
           marginHorizontal: "8.5%",
-          // marginBottom:-1.2,
         },
         labelStyle: {
           fontSize: 14,
