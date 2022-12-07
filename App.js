@@ -78,11 +78,7 @@ const App = () => {
         <Stack.Screen name="TotailExpenditure" component={TotailExpenditure} />
         <Stack.Screen name="AdminManagement" component={AdminManagement} />
         <Stack.Screen name="TotalInput" component={TotalInput} />
-<<<<<<< HEAD
-        <Stack.Screen name="TestTable" component={TestTable} />
-=======
         <Stack.Screen name="TestThang" component={TestThang} />
->>>>>>> main
       </Stack.Navigator>
     </NavigationContainer>
   );

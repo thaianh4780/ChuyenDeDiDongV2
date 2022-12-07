@@ -1,8 +1,16 @@
 import styled from "styled-components";
 import { Constants } from "expo-constants";
-import { View, Text, Image, TextInput, TouchableOpacity, Button, Icon, } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  Button,
+  Icon,
+} from "react-native";
+import { AlexBrushRegular } from "../assets/fonts/AlexBrushRegular.ttf";
 
-//color
 //color
 export const Colors = {
   primary: "#ffffff",
@@ -11,10 +19,8 @@ export const Colors = {
   darkLight: "#1F2937",
   brand: "#a85b3c",
   light_brand: "#ce6b43",
-  neon_light_brand: "#f79166",
   //green: "#10B981",
   green: "#6bad3a",
-  deep_green: "#426a24",
   //red: "#EF4444",
   red: "#ad3a3a",
   // blue:"#0db1f0",
@@ -49,12 +55,6 @@ export const InnerContainer = styled.View`
   width: 100%;
   align-items: center;
 `;
-
-export const WelcomeContainer = styled(InnerContainer)`
-  padding-top:10px;
-  justify-content: center;
-`
-
 export const PageLogo = styled.Image`
   width: 150%;
   height: 55%;
@@ -125,6 +125,18 @@ export const ButtonText = styled.Text`
   font-size: 20%;
   font-weight: bold;
 `;
+
+
+
+
+
+
+export const WelcomeContainer = styled(InnerContainer)`
+  padding-top: 10px;
+  justify-content: center;
+`;
+
+
 
 export const HomePageLogo = styled.Image`
   width: 450px;
@@ -495,50 +507,11 @@ export const TableStyled = styled.View`
   width: 107%;
   height: 95%;
   background-color: ${primary};
-<<<<<<< HEAD
-  top:2%;
-  border-radius: 12px
-`
-export const TouchableHomeImage = styled.TouchableOpacity`
-  height:50px;
-  width:50px;
-  border-radius: 100px;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-`
-
-//IconComponent
-export const LayoutTable = styled.TouchableOpacity`
-  align-items: center;
-  justify-content: center;
-  border: 2px solid ${primary} ;
-  background-color: ${primary};
-  border-radius:10%;
-  padding-bottom:5% ;
-`
-
-export const TableName = styled.Text`
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: ${brand};
-  font-size:18%;
-`
-
-export const TableArea = styled.Text`
-  text-align: center;
-  color: ${brand};
-  font-size:22%;
-  font-weight: bold;
-`
-=======
   top: 2%;
   border-radius: 12px;
 `;
 
 
->>>>>>> main
 export const StyledHomeBrownLogo = styled.Image`
   color: ${primary};
   height: 60px;
@@ -546,8 +519,11 @@ export const StyledHomeBrownLogo = styled.Image`
   position: absolute;
   bottom: 15%;
   left: 5%;
-<<<<<<< HEAD
   `
-=======
-  `
->>>>>>> main
+  export const TouchableHomeLogo = styled.TouchableOpacity`
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+  margin-horizontal:45%; 
+  margin-vertical:2%;
+`

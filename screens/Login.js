@@ -22,7 +22,7 @@ import { Alert, StyleSheet, View } from "react-native";
 //Colors 
 const { brand, darkLight ,primary,blur } = Colors;
 const Login = ({ navigation }) => {
-    const url = "http://192.168.1.147:3000/api";
+    const url = "http://172.20.10.6:3000/api";
     const login = (values) => {
         console.log(values.password);
         fetch(url + '/user/login', {
@@ -74,24 +74,19 @@ const Login = ({ navigation }) => {
                                 </MyTextInput>
                                 <Line />
                                 <StyledButton onPress={() => {
-                                    // login(values);
+                                    login(values);
                                     navigation.navigate('Home')
                                     HandleSubmit
-
                                 }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-<<<<<<< HEAD
-                                {/* <StyledButton onPress={() => { navigation.navigate('Home') }}>
-=======
-                                <StyledButton onPress={() => { navigation.navigate('TestThang') }}>
->>>>>>> main
+                             <StyledButton onPress={() => { navigation.navigate('TestThang') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>
-                                </StyledButton> */}
+                                </StyledButton> 
                             </StyledFormArea>
                         )}
                     </Formik>

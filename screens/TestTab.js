@@ -7,7 +7,6 @@ import Home from "../screens/Home";
 import AdminManagement from "./AdminManagement";
 import DrinkChoosing from "./DrinkChoosing";
 import DrinkManagement from "./DrinkManagement";
-import Test from "./Test";
 import UserManagement from "./UserManagement";
 
 const Tab = createMaterialTopTabNavigator();

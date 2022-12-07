@@ -2,11 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import Button from '../components/Button';
 import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownLogo, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
-<<<<<<< HEAD
-import { Fontisto, Octicons } from "@expo/vector-icons";
-=======
 import { Fontisto, Octicons ,MaterialCommunityIcons } from "@expo/vector-icons";
->>>>>>> main
 import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 import { Formik } from 'formik';
@@ -31,10 +27,7 @@ const Home = ({ navigation }) => {
                     <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
                     <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
                 </TouchableWithoutFeedback >
-<<<<<<< HEAD
-=======
                 <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
->>>>>>> main
             </StyledHomeBrownZone>
             <TestTab style={styles.tab} ></TestTab>
         </SafeAreaView>

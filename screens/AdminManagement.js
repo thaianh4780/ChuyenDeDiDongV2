@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, } from 'react-
 import Button from '../components/Button';
 import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
 import { Fontisto } from "@expo/vector-icons";
-import TestTab from './TestTab';
 import { Colors } from '../components/styles';
 const { brand, darkLight, black, primary, secondary ,neon_blur ,light_brand } = Colors;
 
