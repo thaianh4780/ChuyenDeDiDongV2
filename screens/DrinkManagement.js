@@ -32,12 +32,11 @@ const { brand, darkLight, black, primary } = Colors;
 //Colors
 const DrinkManagement = ({ navigation, route }) => {
   // lấy tất cả đồ uống
-  const urlDrinkAll = "http://192.168.117.131:3000/api/drink/list";
-  const urlCategory = "http://192.168.117.131:3000/api/category/list";
-  const urlDrinkByCategory = "http://192.168.117.131:3000/api/drink/category/";
-  const urlSortIncreaseOnPrice =
-    "http://192.168.117.131:3000/api/drink/sortIncrease";
-  const urls = "http://192.168.117.131:3000/api/drink/delete/";
+  const urlDrinkAll = "http://192.168.1.144:3000/api/drink/list";
+  const urlCategory = "http://192.168.1.144:3000/api/category/list";
+  const urlDrinkByCategory = "http://192.168.1.144:3000/api/drink/category/";
+  const urlSortOnPrice = "http://192.168.1.144:3000/api/drink/";
+  const urls = "http://192.168.1.144:3000/api/drink/delete/";
 
   const [listDrink, setListDrink] = useState([]);
 
@@ -49,8 +48,13 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // check load category
   const [type, setType] = useState("");
+
+  // check load sort On Price
+  const [typeSort, setTypeSort] = useState("");
+
+  // đồ uống theo danh mục
   const [listDrinkByCategory, setListDrinkByCategory] = useState([]);
-  const [listDrinkOnPrice, setListDrinkOnPrice] = useState([]);
+  const [listSortDrinkOnPrice, setListSortDrinkOnPrice] = useState([]);
 
   // chạy dữ liệu 1 lần đầu
   useEffect(() => {
@@ -67,6 +71,12 @@ const DrinkManagement = ({ navigation, route }) => {
       getListDrinkByCategory();
     }
   }, [type]);
+
+  useEffect(() => {
+    if (typeSort) {
+      getListDrinkOnPrice();
+    }
+  }, [typeSort]);
 
   // lấy các danh mục ra
   const getListCategory = async () => {
@@ -134,13 +144,13 @@ const DrinkManagement = ({ navigation, route }) => {
 
   //
   const getListDrinkOnPrice = async () => {
-    await fetch(urlDrinkAll)
+    await fetch(urlSortOnPrice + "" + typeSort)
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
         var data = res.data;
         //setCheck(check + 1);
-        setListDrinkOnPrice(data);
+        setListSortDrinkOnPrice(data);
       })
       .catch((err) => console.log("ERR", err));
   };
@@ -156,6 +166,47 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // xuất các đồ uống thuộc 1 danh mục xuống giao diện
   const listDrinkCategory = listDrinkByCategory.map((item) => {
+    return (
+      <StyledDrinkTouchable style={styles.TouchableImage}>
+        <StyledDrinkTouchableImage
+          resizeMode="cover"
+          source={{ uri: `${item.image}` }}
+        />
+
+
+        <SDTText>
+          {item.name}
+        </SDTText>
+        <SDTPrice>{item.price}$</SDTPrice>
+        <StyledDrinkTouchableAdd
+          onPress={() => {
+            navigation.navigate("DrinkAdding");
+          }}
+        >
+          <SDTBtnText>Add</SDTBtnText>
+        </StyledDrinkTouchableAdd>
+        <StyledDrinkTouchableDelete
+          onPress={() => {
+            setCheck(!check), Alert.alert("Deleted");
+          }}
+        >
+          <SDTBtnText>Delete</SDTBtnText>
+        </StyledDrinkTouchableDelete>
+        <StyledDrinkTouchableEdit
+          onPress={() => {
+            navigation.navigate("DrinkUpdating", {
+              id: item._id,
+            }),
+              setCheck(!check);
+          }}
+        >
+          <SDTBtnText>Edit</SDTBtnText>
+        </StyledDrinkTouchableEdit>
+      </StyledDrinkTouchable>
+    );
+  });
+
+  const drinkOnPrice = listSortDrinkOnPrice.map((item) => {
     return (
       <StyledDrinkTouchable style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
@@ -269,29 +320,48 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // check xem có đang chọn 1 danh mục nào hay không ?
   const checkType = () => {
+    console.log(typeSort);
     if (type) {
       return listDrinkCategory;
+    } else if (typeSort) {
+      return drinkOnPrice;
     } else {
       return drinks;
     }
   };
 
+  const checkKey = () => {
+    setType(null), setCheck(!check), setTypeSort(null);
+  };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <ScrollView>
           <StyledFormHome>
             <StyledButton
               onPress={() => {
-                setCheck(!check), setType(null);
+                checkKey();
               }}
             >
               <ButtonText>All</ButtonText>
             </StyledButton>
+            <StyledButton
+              onPress={() => {
+                setType(null), setTypeSort("sortIncrease");
+              }}
+            >
+              <ButtonText>Tăng</ButtonText>
+            </StyledButton>
+            <StyledButton
+              onPress={() => {
+                setType(null), setTypeSort("sortDecrease");
+              }}
+            >
+              <ButtonText>Giảm</ButtonText>
+            </StyledButton>
             <DrorpDownInput label="Category"></DrorpDownInput>
             {checkType()}
           </StyledFormHome>
-        </ScrollView>
       </SafeAreaView>
     </View>
   );

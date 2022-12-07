@@ -10,27 +10,25 @@ import {
   StyledDrinkTouchableDelete,
   StyledDrinkTouchableEdit,
 } from "../components/styles";
+import { useIsFocused } from '@react-navigation/native';
 import {
   Alert,
   ScrollView,
   StyleSheet,
-  Text,
   View,
   SafeAreaView,
 } from "react-native";
-import TabBtn from "./TabBtn";
 //Colors
-const UserManagement = ({ navigation }) => {
-  const url = "http://192.168.43.243:3000/api/user/all";
-  //const url = "http://192.168.1.144:3000/api/drink/list";
+const UserManagement = ({navigation }) => {
+  //Values
+  const url = "http://192.168.117.119:3000/api";
   const [listUser, setListUser] = useState([]);
-  useEffect(() => {
-    getListUser();
-  }, []);
-  
-  const urls = "http://192.168.43.243:3000/api/user/delete/";
+  const isFocused = useIsFocused();
+  const [check, setCheck] = useState(false);
+  useEffect(() => { getListUser(); }, [check, isFocused]);
+  //get list user
   const getListUser = async () => {
-    await fetch(url)
+    await fetch(url + '/user/all')
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
@@ -39,52 +37,71 @@ const UserManagement = ({ navigation }) => {
       })
       .catch((err) => console.log("ERR", err));
   };
-
-  const deleteUser =async (id)=>{
-    //console.log(urls+""+id)
-    await fetch(urls+""+ id)
-      .then((res) => res.json())
-      .then((res) => {
-          console.log(res);
-        var data = res;
-        // setListUser(data);
-      })
-      .catch((err) => console.log("ERR", err));
+  //delete user by id
+  const createTwoButtonAlert = (id) =>
+    Alert.alert(
+      "Thông báo",
+      "bạn có chắc muốn xóa không",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => deleteUser(id) }
+      ]
+    );
+  const deleteUser = (id) => {
+    const url = url + '/user/delete/' + id;
+    fetch(url, {
+      method: 'DELETE',
+    }).then(res => res).then(data => {
+      console.log(data);
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setCheck(!check);
+        console.log(check);
+      }
+    })
   };
 
-  const users = listUser.map((item, index) => {
-    return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
-        <StyledDrinkTouchableImage
-          resizeMode="cover"
-          source={require("../assets/image/u3.png")}
-        ></StyledDrinkTouchableImage>
-        <SDTText> {item.user_name}</SDTText>
-        <SDTPrice>{item.role.role_name}</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => navigation.navigate("UserAdding")}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
-        <StyledDrinkTouchableDelete
-          onPress={() => deleteUser(item._id)}
-        >
-          <SDTBtnText>Delete</SDTBtnText>
-        </StyledDrinkTouchableDelete>
-        <StyledDrinkTouchableEdit
-          onPress={() => navigation.navigate("UserUpdating")}
-        >
-          <SDTBtnText>Edit</SDTBtnText>
-        </StyledDrinkTouchableEdit>
-      </StyledDrinkTouchable>
-    );
-  })
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <ScrollView>
           <StyledFormHome>
-            {users}
+            {listUser.map((item) => {
+              return (
+                <StyledDrinkTouchable style={styles.TouchableImage}>
+                  <StyledDrinkTouchableImage
+                    resizeMode="cover"
+                    source={require("../assets/image/u3.png")}
+                  ></StyledDrinkTouchableImage>
+                  <SDTText> {item.user_name}</SDTText>
+                  <SDTPrice>{item.role.role_name}</SDTPrice>
+                  <StyledDrinkTouchableAdd
+                    onPress={() => navigation.navigate("UserAdding")}
+                  >
+                    <SDTBtnText>Add</SDTBtnText>
+                  </StyledDrinkTouchableAdd>
+                  <StyledDrinkTouchableDelete
+                    onPress={() => {
+                      createTwoButtonAlert(item._id);
+                    }}
+                  >
+                    <SDTBtnText>Delete</SDTBtnText>
+                  </StyledDrinkTouchableDelete>
+                  <StyledDrinkTouchableEdit
+                    onPress={() => navigation.navigate("UserUpdating", { id: item._id })}
+                  >
+                    <SDTBtnText>Edit</SDTBtnText>
+                  </StyledDrinkTouchableEdit>
+                </StyledDrinkTouchable>
+              );
+            })}
+            {/* {users} */}
           </StyledFormHome>
         </ScrollView>
       </SafeAreaView>
