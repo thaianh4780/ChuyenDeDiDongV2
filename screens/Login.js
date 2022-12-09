@@ -23,21 +23,21 @@ import { Alert, StyleSheet, View } from "react-native";
 const { brand, darkLight ,primary,blur } = Colors;
 const Login = ({ navigation }) => {
     const url = "http://192.168.1.147:3000/api";
-    const login = (values) => {
-        console.log(values.password);
-        fetch(url + '/user/login', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(values),
-        }).then(res => res.json()).then(data => {
-            // console.log(data);
-            if (data.error) {
-                Alert.alert(data.error);
-            } else {
-                return navigation.navigate('Home');
-            }
-        })
-    };
+    // const login = (values) => {
+    //     console.log(values.password);
+    //     fetch(url + '/user/login', {
+    //         method: 'POST',
+    //         headers: { 'content-type': 'application/json' },
+    //         body: JSON.stringify(values),
+    //     }).then(res => res.json()).then(data => {
+    //         // console.log(data);
+    //         if (data.error) {
+    //             Alert.alert(data.error);
+    //         } else {
+    //             return navigation.navigate('Home');
+    //         }
+    //     })
+    // };
     return (
         <StyledContainer >
             <InnerContainer>
@@ -73,14 +73,14 @@ const Login = ({ navigation }) => {
                                 >
                                 </MyTextInput>
                                 <Line />
-                                <StyledButton onPress={() => {
+                                {/* <StyledButton onPress={() => {
                                     login(values);
                                     HandleSubmit
                                 }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
-                                </StyledButton>
+                                </StyledButton> */}
                                 <StyledButton onPress={() => { navigation.navigate('Home') }}>
                                     <ButtonText>
                                         Test
