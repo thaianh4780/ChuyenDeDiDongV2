@@ -74,15 +74,15 @@ const Login = ({ navigation }) => {
                                 </MyTextInput>
                                 <Line />
                                 <StyledButton onPress={() => {
-                                    login(values);
-                                    HandleSubmit
-
+                                    // login(values);
+                                    navigation.navigate('Home')
+                                    // HandleSubmit
                                 }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                                <StyledButton onPress={() => { navigation.navigate('TestThang') }}>
+                                <StyledButton onPress={() => { navigation.navigate('Home') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>

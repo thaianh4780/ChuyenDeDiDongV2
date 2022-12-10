@@ -73,7 +73,7 @@ export const FormLog = styled.View`
 
 export const StyledInputLabel = styled.Text`
   color: ${tertiary};
-  font-size: 18%;
+  font-size: 18px;
   text-align: left;
   font-weight: bold;
   padding-left: 2%;
@@ -83,7 +83,7 @@ export const StyledTextInput = styled.TextInput`
   background: ${secondary};
   padding-left: 20%;
   border-radius: 5px;
-  font-size: 16%;
+  font-size: 16px;
   height: 60px;
   color: ${tertiary};
   margin-vertical: 3%;
@@ -102,7 +102,7 @@ export const LeftIcon = styled.View`
 `;
 
 export const PageTitle = styled.Text`
-  font-size: 35%;
+  font-size: 35px;
   text-align: center;
   font-weight: bold;
   color: ${brand};
@@ -122,7 +122,7 @@ export const StyledButton = styled.TouchableOpacity`
 
 export const ButtonText = styled.Text`
   color: ${primary};
-  font-size: 20%;
+  font-size: 20px;
   font-weight: bold;
 `;
 
@@ -320,7 +320,7 @@ export const StyledDrinkTouchablePrice = styled.Text`
 
 export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
   position: absolute;
-  top: 25px;
+  top: 20px;
   left: 320px;
   height: 50px;
   width: 50px;
@@ -520,3 +520,18 @@ export const StyledHomeBrownLogo = styled.Image`
   bottom: 15%;
   left: 5%;
   `
+  export const TouchableHomeLogo = styled.TouchableOpacity`
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+  margin-horizontal:45%; 
+  margin-vertical:2%;
+`
+
+export const SHBZ = styled.View`
+background-color: ${brand};
+width: 100%;
+height: 130px;
+border-bottom-left-radius: 50px;
+overflow: hidden;
+`
