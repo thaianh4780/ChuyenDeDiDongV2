@@ -26,18 +26,12 @@ import TabBtn from "./TabBtn";
 import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Button from "../components/Button";
+import url from "../Url";
 
 const { brand, darkLight, black, primary } = Colors;
 
 //Colors
 const DrinkManagement = ({ navigation, route }) => {
-  // lấy tất cả đồ uống
-  const urlDrinkAll = "http://192.168.1.144:3000/api/drink/list";
-  const urlCategory = "http://192.168.1.144:3000/api/category/list";
-  const urlDrinkByCategory = "http://192.168.1.144:3000/api/drink/category/";
-  const urlSortOnPrice = "http://192.168.1.144:3000/api/drink/";
-  const urls = "http://192.168.1.144:3000/api/drink/delete/";
-
   const [listDrink, setListDrink] = useState([]);
 
   //check load dữ liệu tất cả đồ uống
@@ -80,7 +74,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // lấy các danh mục ra
   const getListCategory = async () => {
-    await fetch(urlCategory)
+    await fetch(url + "category/list")
       .then((res) => res.json())
       .then((res) => {
         // console.log(res.data);
@@ -92,7 +86,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // lấy các đồ uống thuộc 1 danh mục
   const getListDrinkByCategory = async () => {
-    await fetch(urlDrinkByCategory + "" + type)
+    await fetch(url + "drink/category/" + type)
       .then((res) => res.json())
       .then((res) => {
         // console.log("drink by category: ");
@@ -105,7 +99,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // lấy tất cả đồ uống
   const getListDrink = async () => {
-    await fetch(urlDrinkAll)
+    await fetch(url + "drink/list")
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
@@ -129,7 +123,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   const deleteDrink = async (id) => {
     // console.log(urls+""+id)
-    await fetch(urls + "" + id, {
+    await fetch(url + "drink/delete/" + id, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -144,7 +138,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   //
   const getListDrinkOnPrice = async () => {
-    await fetch(urlSortOnPrice + "" + typeSort)
+    await fetch(url + "drink/" + typeSort)
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
@@ -171,12 +165,8 @@ const DrinkManagement = ({ navigation, route }) => {
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
-        />
-
-
-        <SDTText>
-          {item.name}
-        </SDTText>
+        ></StyledDrinkTouchableImage>
+        <SDTText>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
         <StyledDrinkTouchableAdd
           onPress={() => {
@@ -337,6 +327,7 @@ const DrinkManagement = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        <ScrollView>
           <StyledFormHome>
             <StyledButton
               onPress={() => {
@@ -362,6 +353,7 @@ const DrinkManagement = ({ navigation, route }) => {
             <DrorpDownInput label="Category"></DrorpDownInput>
             {checkType()}
           </StyledFormHome>
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
