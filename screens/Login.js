@@ -20,7 +20,7 @@ import { Formik } from "formik";
 import { Alert, StyleSheet, View } from "react-native";
 
 //Colors 
-const { brand, darkLight ,primary,blur } = Colors;
+const { brand, darkLight, primary, blur } = Colors;
 const Login = ({ navigation }) => {
     const url = "http://172.20.10.6:3000/api";
     const login = (values) => {
@@ -75,18 +75,17 @@ const Login = ({ navigation }) => {
                                 <Line />
                                 <StyledButton onPress={() => {
                                     login(values);
-                                    navigation.navigate('Home')
                                     HandleSubmit
                                 }} >
                                     <ButtonText>
                                         Login
                                     </ButtonText>
                                 </StyledButton>
-                             <StyledButton onPress={() => { navigation.navigate('TestThang') }}>
+                                {/* <StyledButton onPress={() => { navigation.navigate('Home') }}>
                                     <ButtonText>
                                         Test
                                     </ButtonText>
-                                </StyledButton> 
+                                </StyledButton> */}
                             </StyledFormArea>
                         )}
                     </Formik>
@@ -122,10 +121,10 @@ const styles = StyleSheet.create({
         backgroundColor: brand,
     },
     TouchableImage: {
-        elevation:10,
+        elevation: 10,
         padding: 20,
         shadowColor: "#1F2937",
-        shadowOpacity: .25, 
+        shadowOpacity: .25,
         shadowRadius: 2,
         shadowOffset: {
             height: 1,
