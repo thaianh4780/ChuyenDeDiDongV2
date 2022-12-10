@@ -56,15 +56,17 @@ const DrinkManagement = ({ navigation, route }) => {
   }, []);
 
   // chạy dữ liệu khi có sự thay đổi
-  useEffect(() => {
-    getListDrink();
-  }, [check]);
+  // useEffect(() => {
+  //   getListDrink();
+  // }, [check]);
 
   useEffect(() => {
     if (type) {
       getListDrinkByCategory();
+    } else {
+      getListDrink();
     }
-  }, [type]);
+  }, [type, check]);
 
   useEffect(() => {
     if (typeSort) {
@@ -122,7 +124,6 @@ const DrinkManagement = ({ navigation, route }) => {
     ]);
 
   const deleteDrink = async (id) => {
-    // console.log(urls+""+id)
     await fetch(url + "drink/delete/" + id, {
       method: "DELETE",
     })
@@ -130,8 +131,6 @@ const DrinkManagement = ({ navigation, route }) => {
       .then((res) => {
         console.log(res);
         setCheck(!check);
-        // var data = res.data;
-        //  setList(res);
       })
       .catch((err) => console.log("ERR", err));
   };
@@ -141,9 +140,8 @@ const DrinkManagement = ({ navigation, route }) => {
     await fetch(url + "drink/" + typeSort)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
         var data = res.data;
-        //setCheck(check + 1);
+
         setListSortDrinkOnPrice(data);
       })
       .catch((err) => console.log("ERR", err));
@@ -151,11 +149,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // xuất danh mục xuống dropdown
   const dataCategory = listCategory.map((item) => {
-    return (
-      <Text key={item._id} onPress={() => setType(item._id)}>
-        {item.name}
-      </Text>
-    );
+    return <Text key={item._id}>{item.name}</Text>;
   });
 
   // xuất các đồ uống thuộc 1 danh mục xuống giao diện
@@ -176,9 +170,7 @@ const DrinkManagement = ({ navigation, route }) => {
           <SDTBtnText>Add</SDTBtnText>
         </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
-          onPress={() => {
-            setCheck(!check), Alert.alert("Deleted");
-          }}
+          onPress={() => createTwoButtonAlert(item._id)}
         >
           <SDTBtnText>Delete</SDTBtnText>
         </StyledDrinkTouchableDelete>
@@ -213,9 +205,7 @@ const DrinkManagement = ({ navigation, route }) => {
           <SDTBtnText>Add</SDTBtnText>
         </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
-          onPress={() => {
-            setCheck(!check), Alert.alert("Deleted");
-          }}
+          onPress={() => createTwoButtonAlert(item._id)}
         >
           <SDTBtnText>Delete</SDTBtnText>
         </StyledDrinkTouchableDelete>
@@ -350,7 +340,7 @@ const DrinkManagement = ({ navigation, route }) => {
             >
               <ButtonText>Giảm</ButtonText>
             </StyledButton>
-            <DrorpDownInput label="Category"></DrorpDownInput>
+            <DrorpDownInput></DrorpDownInput>
             {checkType()}
           </StyledFormHome>
         </ScrollView>
