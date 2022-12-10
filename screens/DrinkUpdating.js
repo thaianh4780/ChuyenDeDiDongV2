@@ -24,24 +24,28 @@ import {
   UULabel,
   UUInput,
   FormUpdate,
+  StyledDrinkTouchableImage,
 } from "../components/styles";
 import { Formik } from "formik";
-import { StyleSheet, View, Text, Alert } from "react-native";
+import { StyleSheet, View, Text, Alert, TouchableOpacity } from "react-native";
 import Button from "../components/Button";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import * as ImagePicker from "expo-image-picker";
+import url from "../Url";
 //Colors
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 // const data = ["admin", "phuc vu", "thu ngan"];
 
 const DrinkUpdating = ({ navigation, route }) => {
+  //const url = "http://172.20.10.4:3000/api/";
   // link danh muc
-  const urlCategory = "http://192.168.117.131:3000/api/category/list";
+  //const urlCategory = "http://192.168.117.131:3000/api/category/list";
 
   // link đồ uống theo id
-  const urlProductById = "http://192.168.117.131:3000/api/drink/";
+  //const urlProductById = "http://192.168.117.131:3000/api/drink/";
 
   // link update đồ uống
-  const urlUpdateProduct = "http://192.168.117.131:3000/api/drink/update/";
+  //const urlUpdateProduct = "http://192.168.117.131:3000/api/drink/update/";
 
   useEffect(() => {
     getListCategory();
@@ -52,35 +56,77 @@ const DrinkUpdating = ({ navigation, route }) => {
   const [drink, setDrink] = useState("");
   const [categoryId, setCategoryId] = useState("");
 
-  const id = route.params.id;
-  const drinkId = drink._id;
+  // lưu link ảnh để up lên database
+  const [image, setImage] = useState("");
 
-  //console.log
-  //console.log("TOM NGU: " + drink.price);
+  // lưu ảnh đã chọn, chụp
+  const [picture, setPicture] = useState([]);
+
+  const id = route.params.id;
+  const drinkId = id;
 
   const getDrinkById = async (id) => {
-    //console.log("id: " + id);
-    await fetch(urlProductById + "" + id)
+    await fetch(url + "drink/" + id)
       .then((res) => res.json())
       .then((res) => {
-        // console.log("DrinkById: ");
-        // console.log(res.data);
         var data = res.data;
         setDrink(data);
+        setImage(data.image);
       })
       .catch((err) => console.log("ERR", err));
   };
 
   const getListCategory = async () => {
-    await fetch(urlCategory)
+    await fetch(url + "category/list")
       .then((res) => res.json())
       .then((res) => {
-        // console.log("category: ");
-        // console.log(res.data);
         var data = res.data;
         setListCategory(data);
       })
       .catch((err) => console.log("ERR", err));
+  };
+
+  const chooseImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+      base64: true,
+    });
+    setImage(result.assets[0].uri);
+
+    setPicture(result.assets[0]);
+  };
+
+  const uploadImage = async () => {
+    if (!picture.canceled) {
+      //Upload imgage to cloudinary
+      let base64Img = `data:image/jpg;base64,${picture.base64}`;
+      let data = {
+        file: base64Img,
+        upload_preset: "ImageProject",
+      };
+      await fetch("https://api.cloudinary.com/v1_1/dborrd4h5/image/upload", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          //console.log(data.url);
+          console.log("Upload success");
+          setImage(data.url);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      //console.log("kikiki");
+      Alert.alert("is canceled");
+    }
   };
 
   const updateDrink = async (values) => {
@@ -96,18 +142,19 @@ const DrinkUpdating = ({ navigation, route }) => {
       values.category = categoryId;
     }
 
-    console.log("category: " + values.category);
+    //console.log("category: " + values.category);
     //console.log("key: " + categoryId);
+    const data = {
+      name: values.name,
+      price: values.price,
+      image: image,
+      category: values.category,
+    };
 
-    fetch(urlUpdateProduct + "" + drinkId, {
+    fetch(url + "drink/update/" + drinkId, {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        name: values.name,
-        price: values.price,
-        // //file: values.file,
-        category: values.category,
-      }),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -118,6 +165,21 @@ const DrinkUpdating = ({ navigation, route }) => {
           Alert.alert("update is success!");
         }
       });
+  };
+
+  const cameraImage = async () => {
+    let options = {
+      storageOptions: {
+        path: "images",
+        mediaType: "photo",
+      },
+      base64: true,
+    };
+    const result = await ImagePicker.launchCameraAsync(options);
+
+    setImage(result.assets[0].uri);
+
+    setPicture(result.assets[0]);
   };
 
   const drinkById = () => {
@@ -145,21 +207,47 @@ const DrinkUpdating = ({ navigation, route }) => {
           onBlur={handleBlur("price")}
           value={values.price}
         ></MyTextInput>
+        {image && (
+          <StyledDrinkTouchableImage
+            resizeMode="cover"
+            source={{ uri: `${image}` }}
+          ></StyledDrinkTouchableImage>
+        )}
 
-        <MyTextInput
-          label="Image Link"
-          placeholder={drink.image}
-          placeholderTextColor={blur}
-          onChangeText={handleChange("image")}
-          onBlur={handleBlur("image")}
-          value={values.image}
-        ></MyTextInput>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => chooseImage()}
+        >
+          <Text style={styles.buttonTextStyle}>Select File</Text>
+          {/* {image && (
+            <Image
+              source={{ uri: image }}
+              style={{ width: 200, height: 200, marginTop: 20 }}
+            />
+          )} */}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => cameraImage()}
+        >
+          <Text style={styles.buttonTextStyle}>Select Camera</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => uploadImage()}
+        >
+          <Text style={styles.buttonTextStyle}>Upload</Text>
+        </TouchableOpacity>
+
         <Line></Line>
         <StyledButton
           onPress={() => {
             updateDrink(values);
-            console.log("value: ");
-            console.log(values);
+            // console.log("value: ");
+            // console.log(values);
 
             // navigation.navigate("Home"),
             //   Alert.alert("Done Update"),
@@ -226,10 +314,9 @@ const DrinkUpdating = ({ navigation, route }) => {
               name: "",
               price: "",
               category: "",
-              image: "",
             }}
             onSubmit={(values) => {
-              console.log(values);
+              //console.log(values);
             }}
           >
             {drinkById()}
@@ -249,6 +336,23 @@ const MyTextInput = ({ label, icon, ...props }) => {
 };
 
 const styles = StyleSheet.create({
+  buttonStyle: {
+    backgroundColor: "#307ecc",
+    borderWidth: 0,
+    color: "#FFFFFF",
+    borderColor: "#307ecc",
+    height: 40,
+    alignItems: "center",
+    borderRadius: 30,
+    marginLeft: 35,
+    marginRight: 35,
+    marginTop: 15,
+  },
+  buttonTextStyle: {
+    color: "#FFFFFF",
+    paddingVertical: 10,
+    fontSize: 16,
+  },
   TouchableImage: {
     padding: 20,
     shadowColor: "#1F2937",
