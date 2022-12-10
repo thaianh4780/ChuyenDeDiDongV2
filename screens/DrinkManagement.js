@@ -26,20 +26,12 @@ import TabBtn from "./TabBtn";
 import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Button from "../components/Button";
+import url from "../Url";
 
 const { brand, darkLight, black, primary } = Colors;
 
 //Colors
 const DrinkManagement = ({ navigation, route }) => {
-  // lấy tất cả đồ uống
-  const url = "http://172.20.10.4:3000/api/";
-
-  //const urlDrinkAll = "http://192.168.1.144:3000/api/drink/list";
-  //const urlCategory = "http://192.168.1.144:3000/api/category/list";
-  //const urlDrinkByCategory = "http://192.168.1.144:3000/api/drink/category/";
-  //const urlSortOnPrice = "http://192.168.1.144:3000/api/drink/";
-  //const urls = "http://192.168.1.144:3000/api/drink/delete/";
-
   const [listDrink, setListDrink] = useState([]);
 
   //check load dữ liệu tất cả đồ uống
