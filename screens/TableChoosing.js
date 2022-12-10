@@ -1,128 +1,113 @@
-// import React from 'react';
-
-// import { StyleSheet, Text, View, FlatList, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
-// import { PageTitle, StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
-
-// import styled from 'styled-components';
-// import { Fontisto } from "@expo/vector-icons";
-// import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-
-// const data = [{ key: 'Bàn 1' },
-// { key: 'Bàn 2' },
-// { key: 'Bàn 3' },
-// { key: 'Bàn 4' },
-// { key: 'Bàn 5' },
-// { key: 'Bàn 6' },
-// { key: 'Bàn 7' },];
-// const numColumns = 2;
-
-
-// import { Colors } from '../components/styles';
-// const { brand, darkLight, black, primary, secondary, neon_blur, light_brand } = Colors;
-// const formatData = (data, numColumns) => {
-//     const numberOfFullRows = Math.floor(data.length / numColumns)
-//     let munberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-//     while (munberOfElementsLastRow !== numColumns && munberOfElementsLastRow !== 0) {
-//         data.push({ key: `blank-${munberOfElementsLastRow}`, empty: true });
-//         munberOfElementsLastRow = munberOfElementsLastRow + 1;
-//     }
-//     return data;
-// }
-
-// export default class TableChoosing extends React.Component {
-//     renderItem = ({ item, index , navigation }) => {
-//         if (item.empty === true) {
-//             return (
-//                 <TouchableOpacity >
-//                     <MaterialCommunityIcons style={styles.icons} name='desk' />
-//                 </TouchableOpacity>
-//             )
-//         }
-//         return (
-//             <View style={styles.item}>
-//                 <TouchableOpacity >
-//                     <MaterialCommunityIcons style={styles.icons} name='desk' />
-//                 </TouchableOpacity>
-//                 <View style={{ flex: 1, justifyContent: 'center', textAlign: 'center', flexDirection: "row" }}>
-//                     <Text style={{ color: brand, fontSize: 20, marginHorizontal:"3%", justifyContent: 'center', alignItems: 'center'}}>{item.key}</Text>
-//                     <Text style={{ color: brand, fontSize: 20, marginHorizontal:"3%", justifyContent: 'center', alignItems: 'center'}}>{item.key}</Text>
-//                 </View>
-//             </View >
-//         );
-//     };
-//     render( navigation) {
-//         return (
-//             <View style={styles.container}>
-//                 <PageTitle>TableChoosing</PageTitle>
-//                 <FlatList
-//                     data={data}
-//                     style={styles.container}
-//                     renderItem={this.renderItem}
-//                     // keyExtractor={(item, index) => index.toString()}
-//                     numColumns={numColumns}>
-//                 </FlatList>
-//             </View>
-//         )
-//     }
-// }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         marginVertical: 50,
-//     },
-//     item: {
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//         margin: 10,
-//         height: Dimensions.get('window').width / numColumns-30,
-//     },
-//     itemInvisible: {
-//         backgroundColor: 'transparent',
-//     },
-//     itemText: {
-//         color: brand,
-//         fontSize: 20,
-//     },
-//     home: {
-//         flex: 1,
-//         flexDirection: 'row',
-//         flexWrap: 'wrap',
-//         alignItems: 'flex-start'
-//     },
-//     title: {
-//         textAlign: 'center',
-//     },
-//     iconic: {
-//         height: 100,
-//         width: 100
-//     },
-//     icons: {
-//         fontSize: 140,
-//         color: '#a85b3c',
-//         marginHorizontal: 20,
-//     },
-//     scll: {
-//         width: '50%' // is 50% of container width
-//     },
-//     sclr: {
-//         width: '-50%' // is 50% of container width
-//     }
-
-// });
-
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { Colors, SHBZ, StyledDrinkTouchableBtn, StyledHomeBrownLogo, TouchableHomeLogo } from '../components/styles';
+const { brand, darkLight, primary, blur, neon_light_brand, red, neon_blur, green, blue } = Colors;
+import { MaterialCommunityIcons, Fontisto ,Ionicons} from '@expo/vector-icons';
 
-const TableChoosing = () => {
+
+
+const TableChoosing = ({navigation}) => {
   return (
-    <View>
-      <Text>TableChoosing</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <SHBZ>
+        <TouchableHomeLogo onPress={() => { navigation.navigate('Home') }}>
+          <Fontisto style={styles.logo} name="coffeescript" />
+        </TouchableHomeLogo>
+        <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
+      </SHBZ>
+      <ScrollView style={styles.scrollView}>
+        <TouchableOpacity style={[styles.Touch, styles.shadow]}>
+          <View style={[styles.item]}>
+            <MaterialCommunityIcons style={styles.icons} name='desk' />
+            <View style={styles.textArea}>
+              <Text numberOfLines={1} style={styles.nametext}>Bàn 1</Text>
+              <Text numberOfLines={1} style={styles.nametext}>Khu A</Text>
+            </View>
+          </View>
+          <StyledDrinkTouchableBtn onPress={() => navigation.navigate('Total')} >
+            <Ionicons style={styles.drop_icons} name='ios-arrow-forward-circle-outline' />
+          </StyledDrinkTouchableBtn>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
 export default TableChoosing
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  Touch: {
+    width: '90%',
+    backgroundColor: primary,
+    borderRadius: 25,
+    marginHorizontal: "5%",
+    marginVertical: "2%",
+  },
+  scrollView: {
+    flex: 1,
+    marginTop: "5%",
+    backgroundColor: neon_blur,
+  },
+  item: {
+    width: "120%",
+    height: 90,
+    flexDirection: "row",
+    padding: '3%',
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textArea: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  nametext: {
+    fontSize: 23,
+    textAlign: "left",
+    fontWeight: 'bold',
+    color: brand,
+    marginLeft: '7%',
+  },
+  text: {
+    marginHorizontal: "7%",
+    fontWeight: 'bold',
+    fontSize: 17,
+  },
+  shadow: {
+    elevation: 10,
+    shadowColor: "#1F2937",
+    shadowOpacity: .25,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 3
+    }
+  },
+  green: {
+    backgroundColor: green,
+  },
+  blue: {
+    backgroundColor: blue,
+  },
+  icons: {
+    fontSize: 75,
+    color: brand,
+  },
+  logo: {
+    paddingTop: "5%",
+    fontSize: 25,
+    textAlign: "center",
+    color: primary,
+  },
+  drop_icons: {
+    position: "absolute",
+    top:"50%",
+    left:"20%",
+    fontSize: 30,
+    color: primary,
+    
+  },
+})

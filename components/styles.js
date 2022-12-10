@@ -320,7 +320,7 @@ export const StyledDrinkTouchablePrice = styled.Text`
 
 export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
   position: absolute;
-  top: 25px;
+  top: 20px;
   left: 320px;
   height: 50px;
   width: 50px;
@@ -526,4 +526,12 @@ export const StyledHomeBrownLogo = styled.Image`
   border-radius: 100px;
   margin-horizontal:45%; 
   margin-vertical:2%;
+`
+
+export const SHBZ = styled.View`
+background-color: ${brand};
+width: 100%;
+height: 130px;
+border-bottom-left-radius: 50px;
+overflow: hidden;
 `
