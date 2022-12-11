@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Fontisto, Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 const { brand, darkLight, black, primary, blue } = Colors;
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import url from "../Url";
 import {
   StyledFormHome,
@@ -25,7 +25,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import url from "../Url";
+//import url from "../Url";
 //Colors
 const UserManagement = ({ navigation }) => {
   //Values
@@ -38,7 +38,7 @@ const UserManagement = ({ navigation }) => {
   }, [check, isFocused]);
   //get list user
   const getListUser = async () => {
-    await fetch(url + '/user/all')
+    await fetch(url + "user/all")
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -74,20 +74,30 @@ const UserManagement = ({ navigation }) => {
       });
   };
 
-
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "2%", marginBottom: "5%" }}>
-          <DrorpDownInput
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginHorizontal: "2%",
+            marginBottom: "5%",
+          }}
+        >
+          {/* <DrorpDownInput
           // onSelect={handleChange('role')}
           // value={values.role}
-          >
-          </DrorpDownInput>
-          <View >
-            <TouchableOpacity style={styles.addBtn} onPress={() => { navigation.navigate("UserAdding"); }} >
+          ></DrorpDownInput> */}
+          <View>
+            {/* <TouchableOpacity
+              style={styles.addBtn}
+              onPress={() => {
+                navigation.navigate("UserAdding");
+              }}
+            >
               <MaterialCommunityIcons name="water-plus" style={styles.icon} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
         <ScrollView>
@@ -101,20 +111,26 @@ const UserManagement = ({ navigation }) => {
                   ></StyledDrinkTouchableImage>
                   <SDTText> {item.user_name}</SDTText>
                   <SDTPrice>{item.role.role_name}</SDTPrice>
-                  <StyledDrinkTouchableDelete
+                  {/* <StyledDrinkTouchableDelete
                     onPress={() => {
                       createTwoButtonAlert(item._id);
                     }}
                   >
-                    <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+                    <MaterialCommunityIcons
+                      name="trash-can"
+                      style={styles.icon}
+                    />
                   </StyledDrinkTouchableDelete>
                   <StyledDrinkTouchableEdit
                     onPress={() =>
                       navigation.navigate("UserUpdating", { id: item._id })
                     }
                   >
-                    <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
-                  </StyledDrinkTouchableEdit>
+                    <MaterialCommunityIcons
+                      name="tooltip-edit"
+                      style={styles.icon}
+                    />
+                  </StyledDrinkTouchableEdit> */}
                 </StyledDrinkTouchable>
               );
             })}
@@ -176,7 +192,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: 5,
     backgroundColor: primary,
-  }
+  },
 });
 
 export default UserManagement;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Fontisto, Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-
 import {
   StyledFormHome,
   StyledDrinkTouchable,
@@ -163,12 +162,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText numberOfLines={1} >{item.name}</SDTText>
+        <SDTText numberOfLines={1}>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+          {/* <MaterialCommunityIcons name="trash-can" style={styles.icon} /> */}
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -178,7 +177,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
+          {/* <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} /> */}
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -191,12 +190,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText numberOfLines={1} >{item.name}</SDTText>
+        <SDTText numberOfLines={1}>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+          {/* <MaterialCommunityIcons name="trash-can" style={styles.icon} /> */}
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -206,7 +205,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
+          {/* <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} /> */}
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -256,12 +255,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText numberOfLines={1} >{item.name}</SDTText>
+        <SDTText numberOfLines={1}>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+          {/* <MaterialCommunityIcons name="trash-can" style={styles.icon} /> */}
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -271,7 +270,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
+          {/* <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} /> */}
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -295,28 +294,62 @@ const DrinkManagement = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "2%", marginBottom: "5%" }}>
-        <View style={{ flexDirection: "row" }} >
-          <TouchableOpacity style={styles.leftBtn} onPress={() => { checkKey() }} >
-            <MaterialCommunityIcons name="bookmark-multiple" style={styles.icon} />
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginHorizontal: "2%",
+          marginBottom: "5%",
+        }}
+      >
+        {/* <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={styles.leftBtn}
+            onPress={() => {
+              checkKey();
+            }}
+          >
+            <MaterialCommunityIcons
+              name="bookmark-multiple"
+              style={styles.icon}
+            />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.leftBtn} onPress={() => { setType(null), setTypeSort("sortIncrease"); }} >
-            <MaterialCommunityIcons name="arrow-up-bold-circle" style={styles.icon} />
+          <TouchableOpacity
+            style={styles.leftBtn}
+            onPress={() => {
+              setType(null), setTypeSort("sortIncrease");
+            }}
+          >
+            <MaterialCommunityIcons
+              name="arrow-up-bold-circle"
+              style={styles.icon}
+            />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.leftBtn} onPress={() => { setType(null), setTypeSort("sortDecrease"); }} >
-            <MaterialCommunityIcons name="arrow-down-bold-circle" style={styles.icon} />
+          <TouchableOpacity
+            style={styles.leftBtn}
+            onPress={() => {
+              setType(null), setTypeSort("sortDecrease");
+            }}
+          >
+            <MaterialCommunityIcons
+              name="arrow-down-bold-circle"
+              style={styles.icon}
+            />
           </TouchableOpacity>
-        </View>
+        </View> */}
         <DrorpDownInput />
-        <View >
-          <TouchableOpacity style={styles.addBtn} onPress={() => { navigation.navigate("DrinkAdding"); }} >
-            <MaterialCommunityIcons name="water-plus" style={styles.icon} />
+        <View>
+          <TouchableOpacity
+            style={styles.addBtn}
+            onPress={() => {
+              navigation.navigate("DrinkAdding");
+            }}
+          >
+            {/* <MaterialCommunityIcons name="water-plus" style={styles.icon} /> */}
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView>
-        {checkType()}
-      </ScrollView>
+      <ScrollView>{checkType()}</ScrollView>
     </SafeAreaView>
   );
 };
@@ -374,7 +407,7 @@ const styles = StyleSheet.create({
     left: -103,
     borderRadius: 5,
     backgroundColor: primary,
-  }
+  },
 });
 
 export default DrinkManagement;
