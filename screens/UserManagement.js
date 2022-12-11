@@ -10,7 +10,7 @@ import {
   StyledDrinkTouchableDelete,
   StyledDrinkTouchableEdit,
 } from "../components/styles";
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused } from "@react-navigation/native";
 import {
   Alert,
   ScrollView,
@@ -18,20 +18,23 @@ import {
   View,
   SafeAreaView,
 } from "react-native";
+import url from "../Url";
 //Colors
-const UserManagement = ({navigation }) => {
+const UserManagement = ({ navigation }) => {
   //Values
-  const url = "http://192.168.117.119:3000/api";
+  //const url = "http://192.168.117.119:3000/api";
   const [listUser, setListUser] = useState([]);
   const isFocused = useIsFocused();
   const [check, setCheck] = useState(false);
-  useEffect(() => { getListUser(); }, [check, isFocused]);
+  useEffect(() => {
+    getListUser();
+  }, [check, isFocused]);
   //get list user
   const getListUser = async () => {
-    await fetch(url + '/user/all')
+    await fetch(url + "user/all")
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         var data = res;
         setListUser(data);
       })
@@ -39,33 +42,30 @@ const UserManagement = ({navigation }) => {
   };
   //delete user by id
   const createTwoButtonAlert = (id) =>
-    Alert.alert(
-      "Thông báo",
-      "bạn có chắc muốn xóa không",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => deleteUser(id) }
-      ]
-    );
+    Alert.alert("Thông báo", "bạn có chắc muốn xóa không", [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "OK", onPress: () => deleteUser(id) },
+    ]);
   const deleteUser = (id) => {
-    const url = url + '/user/delete/' + id;
+    const url = url + "/user/delete/" + id;
     fetch(url, {
-      method: 'DELETE',
-    }).then(res => res).then(data => {
-      console.log(data);
-      if (data.error) {
-        console.log(data.error);
-      } else {
-        setCheck(!check);
-        console.log(check);
-      }
+      method: "DELETE",
     })
+      .then((res) => res)
+      .then((data) => {
+        console.log(data);
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          setCheck(!check);
+          console.log(check);
+        }
+      });
   };
-
 
   return (
     <View style={styles.container}>
@@ -94,7 +94,9 @@ const UserManagement = ({navigation }) => {
                     <SDTBtnText>Delete</SDTBtnText>
                   </StyledDrinkTouchableDelete>
                   <StyledDrinkTouchableEdit
-                    onPress={() => navigation.navigate("UserUpdating", { id: item._id })}
+                    onPress={() =>
+                      navigation.navigate("UserUpdating", { id: item._id })
+                    }
                   >
                     <SDTBtnText>Edit</SDTBtnText>
                   </StyledDrinkTouchableEdit>
