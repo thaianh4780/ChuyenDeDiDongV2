@@ -10,7 +10,7 @@ const { brand, darkLight, black, primary, secondary, blue } = Colors;
 
 const TestThang = () => {
     return (
-        <View style={styles.container}>
+        <View style={styles.newBtn}>
             <View style={styles.threeBtn}>
                 <TouchableOpacity style={styles.leftBtn}>
                     <MaterialCommunityIcons name="bookmark-multiple" style={styles.icon} />
@@ -39,7 +39,7 @@ const TestThang = () => {
 export default TestThang
 
 const styles = StyleSheet.create({
-    container: {
+    newBtn: {
         flex: 1,
         flexDirection: 'row',
         marginHorizontal: '5%',

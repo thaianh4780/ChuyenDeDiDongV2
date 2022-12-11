@@ -163,19 +163,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText>{item.name}</SDTText>
+        <SDTText numberOfLines={1} >{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => {
-            navigation.navigate("DrinkAdding");
-          }}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <SDTBtnText>Delete</SDTBtnText>
+             <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -185,7 +178,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <SDTBtnText>Edit</SDTBtnText>
+            <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -198,19 +191,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText>{item.name}</SDTText>
+        <SDTText numberOfLines={1} >{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => {
-            navigation.navigate("DrinkAdding");
-          }}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <SDTBtnText>Delete</SDTBtnText>
+             <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -220,7 +206,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <SDTBtnText>Edit</SDTBtnText>
+            <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -234,7 +220,7 @@ const DrinkManagement = ({ navigation, route }) => {
       <View>
         <SelectDropdown
           buttonStyle={styles.dropDown}
-          buttonTextStyle={{ color: brand, marginLeft:-5}}
+          buttonTextStyle={{ color: brand, marginLeft: -5 }}
           dropdownIconPosition={"right"}
           renderDropdownIcon={(isOpened) => {
             return (
@@ -270,19 +256,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText>{item.name}</SDTText>
+        <SDTText numberOfLines={1} >{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => {
-            navigation.navigate("DrinkAdding");
-          }}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <SDTBtnText>Delete</SDTBtnText>
+             <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -292,7 +271,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <SDTBtnText>Edit</SDTBtnText>
+            <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -316,21 +295,21 @@ const DrinkManagement = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "2%" , marginBottom: "5%"}}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "2%", marginBottom: "5%" }}>
         <View style={{ flexDirection: "row" }} >
-          <TouchableOpacity style={styles.leftBtn}>
+          <TouchableOpacity style={styles.leftBtn} onPress={() => { checkKey() }} >
             <MaterialCommunityIcons name="bookmark-multiple" style={styles.icon} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.leftBtn}>
+          <TouchableOpacity style={styles.leftBtn} onPress={() => { setType(null), setTypeSort("sortIncrease"); }} >
             <MaterialCommunityIcons name="arrow-up-bold-circle" style={styles.icon} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.leftBtn}>
+          <TouchableOpacity style={styles.leftBtn} onPress={() => { setType(null), setTypeSort("sortDecrease"); }} >
             <MaterialCommunityIcons name="arrow-down-bold-circle" style={styles.icon} />
           </TouchableOpacity>
         </View>
-        <DrorpDownInput/>
+        <DrorpDownInput />
         <View >
-          <TouchableOpacity style={styles.addBtn}>
+          <TouchableOpacity style={styles.addBtn} onPress={() => { navigation.navigate("DrinkAdding"); }} >
             <MaterialCommunityIcons name="water-plus" style={styles.icon} />
           </TouchableOpacity>
         </View>
@@ -338,17 +317,6 @@ const DrinkManagement = ({ navigation, route }) => {
       <ScrollView>
         {checkType()}
       </ScrollView>
-      {/* <StyledButton onPress={() => { checkKey() }}>
-        <ButtonText>All</ButtonText>
-      </StyledButton>
-      <StyledButton onPress={() => { setType(null), setTypeSort("sortIncrease"); }}>
-        <ButtonText>Tăng</ButtonText>
-      </StyledButton>
-      <StyledButton onPress={() => { setType(null), setTypeSort("sortDecrease"); }}>
-        <ButtonText>Giảm</ButtonText>
-      </StyledButton>
-      <DrorpDownInput></DrorpDownInput> */}
-      {/* {checkType()} */}
     </SafeAreaView>
   );
 };
@@ -400,8 +368,8 @@ const styles = StyleSheet.create({
   dropDown: {
     height: 40,
     width: 190,
-    borderWidth:1.5,
-    borderColor:brand,
+    borderWidth: 1.5,
+    borderColor: brand,
     position: "absolute",
     left: -103,
     borderRadius: 5,

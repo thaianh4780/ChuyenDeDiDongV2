@@ -335,9 +335,10 @@ export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
   width: 100%;
-  height: 170px;
+  height: 200px;
   border-bottom-left-radius: 50px;
   overflow: hidden;
+  margin-top:-15%;
 `;
 export const StyledHomeBrownText = styled.Text`
   padding-vertical: 30px;
@@ -379,27 +380,28 @@ export const StyledHomeBrownImage = styled.Image`
   position: absolute;
   right: 0;
   margin-right: 10px;
-  top: 23px;
+  top: 60px;
 `;
 
 //  css price and name in drink scr
 export const SDTText = styled.Text`
   position: absolute;
   color: ${brand};
-  font-size: 13px;
+  font-size: 18.5px;
   height: 50px;
-  width: 130px;
+  width: 140px;
   font-weight: bold;
   text-align: left;
-  left: 55px;
+  left: 60px;
+  text-transform: capitalize;
 `;
 
 export const SDTPrice = styled.Text`
   position: absolute;
   top: 50px;
-  left: 40px;
+  left: 50px;
   color: ${tertiary};
-  font-size: 13px;
+  font-size: 15px;
   height: 40px;
   width: 100px;
   font-weight: bold;
@@ -428,6 +430,8 @@ export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
   background-color: ${red};
   border-radius: 5px;
   margin-vertical: 25px;
+  justify-content: center;
+  align-items: center;
 `;
 export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   position: absolute;
@@ -439,6 +443,8 @@ export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   background-color: ${green};
   border-radius: 5px;
   margin-vertical: 25px;
+  justify-content: center;
+  align-items: center;
 `;
 export const SDTBtnText = styled.Text`
   color: ${primary};
