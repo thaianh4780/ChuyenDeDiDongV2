@@ -220,12 +220,6 @@ const DrinkUpdating = ({ navigation, route }) => {
           onPress={() => chooseImage()}
         >
           <Text style={styles.buttonTextStyle}>Select File</Text>
-          {/* {image && (
-            <Image
-              source={{ uri: image }}
-              style={{ width: 200, height: 200, marginTop: 20 }}
-            />
-          )} */}
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonStyle}
