@@ -168,7 +168,7 @@ const DrinkManagement = ({ navigation, route }) => {
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-             <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -178,7 +178,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-            <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
+          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -196,7 +196,7 @@ const DrinkManagement = ({ navigation, route }) => {
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-             <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -206,7 +206,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-            <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
+          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -261,7 +261,7 @@ const DrinkManagement = ({ navigation, route }) => {
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-             <MaterialCommunityIcons name="trash-can" style={styles.icon} />
+          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -271,7 +271,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-            <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
+          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );

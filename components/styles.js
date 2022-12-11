@@ -127,10 +127,6 @@ export const ButtonText = styled.Text`
 `;
 
 
-
-
-
-
 export const WelcomeContainer = styled(InnerContainer)`
   padding-top: 10px;
   justify-content: center;
@@ -464,7 +460,7 @@ export const OLPic = styled.Image`
 export const FormUpdate = styled.View`
   position: absolute;
   width: 105%;
-  height: 80%;
+  height: 75%;
   background-color: ${primary};
   top: 20%;
   padding: 30px;
@@ -483,7 +479,7 @@ export const FormUpdates = styled.View`
 export const FormAdd = styled.View`
   position: absolute;
   width: 105%;
-  height: 100%;
+  height: 90%;
   background-color: ${primary};
   top: 5%;
   padding: 20px;
@@ -540,4 +536,14 @@ width: 100%;
 height: 130px;
 border-bottom-left-radius: 50px;
 overflow: hidden;
+`
+export const CFInput = styled.View`
+  background: ${secondary};
+  padding: 20px;
+  padding-right: 55px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 60px;
+  margin-bottom: 10px;
+  margin-vertical: 10px;
 `

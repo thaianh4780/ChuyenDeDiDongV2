@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 //Icon
-import { Octicons, IonicIcon, Feather } from "@expo/vector-icons";
+import { Octicons, IonicIcon, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import SelectDropdown from "react-native-select-dropdown";
 
@@ -25,9 +25,10 @@ import {
   UUInput,
   FormUpdate,
   StyledDrinkTouchableImage,
+  CFInput,
 } from "../components/styles";
 import { Formik } from "formik";
-import { StyleSheet, View, Text, Alert, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Alert, TouchableOpacity, Image } from "react-native";
 import Button from "../components/Button";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import * as ImagePicker from "expo-image-picker";
@@ -193,12 +194,11 @@ const DrinkUpdating = ({ navigation, route }) => {
           onChangeText={handleChange("name")}
           onBlur={handleBlur("name")}
           value={values.name}
-        ></MyTextInput>
+        />
         <DrorpDownInput
           value={values.category}
           label="Category"
-        ></DrorpDownInput>
-
+        />
         <MyTextInput
           label="Price"
           placeholder={drink.price + ""}
@@ -206,51 +206,46 @@ const DrinkUpdating = ({ navigation, route }) => {
           onChangeText={handleChange("price")}
           onBlur={handleBlur("price")}
           value={values.price}
-        ></MyTextInput>
-        {image && (
-          <StyledDrinkTouchableImage
-            resizeMode="cover"
-            source={{ uri: `${image}` }}
-          ></StyledDrinkTouchableImage>
-        )}
-
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          activeOpacity={0.5}
-          onPress={() => chooseImage()}
-        >
-          <Text style={styles.buttonTextStyle}>Select File</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          activeOpacity={0.5}
-          onPress={() => cameraImage()}
-        >
-          <Text style={styles.buttonTextStyle}>Select Camera</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          activeOpacity={0.5}
-          onPress={() => uploadImage()}
-        >
-          <Text style={styles.buttonTextStyle}>Upload</Text>
-        </TouchableOpacity>
-
+        />
+        <ChooseFileInput label="Choose File">
+          <View style={{ flexDirection: "row", justifyContent: "space-between" }} >
+            <View>
+              {image && (
+                <Image style={styles.CFImage}
+                  resizeMode="cover"
+                  source={{ uri: `${image}` }}
+                />
+              )}
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "flex-end", marginRight: "-18%" }}>
+              <TouchableOpacity style={styles.touchBtn}
+                activeOpacity={0.5}
+                onPress={() => chooseImage()}>
+                <MaterialCommunityIcons name="image-edit" style={styles.icon} />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.touchBtn}
+                activeOpacity={0.5}
+                onPress={() => cameraImage()}>
+                <MaterialCommunityIcons name="camera" style={styles.icon} />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.touchBtn}
+                activeOpacity={0.5}
+                onPress={() => uploadImage()}>
+                <MaterialCommunityIcons name="file-upload" style={styles.icon} />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ChooseFileInput>
         <Line></Line>
         <StyledButton
           onPress={() => {
             updateDrink(values);
-            // console.log("value: ");
-            // console.log(values);
-
-            // navigation.navigate("Home"),
-            //   Alert.alert("Done Update"),
             HandleSubmit;
           }}
         >
           <ButtonText>Submit</ButtonText>
         </StyledButton>
-      </StyledFormArea>
+      </StyledFormArea >
     );
   };
 
@@ -273,7 +268,7 @@ const DrinkUpdating = ({ navigation, route }) => {
             return (
               <FontAwesome
                 name={isOpened ? "chevron-up" : "chevron-down"}
-                color={darkLight}
+                color={brand}
                 size={18}
               />
             );
@@ -300,7 +295,7 @@ const DrinkUpdating = ({ navigation, route }) => {
         <OLPic
           resizeMode="cover"
           source={require("../assets/image/br3.png")}
-        ></OLPic>
+        />
         <FormUpdate style={styles.TouchableImage}>
           <PageTitle>Update Drink</PageTitle>
           <Formik
@@ -325,6 +320,14 @@ const MyTextInput = ({ label, icon, ...props }) => {
     <View>
       <UULabel>{label}</UULabel>
       <UUInput {...props} />
+    </View>
+  );
+};
+const ChooseFileInput = ({ label, icon, ...props }) => {
+  return (
+    <View>
+      <UULabel>{label}</UULabel>
+      <CFInput {...props} />
     </View>
   );
 };
@@ -382,6 +385,23 @@ const styles = StyleSheet.create({
     textAlign: "left",
     textTransform: "capitalize",
   },
+  touchBtn: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 30,
+    width: 30,
+    marginTop: '-1%',
+    marginHorizontal: "1%"
+  },
+  icon: {
+    fontSize: 30,
+    color: brand,
+  },
+  CFImage: {
+    width: 150,
+    height: 40,
+    marginTop: "-5%",
+  }
 });
 
 export default DrinkUpdating;
