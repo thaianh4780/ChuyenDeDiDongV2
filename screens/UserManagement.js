@@ -85,19 +85,19 @@ const UserManagement = ({ navigation }) => {
             marginBottom: "5%",
           }}
         >
-          {/* <DrorpDownInput
-          // onSelect={handleChange('role')}
-          // value={values.role}
-          ></DrorpDownInput> */}
+          <DrorpDownInput
+          onSelect={handleChange('role')}
+          value={values.role}
+          ></DrorpDownInput>
           <View>
-            {/* <TouchableOpacity
+            <TouchableOpacity
               style={styles.addBtn}
               onPress={() => {
                 navigation.navigate("UserAdding");
               }}
             >
               <MaterialCommunityIcons name="water-plus" style={styles.icon} />
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
         </View>
         <ScrollView>
@@ -111,7 +111,7 @@ const UserManagement = ({ navigation }) => {
                   ></StyledDrinkTouchableImage>
                   <SDTText> {item.user_name}</SDTText>
                   <SDTPrice>{item.role.role_name}</SDTPrice>
-                  {/* <StyledDrinkTouchableDelete
+                  <StyledDrinkTouchableDelete
                     onPress={() => {
                       createTwoButtonAlert(item._id);
                     }}
@@ -130,7 +130,7 @@ const UserManagement = ({ navigation }) => {
                       name="tooltip-edit"
                       style={styles.icon}
                     />
-                  </StyledDrinkTouchableEdit> */}
+                  </StyledDrinkTouchableEdit>
                 </StyledDrinkTouchable>
               );
             })}
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     },
   },
   icon: {
-    fontSize: "30%",
+    fontSize: 30,
     color: primary,
   },
   leftBtn: {

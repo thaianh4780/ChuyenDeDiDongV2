@@ -302,7 +302,7 @@ const DrinkManagement = ({ navigation, route }) => {
           marginBottom: "5%",
         }}
       >
-        {/* <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             style={styles.leftBtn}
             onPress={() => {
@@ -336,7 +336,7 @@ const DrinkManagement = ({ navigation, route }) => {
               style={styles.icon}
             />
           </TouchableOpacity>
-        </View> */}
+        </View>
         <DrorpDownInput />
         <View>
           <TouchableOpacity
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     },
   },
   icon: {
-    fontSize: "30%",
+    fontSize: 30,
     color: primary,
   },
   leftBtn: {
