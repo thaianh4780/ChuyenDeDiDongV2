@@ -147,8 +147,8 @@ const TableChoosing = ({ navigation }) => {
     return (
       <View>
         <SelectDropdown
-          buttonStyle={styles.dropdown1BtnStyle}
-          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          buttonStyle={styles.dropDown}
+          buttonTextStyle={{ color: brand, marginLeft: -5 }}
           dropdownStyle={styles.dropdown1DropdownStyle}
           rowStyle={styles.dropdown1RowStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
@@ -157,7 +157,7 @@ const TableChoosing = ({ navigation }) => {
             return (
               <FontAwesome
                 name={isOpened ? "chevron-up" : "chevron-down"}
-                color={darkLight}
+                color={brand}
                 size={18}
               />
             );
@@ -195,10 +195,8 @@ const TableChoosing = ({ navigation }) => {
         />
       </SHBZ>
 
-      <ScrollView style={styles.scrollView}>
-        <DrorpDownInput label="Category"></DrorpDownInput>
-        {checkExport()}
-      </ScrollView>
+      <DrorpDownInput label="Category"></DrorpDownInput>
+      <ScrollView style={styles.scrollView}>{checkExport()}</ScrollView>
     </SafeAreaView>
   );
 };
@@ -218,7 +216,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    marginTop: "5%",
+    marginTop: "15%",
     backgroundColor: neon_blur,
   },
   item: {
@@ -278,5 +276,16 @@ const styles = StyleSheet.create({
     left: "20%",
     fontSize: 30,
     color: primary,
+  },
+  dropDown: {
+    height: 40,
+    width: 190,
+    borderWidth: 1.5,
+    borderColor: brand,
+    position: "absolute",
+    borderRadius: 5,
+    backgroundColor: primary,
+    marginTop: "2%",
+    marginLeft: "5%",
   },
 });
