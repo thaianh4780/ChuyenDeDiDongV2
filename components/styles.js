@@ -511,16 +511,6 @@ export const StyledHomeBrownLogo = styled.Image`
   position: absolute;
   bottom: 15%;
   left: 5%;
-<<<<<<< HEAD
-  `
-  export const TouchableHomeLogo = styled.TouchableOpacity`
-  height:50px;
-  width:50px;
-  border-radius: 100px;
-  margin-horizontal:45%; 
-  margin-vertical:2%;
-`
-=======
 `;
 export const TouchableHomeLogo = styled.TouchableOpacity`
   height: 50px;
@@ -547,4 +537,3 @@ export const CFInput = styled.View`
   margin-bottom: 10px;
   margin-vertical: 10px;
 `;
->>>>>>> main

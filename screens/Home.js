@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
-import Button from '../components/Button';
-import { FormLog, LeftIcon, StyledFormArea, StyledHomeBrownImage, StyledHomeBrownLogo, StyledHomeBrownText, StyledHomeBrownZone, StyledInputLabel, StyledTextInput, StyledTextInputs } from '../components/styles';
-import { Fontisto, Octicons ,MaterialCommunityIcons } from "@expo/vector-icons";
-import TestTab from './TestTab';
-import { Colors } from '../components/styles';
-import { Formik } from 'formik';
-import { useFonts } from 'expo-font';
-// import AppLoading from 'expo-app-loading';
-
-//   let [fontsLoaded] = useFonts({
-//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
-//   });
-//   if (!fontsLoaded) {
-//     return <AppLoading />;
-//   }
-const { brand, darkLight, black, primary, secondary } = Colors;
-
-const Home = ({ navigation }) => {
-    return (
-        <SafeAreaView style={styles.container}>
-            <StyledHomeBrownZone>
-                <Fontisto style={styles.logo} name="coffeescript" />
-                <TouchableWithoutFeedback onPress={() => { navigation.navigate('Login') }}>
-                    <StyledHomeBrownImage resizeMode="cover" source={require('../assets/image/a.png')} ></StyledHomeBrownImage>
-                    <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
-                </TouchableWithoutFeedback >
-                <StyledHomeBrownLogo resizeMode="cover" source={require('../assets/image/Untitled.png')} />
-            </StyledHomeBrownZone>
-            <TestTab style={styles.tab} ></TestTab>
-        </SafeAreaView>
-    )
-}
-=======
 import React from "react";
 import {
   View,
@@ -86,7 +49,6 @@ const Home = ({ navigation }) => {
     </SafeAreaView>
   );
 };
->>>>>>> main
 
 const styles = StyleSheet.create({
   logo: {

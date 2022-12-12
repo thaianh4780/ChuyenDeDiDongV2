@@ -1,10 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, } from 'react-native';
 import { StyledHomeBrownImage, StyledHomeBrownText, StyledHomeBrownZone, StyledTouchable, StyledTouchableImage, StyledTouchableText } from '../components/styles';
-<<<<<<< HEAD
-import { Fontisto } from "@expo/vector-icons";
-=======
->>>>>>> main
 import { Colors } from '../components/styles';
 const { brand, darkLight, black, primary, secondary ,neon_blur ,light_brand } = Colors;
 
