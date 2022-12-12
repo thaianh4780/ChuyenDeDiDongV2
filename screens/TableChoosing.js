@@ -91,7 +91,7 @@ const TableChoosing = ({ navigation }) => {
     return (
       <TouchableOpacity style={[styles.Touch, styles.shadow]}>
         <View style={[styles.item]}>
-          {/* <MaterialCommunityIcons style={styles.icons} name="desk" /> */}
+          <MaterialCommunityIcons style={styles.icons} name="desk" />
           <View style={styles.textArea}>
             <Text numberOfLines={1} style={styles.nametext}>
               {item.name}
@@ -115,7 +115,7 @@ const TableChoosing = ({ navigation }) => {
     return (
       <TouchableOpacity style={[styles.Touch, styles.shadow]}>
         <View style={[styles.item]}>
-          {/* <MaterialCommunityIcons style={styles.icons} name="desk" /> */}
+          <MaterialCommunityIcons style={styles.icons} name="desk" />
           <View style={styles.textArea}>
             <Text numberOfLines={1} style={styles.nametext}>
               {item.name}

@@ -85,10 +85,10 @@ const UserManagement = ({ navigation }) => {
             marginBottom: "5%",
           }}
         >
-          <DrorpDownInput
+          {/* <DrorpDownInput
           onSelect={handleChange('role')}
           value={values.role}
-          ></DrorpDownInput>
+          ></DrorpDownInput> */}
           <View>
             <TouchableOpacity
               style={styles.addBtn}
