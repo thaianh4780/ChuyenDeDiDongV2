@@ -41,7 +41,7 @@ const UserManagement = ({ navigation }) => {
     await fetch(url + "user/all")
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         var data = res;
         setListUser(data);
       })

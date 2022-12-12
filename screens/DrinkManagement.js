@@ -400,11 +400,11 @@ const styles = StyleSheet.create({
   },
   dropDown: {
     height: 40,
-    width: 190,
+    width: 200,
     borderWidth: 1.5,
     borderColor: brand,
     position: "absolute",
-    left: -103,
+    left: -107,
     borderRadius: 5,
     backgroundColor: primary,
   },

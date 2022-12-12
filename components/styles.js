@@ -248,7 +248,7 @@ export const WZText = styled.Text`
 export const StyledDrinkTouchable = styled.TouchableOpacity`
   background-color: ${primary};
   border-radius: 25px;
-  width: 330px;
+  width: 360px;
   height: 90px;
   margin-top: 5px;
   justify-content: center;
@@ -409,7 +409,7 @@ export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
 `;
 export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
   position: absolute;
-  left: 200px;
+  left: 210px;
   width: 55px;
   height: 50px;
   font-weight: bold;
@@ -422,7 +422,7 @@ export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
 `;
 export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   position: absolute;
-  left: 260px;
+  left: 280px;
   width: 55px;
   height: 50px;
   font-weight: bold;
