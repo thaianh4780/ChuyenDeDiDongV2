@@ -44,7 +44,7 @@ const {
   blur,
 } = Colors;
 
-//Login css 
+//Login css
 export const StyledContainer = styled.View`
   flex: 1;
   padding: 5%;
@@ -90,7 +90,7 @@ export const StyledTextInput = styled.TextInput`
 `;
 
 export const StyledFormArea = styled.View`
-  width: 100%; 
+  width: 100%;
   //useless
 `;
 
@@ -110,7 +110,6 @@ export const PageTitle = styled.Text`
   margin-bottom: 2%;
 `;
 
-
 export const StyledButton = styled.TouchableOpacity`
   background-color: ${brand};
   justify-content: center;
@@ -126,17 +125,10 @@ export const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-
-
-
-
-
 export const WelcomeContainer = styled(InnerContainer)`
   padding-top: 10px;
   justify-content: center;
 `;
-
-
 
 export const HomePageLogo = styled.Image`
   width: 450px;
@@ -163,7 +155,6 @@ export const SubTittle = styled.Text`
   letter-spacing: 1px;
 `;
 
-
 export const StyledFormHome = styled.View`
   flex: 1;
   flex-direction: row;
@@ -183,10 +174,6 @@ export const StyledTextInputs = styled.TextInput`
   color: ${tertiary};
   margin-vertical: 8px;
 `;
-
-
-
-
 
 export const MsgBox = styled.Text`
   text-align: center;
@@ -261,7 +248,7 @@ export const WZText = styled.Text`
 export const StyledDrinkTouchable = styled.TouchableOpacity`
   background-color: ${primary};
   border-radius: 25px;
-  width: 330px;
+  width: 360px;
   height: 90px;
   margin-top: 5px;
   justify-content: center;
@@ -320,7 +307,7 @@ export const StyledDrinkTouchablePrice = styled.Text`
 
 export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
   position: absolute;
-  top: 25px;
+  top: 20px;
   left: 320px;
   height: 50px;
   width: 50px;
@@ -335,9 +322,10 @@ export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
   width: 100%;
-  height: 170px;
+  height: 250px;
   border-bottom-left-radius: 50px;
   overflow: hidden;
+  margin-top: -15%;
 `;
 export const StyledHomeBrownText = styled.Text`
   padding-vertical: 30px;
@@ -379,27 +367,28 @@ export const StyledHomeBrownImage = styled.Image`
   position: absolute;
   right: 0;
   margin-right: 10px;
-  top: 23px;
+  top: 40%;
 `;
 
 //  css price and name in drink scr
 export const SDTText = styled.Text`
   position: absolute;
   color: ${brand};
-  font-size: 13px;
+  font-size: 18.5px;
   height: 50px;
-  width: 130px;
+  width: 140px;
   font-weight: bold;
   text-align: left;
-  left: 55px;
+  left: 60px;
+  text-transform: capitalize;
 `;
 
 export const SDTPrice = styled.Text`
   position: absolute;
   top: 50px;
-  left: 40px;
+  left: 50px;
   color: ${tertiary};
-  font-size: 13px;
+  font-size: 15px;
   height: 40px;
   width: 100px;
   font-weight: bold;
@@ -420,7 +409,7 @@ export const StyledDrinkTouchableAdd = styled.TouchableOpacity`
 `;
 export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
   position: absolute;
-  left: 200px;
+  left: 210px;
   width: 55px;
   height: 50px;
   font-weight: bold;
@@ -428,10 +417,12 @@ export const StyledDrinkTouchableDelete = styled.TouchableOpacity`
   background-color: ${red};
   border-radius: 5px;
   margin-vertical: 25px;
+  justify-content: center;
+  align-items: center;
 `;
 export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   position: absolute;
-  left: 260px;
+  left: 280px;
   width: 55px;
   height: 50px;
   font-weight: bold;
@@ -439,6 +430,8 @@ export const StyledDrinkTouchableEdit = styled.TouchableOpacity`
   background-color: ${green};
   border-radius: 5px;
   margin-vertical: 25px;
+  justify-content: center;
+  align-items: center;
 `;
 export const SDTBtnText = styled.Text`
   color: ${primary};
@@ -458,7 +451,7 @@ export const OLPic = styled.Image`
 export const FormUpdate = styled.View`
   position: absolute;
   width: 105%;
-  height: 80%;
+  height: 75%;
   background-color: ${primary};
   top: 20%;
   padding: 30px;
@@ -477,7 +470,7 @@ export const FormUpdates = styled.View`
 export const FormAdd = styled.View`
   position: absolute;
   width: 105%;
-  height: 100%;
+  height: 90%;
   background-color: ${primary};
   top: 5%;
   padding: 20px;
@@ -511,7 +504,6 @@ export const TableStyled = styled.View`
   border-radius: 12px;
 `;
 
-
 export const StyledHomeBrownLogo = styled.Image`
   color: ${primary};
   height: 60px;
@@ -519,6 +511,7 @@ export const StyledHomeBrownLogo = styled.Image`
   position: absolute;
   bottom: 15%;
   left: 5%;
+<<<<<<< HEAD
   `
   export const TouchableHomeLogo = styled.TouchableOpacity`
   height:50px;
@@ -527,3 +520,31 @@ export const StyledHomeBrownLogo = styled.Image`
   margin-horizontal:45%; 
   margin-vertical:2%;
 `
+=======
+`;
+export const TouchableHomeLogo = styled.TouchableOpacity`
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  margin-horizontal: 45%;
+  margin-vertical: 2%;
+`;
+
+export const SHBZ = styled.View`
+  background-color: ${brand};
+  width: 100%;
+  height: 130px;
+  border-bottom-left-radius: 50px;
+  overflow: hidden;
+`;
+export const CFInput = styled.View`
+  background: ${secondary};
+  padding: 20px;
+  padding-right: 55px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 60px;
+  margin-bottom: 10px;
+  margin-vertical: 10px;
+`;
+>>>>>>> main

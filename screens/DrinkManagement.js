@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Fontisto, Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import {
   StyledFormHome,
@@ -21,23 +22,18 @@ import {
   Text,
   View,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import TabBtn from "./TabBtn";
 import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Button from "../components/Button";
+import url from "../Url";
 
-const { brand, darkLight, black, primary } = Colors;
+const { brand, darkLight, black, primary, blue } = Colors;
 
 //Colors
 const DrinkManagement = ({ navigation, route }) => {
-  // lấy tất cả đồ uống
-  const urlDrinkAll = "http://192.168.1.144:3000/api/drink/list";
-  const urlCategory = "http://192.168.1.144:3000/api/category/list";
-  const urlDrinkByCategory = "http://192.168.1.144:3000/api/drink/category/";
-  const urlSortOnPrice = "http://192.168.1.144:3000/api/drink/";
-  const urls = "http://192.168.1.144:3000/api/drink/delete/";
-
   const [listDrink, setListDrink] = useState([]);
 
   //check load dữ liệu tất cả đồ uống
@@ -62,15 +58,17 @@ const DrinkManagement = ({ navigation, route }) => {
   }, []);
 
   // chạy dữ liệu khi có sự thay đổi
-  useEffect(() => {
-    getListDrink();
-  }, [check]);
+  // useEffect(() => {
+  //   getListDrink();
+  // }, [check]);
 
   useEffect(() => {
     if (type) {
       getListDrinkByCategory();
+    } else {
+      getListDrink();
     }
-  }, [type]);
+  }, [type, check]);
 
   useEffect(() => {
     if (typeSort) {
@@ -80,7 +78,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // lấy các danh mục ra
   const getListCategory = async () => {
-    await fetch(urlCategory)
+    await fetch(url + "category/list")
       .then((res) => res.json())
       .then((res) => {
         // console.log(res.data);
@@ -92,7 +90,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // lấy các đồ uống thuộc 1 danh mục
   const getListDrinkByCategory = async () => {
-    await fetch(urlDrinkByCategory + "" + type)
+    await fetch(url + "drink/category/" + type)
       .then((res) => res.json())
       .then((res) => {
         // console.log("drink by category: ");
@@ -105,7 +103,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // lấy tất cả đồ uống
   const getListDrink = async () => {
-    await fetch(urlDrinkAll)
+    await fetch(url + "drink/list")
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
@@ -128,28 +126,24 @@ const DrinkManagement = ({ navigation, route }) => {
     ]);
 
   const deleteDrink = async (id) => {
-    // console.log(urls+""+id)
-    await fetch(urls + "" + id, {
+    await fetch(url + "drink/delete/" + id, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
         setCheck(!check);
-        // var data = res.data;
-        //  setList(res);
       })
       .catch((err) => console.log("ERR", err));
   };
 
   //
   const getListDrinkOnPrice = async () => {
-    await fetch(urlSortOnPrice + "" + typeSort)
+    await fetch(url + "drink/" + typeSort)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
         var data = res.data;
-        //setCheck(check + 1);
+
         setListSortDrinkOnPrice(data);
       })
       .catch((err) => console.log("ERR", err));
@@ -157,11 +151,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   // xuất danh mục xuống dropdown
   const dataCategory = listCategory.map((item) => {
-    return (
-      <Text key={item._id} onPress={() => setType(item._id)}>
-        {item.name}
-      </Text>
-    );
+    return <Text key={item._id}>{item.name}</Text>;
   });
 
   // xuất các đồ uống thuộc 1 danh mục xuống giao diện
@@ -171,26 +161,13 @@ const DrinkManagement = ({ navigation, route }) => {
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
-        />
-
-
-        <SDTText>
-          {item.name}
-        </SDTText>
+        ></StyledDrinkTouchableImage>
+        <SDTText numberOfLines={1}>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => {
-            navigation.navigate("DrinkAdding");
-          }}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
-          onPress={() => {
-            setCheck(!check), Alert.alert("Deleted");
-          }}
+          onPress={() => createTwoButtonAlert(item._id)}
         >
-          <SDTBtnText>Delete</SDTBtnText>
+          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -200,7 +177,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <SDTBtnText>Edit</SDTBtnText>
+          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -213,21 +190,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText>{item.name}</SDTText>
+        <SDTText numberOfLines={1}>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => {
-            navigation.navigate("DrinkAdding");
-          }}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
-          onPress={() => {
-            setCheck(!check), Alert.alert("Deleted");
-          }}
+          onPress={() => createTwoButtonAlert(item._id)}
         >
-          <SDTBtnText>Delete</SDTBtnText>
+          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -237,7 +205,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <SDTBtnText>Edit</SDTBtnText>
+          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -250,17 +218,14 @@ const DrinkManagement = ({ navigation, route }) => {
     return (
       <View>
         <SelectDropdown
-          buttonStyle={styles.dropdown1BtnStyle}
-          buttonTextStyle={styles.dropdown1BtnTxtStyle}
-          dropdownStyle={styles.dropdown1DropdownStyle}
-          rowStyle={styles.dropdown1RowStyle}
-          rowTextStyle={styles.dropdown1RowTxtStyle}
+          buttonStyle={styles.dropDown}
+          buttonTextStyle={{ color: brand, marginLeft: -5 }}
           dropdownIconPosition={"right"}
           renderDropdownIcon={(isOpened) => {
             return (
               <FontAwesome
                 name={isOpened ? "chevron-up" : "chevron-down"}
-                color={darkLight}
+                color={brand}
                 size={18}
               />
             );
@@ -290,19 +255,12 @@ const DrinkManagement = ({ navigation, route }) => {
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText>{item.name}</SDTText>
+        <SDTText numberOfLines={1}>{item.name}</SDTText>
         <SDTPrice>{item.price}$</SDTPrice>
-        <StyledDrinkTouchableAdd
-          onPress={() => {
-            navigation.navigate("DrinkAdding");
-          }}
-        >
-          <SDTBtnText>Add</SDTBtnText>
-        </StyledDrinkTouchableAdd>
         <StyledDrinkTouchableDelete
           onPress={() => createTwoButtonAlert(item._id)}
         >
-          <SDTBtnText>Delete</SDTBtnText>
+          <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
@@ -312,7 +270,7 @@ const DrinkManagement = ({ navigation, route }) => {
               setCheck(!check);
           }}
         >
-          <SDTBtnText>Edit</SDTBtnText>
+          <MaterialCommunityIcons name="tooltip-edit" style={styles.icon} />
         </StyledDrinkTouchableEdit>
       </StyledDrinkTouchable>
     );
@@ -335,35 +293,64 @@ const DrinkManagement = ({ navigation, route }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-          <StyledFormHome>
-            <StyledButton
-              onPress={() => {
-                checkKey();
-              }}
-            >
-              <ButtonText>All</ButtonText>
-            </StyledButton>
-            <StyledButton
-              onPress={() => {
-                setType(null), setTypeSort("sortIncrease");
-              }}
-            >
-              <ButtonText>Tăng</ButtonText>
-            </StyledButton>
-            <StyledButton
-              onPress={() => {
-                setType(null), setTypeSort("sortDecrease");
-              }}
-            >
-              <ButtonText>Giảm</ButtonText>
-            </StyledButton>
-            <DrorpDownInput label="Category"></DrorpDownInput>
-            {checkType()}
-          </StyledFormHome>
-      </SafeAreaView>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginHorizontal: "2%",
+          marginBottom: "5%",
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={styles.leftBtn}
+            onPress={() => {
+              checkKey();
+            }}
+          >
+            <MaterialCommunityIcons
+              name="bookmark-multiple"
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.leftBtn}
+            onPress={() => {
+              setType(null), setTypeSort("sortIncrease");
+            }}
+          >
+            <MaterialCommunityIcons
+              name="arrow-up-bold-circle"
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.leftBtn}
+            onPress={() => {
+              setType(null), setTypeSort("sortDecrease");
+            }}
+          >
+            <MaterialCommunityIcons
+              name="arrow-down-bold-circle"
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+        </View>
+        <DrorpDownInput />
+        <View>
+          <TouchableOpacity
+            style={styles.addBtn}
+            onPress={() => {
+              navigation.navigate("DrinkAdding");
+            }}
+          >
+            <MaterialCommunityIcons name="water-plus" style={styles.icon} />
+          </TouchableOpacity>
+        </View>
+      </View>
+      <ScrollView>{checkType()}</ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -388,6 +375,38 @@ const styles = StyleSheet.create({
       height: 1,
       width: 3,
     },
+  },
+  icon: {
+    fontSize: 30,
+    color: primary,
+  },
+  leftBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: brand,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: "1%",
+  },
+  addBtn: {
+    width: 40,
+    height: 40,
+    backgroundColor: blue,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    marginleft: "2%",
+  },
+  dropDown: {
+    height: 40,
+    width: 200,
+    borderWidth: 1.5,
+    borderColor: brand,
+    position: "absolute",
+    left: -107,
+    borderRadius: 5,
+    backgroundColor: primary,
   },
 });
 
