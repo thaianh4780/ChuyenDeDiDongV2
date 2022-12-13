@@ -1,4 +1,4 @@
-import React,{useState, useEffect } from "react";
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -58,23 +58,10 @@ const DrinkAdding = ({ navigation }) => {
           .catch((err) => console.log("ERR", err));
       };
     const drink =(values)=>{
-        // console.log(values);
-        if (!values.name || !values.price ) {
+        if (!values.drinkname || !values.price || !values.category) {
             console.log("them khong thanh cong!");
-            return;
-        } 
-        if (!values.price) {
-      values.price = drink.price;
-    }
-    if (!values.name) {
-      values.name = drink.name;
-    }
-    if (!categoryId) {
-      values.category = drink.category;
-    } else {
-      values.category = categoryId;
-    }
-            fetch('http://192.168.1.123:3000/api/drink/add', {
+        } else {
+            fetch('http://192.168.43.243:3000/api/drink/add', {
                 method: 'POST',
                 headers: {'content-type': 'application/json'},
                 body: JSON.stringify(values),
@@ -82,54 +69,13 @@ const DrinkAdding = ({ navigation }) => {
                 if (data.error) {
                     console .log(data.error);
                 } else {
-                    console.log(data.data);
+                    console.log(data);
                     Alert.alert("them thanh cong!");
-                    return navigation.replace('Home');
+                    return navigation.navigate('Home');
                 }
             })
-        
+        }
     }
-    const categories = listCategory.map((item, index) => {
-        return <Text key={item._id}>{item.name}</Text>;
-      });
-
-      console.log(categories);
-    const DrorpDownInput = ({ label, icon, ...props }) => {
-        return (
-          <View>
-            <UULabel>{label}</UULabel>
-            <SelectDropdown
-              buttonStyle={styles.dropdown1BtnStyle}
-              buttonTextStyle={styles.dropdown1BtnTxtStyle}
-              dropdownStyle={styles.dropdown1DropdownStyle}
-              rowStyle={styles.dropdown1RowStyle}
-              rowTextStyle={styles.dropdown1RowTxtStyle}
-              dropdownIconPosition={"right"}
-              renderDropdownIcon={(isOpened) => {
-                return (
-                  <FontAwesome
-                    name={isOpened ? "chevron-up" : "chevron-down"}
-                    color={darkLight}
-                    size={18}
-                  />
-                );
-              }}
-              data={categories}
-              onSelect={(item, index) => {
-                setCategoryId(item.key);
-                console.log("key: " + item.key);
-              }}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                return item;
-              }}
-            />
-          </View>
-        );
-      };
-      
     return (
         <StyledContainer >
             <InnerContainer>
@@ -137,8 +83,7 @@ const DrinkAdding = ({ navigation }) => {
                 <FormUpdate style={styles.TouchableImage} >
                     <PageTitle>Adding Drink</PageTitle>
                     <Formik
-
-                        initialValues={{image:'', name: '', price: '', category: '',}}
+                        initialValues={{ drinkname: '', price: '', category: '',}}
                         onSubmit={(values) => { console.log(values); }} >
                         {({ handleChange, handleBlur, HandleSubmit, values }) => (
                             <StyledFormArea>
@@ -150,22 +95,29 @@ const DrinkAdding = ({ navigation }) => {
                                 </DrorpDownInput>
                                 <MyTextInput
                                     autofocus
-                                    label="name"
-                                    placeholder="name"
+                                    label="Drinkname"
+                                    placeholder="Drinkname"
                                     placeholderTextColor={blur}
-                                    onChangeText={handleChange('name')}
-                                    onBlur={handleBlur('name')}
-                                    value={values.name} >
+                                    onChangeText={handleChange('drinkname')}
+                                    onBlur={handleBlur('drinkname')}
+                                    value={values.drinkname} >
                                 </MyTextInput>
                                 <MyTextInput
                                     label="Price"
-                                    placeholder="price"
+                                    placeholder="Price"
                                     placeholderTextColor={blur}
                                     onChangeText={handleChange('price')}
                                     onBlur={handleBlur('price')}
                                     value={values.price}>
                                 </MyTextInput>
-                                
+                                <MyTextInput
+                                    label="Category"
+                                    placeholder="Category"
+                                    placeholderTextColor={blur}
+                                    onChangeText={handleChange('category')}
+                                    onBlur={handleBlur('category')}
+                                    value={values.category}>
+                                </MyTextInput>
                                 <Line />
                                 <StyledButton
                                     onPress={() => {
@@ -181,7 +133,7 @@ const DrinkAdding = ({ navigation }) => {
                                 </StyledButton>
                             </StyledFormArea>
                         )}
-                    </Formik> 
+                    </Formik>
                 </FormUpdate>
             </InnerContainer>
         </StyledContainer>
