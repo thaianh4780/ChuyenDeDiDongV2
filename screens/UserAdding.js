@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import SelectDropdown from 'react-native-select-dropdown'
+import SelectDropdown from 'react-native-select-dropdown';
+import url from "../Url";
 import {
     StyledContainer,
     InnerContainer,
@@ -21,13 +22,12 @@ import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserAdding = ({ navigation }) => {
     //values
-    const url = "http://192.168.117.119:3000/api";
     const [listRole, setListRole] = useState([""]);
     const [role, setRole] = useState("");
     useEffect(() => { getAllRole() }, []);
     //get all role
     const getAllRole = async () => {
-        await fetch(url + '/role/all')
+        await fetch(url + 'role/all')
             .then((res) => res.json())
             .then((res) => {
                 var data = res;
@@ -40,7 +40,7 @@ const UserAdding = ({ navigation }) => {
         values.role = role;
         console.log(values);
         console.log(values.user_name);
-        fetch(url + '/user/add', {
+        fetch(url + 'user/add', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(values),

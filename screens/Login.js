@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import NetInfo from "@react-native-community/netinfo";
+import url from "../Url";
+
 //Icon
 import { Octicons, IonicIcon } from "@expo/vector-icons";
 import {
@@ -22,23 +25,34 @@ import { Alert, StyleSheet, View } from "react-native";
 //Colors
 const { brand, darkLight, primary, blur } = Colors;
 const Login = ({ navigation }) => {
-  const url = "http://172.20.10.4:3000/api";
+
+  //login
   const login = (values) => {
-    console.log(values.password);
-    fetch(url + "/user/login", {
+    fetch(url + "user/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(values),
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         if (data.error) {
           Alert.alert(data.error);
         } else {
+          console.log(data);
           return navigation.navigate("Home");
         }
       });
+  };
+
+  //check internet
+  const checkInternet = (values) => {
+    NetInfo.fetch().then(state => {
+      if (state.isConnected == true) {
+        login(values);
+      } else {
+        Alert.alert("Please connect Internet");
+      }
+    });
   };
   return (
     <StyledContainer>
@@ -87,8 +101,8 @@ const Login = ({ navigation }) => {
                 <Line />
                 <StyledButton
                   onPress={() => {
-                    // login(values);
-                    navigation.navigate("Home");
+                    checkInternet(values);
+                    // navigation.navigate("Home");
                     // HandleSubmit
                   }}
                 >

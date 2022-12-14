@@ -28,7 +28,7 @@ const UserUpdatding = ({ route, navigation }) => {
     const [listRole, setListRole] = useState([""]);
     //get user by id
     const getUser = async () => {
-        await fetch(url + '/user/getbyid/' + id)
+        await fetch(url + 'user/getbyid/' + id)
             .then((res) => res.json())
             .then((res) => {
                 var data = res;
@@ -75,7 +75,7 @@ const UserUpdatding = ({ route, navigation }) => {
     };
     //get all role
     const getAllRole = async () => {
-        await fetch(url + '/role/all')
+        await fetch(url + 'role/all')
             .then((res) => res.json())
             .then((res) => {
                 var data = res;

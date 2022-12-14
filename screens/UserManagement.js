@@ -25,11 +25,9 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-//import url from "../Url";
 //Colors
 const UserManagement = ({ navigation }) => {
   //Values
-  // const url = "http://192.168.117.119:3000/api";
   const [listUser, setListUser] = useState([]);
   const isFocused = useIsFocused();
   const [check, setCheck] = useState(false);
@@ -41,7 +39,6 @@ const UserManagement = ({ navigation }) => {
     await fetch(url + "user/all")
       .then((res) => res.json())
       .then((res) => {
-        //console.log(res);
         var data = res;
         setListUser(data);
       })
@@ -58,7 +55,7 @@ const UserManagement = ({ navigation }) => {
       { text: "OK", onPress: () => deleteUser(id) },
     ]);
   const deleteUser = (id) => {
-    const url = url + "/user/delete/" + id;
+    const url = url + "user/delete/" + id;
     fetch(url, {
       method: "DELETE",
     })
