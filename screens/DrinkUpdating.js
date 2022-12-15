@@ -425,7 +425,7 @@ const styles = StyleSheet.create({
     color: brand,
   },
   CFImage: {
-    width: 170,
+    width: 190,
     height: 50,
     marginTop: "-8%",
     borderRadius: 5,
