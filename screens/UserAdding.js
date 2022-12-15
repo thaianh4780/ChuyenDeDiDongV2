@@ -21,7 +21,7 @@ import { StyleSheet, View, Text, Alert, ScrollViewComponent, ScrollView } from "
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserAdding = ({ navigation }) => {
     //values
-    const url = "http://192.168.117.119:3000/api";
+    const url = "http://192.168.1.22:3000/api";
     const [listRole, setListRole] = useState([""]);
     const [role, setRole] = useState("");
     useEffect(() => { getAllRole() }, []);
