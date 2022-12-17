@@ -18,7 +18,8 @@ const { brand, darkLight,black ,primary, secondary} = Colors;
 const DrinkChoosing = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container} >
-            <ScrollView  >
+            <ScrollView showsVerticalScrollIndicator={false}
+          >
                 <StyledFormHome style={styles.twocl} >
                     <StyledDrinkTouchable style={styles.TouchableImage}  onPress={() => navigation.navigate('Notification')} >
                         <StyledDrinkTouchableImage resizeMode="cover" source={require('../assets/image/cf.png')} ></StyledDrinkTouchableImage>

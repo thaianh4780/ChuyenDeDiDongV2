@@ -354,7 +354,8 @@ const DrinkManagement = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView>{checkType()}</ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}
+        >{checkType()}</ScrollView>
     </SafeAreaView>
   );
 };
