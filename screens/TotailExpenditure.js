@@ -118,7 +118,7 @@ const TotailExpenditure = ({ navigation }) => {
                             </DataTable.Row>
                         </DataTable>
                     </ScrollView>
-                    <View style={{ flexDirection: "row", justifyContent: "center", marginHorizontal: "10%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%", }}>
                         <StyledButton
                             onPress={() => {
                                 navigation.navigate('Home')

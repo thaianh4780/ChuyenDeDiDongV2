@@ -21,6 +21,7 @@
     "config.js": "^0.1.0",
     "dotenv": "^16.0.3",
     "expo": "^47.0.8",
+    "expo-checkbox": "^2.2.2",
     "expo-cli": "^6.0.8",
     "expo-constants": "~14.0.2",
     "expo-image-picker": "^14.0.2",

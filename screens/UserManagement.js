@@ -340,7 +340,7 @@ const UserManagement = ({ navigation }) => {
               onPress={() => {
                 navigation.navigate("UserAdding");
               }}>
-              <MaterialCommunityIcons name="water-plus" style={styles.icon} />
+              <MaterialCommunityIcons name="account-plus" style={styles.icon} />
             </TouchableOpacity>
           </View>
         </View>

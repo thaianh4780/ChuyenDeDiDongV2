@@ -101,7 +101,7 @@ const TableChoosing = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        <StyledDrinkTouchableBtn onPress={() => navigation.navigate("Total")}>
+        <StyledDrinkTouchableBtn >
           <Ionicons
             style={styles.drop_icons}
             name="ios-arrow-forward-circle-outline"
@@ -125,7 +125,7 @@ const TableChoosing = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        <StyledDrinkTouchableBtn onPress={() => navigation.navigate("Total")}>
+        <StyledDrinkTouchableBtn >
           <Ionicons
             style={styles.drop_icons}
             name="ios-arrow-forward-circle-outline"
