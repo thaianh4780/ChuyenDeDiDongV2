@@ -33,7 +33,7 @@ import url from "../Url";
 const { brand, darkLight, black, primary, blue } = Colors;
 
 //Colors
-const DrinkManagement = ({ navigation, route }) => {
+const DrinkManagement = ({ navigation }) => {
   const [listDrink, setListDrink] = useState([]);
 
   //check load dữ liệu tất cả đồ uống
@@ -51,20 +51,17 @@ const DrinkManagement = ({ navigation, route }) => {
   // đồ uống theo danh mục
   const [listDrinkByCategory, setListDrinkByCategory] = useState([]);
   const [listSortDrinkOnPrice, setListSortDrinkOnPrice] = useState([]);
+  const [textD, setTextD] = useState("");
 
   // chạy dữ liệu 1 lần đầu
   useEffect(() => {
     getListCategory();
   }, []);
 
-  // chạy dữ liệu khi có sự thay đổi
-  // useEffect(() => {
-  //   getListDrink();
-  // }, [check]);
-
   useEffect(() => {
     if (type) {
       getListDrinkByCategory();
+      defaultDropdown(type);
     } else {
       getListDrink();
     }
@@ -137,6 +134,19 @@ const DrinkManagement = ({ navigation, route }) => {
       .catch((err) => console.log("ERR", err));
   };
 
+  const defaultDropdown = async (type) => {
+    if (type) {
+      listCategory.map((cate, index) => {
+        if (cate._id == type) {
+          setTextD(cate.name);
+          console.log(textD);
+        }
+      })
+    } else {
+      return textD = "Select an option.";
+    }
+  };
+
   //
   const getListDrinkOnPrice = async () => {
     await fetch(url + "drink/" + typeSort)
@@ -150,29 +160,30 @@ const DrinkManagement = ({ navigation, route }) => {
   };
 
   // xuất danh mục xuống dropdown
-  const dataCategory = listCategory.map((item) => {
-    return <Text key={item._id}>{item.name}</Text>;
+
+  const dataCategory = listCategory.map((itemC) => {
+    return <Text key={itemC._id}>{itemC.name}</Text>;
   });
 
   // xuất các đồ uống thuộc 1 danh mục xuống giao diện
-  const listDrinkCategory = listDrinkByCategory.map((item) => {
+  const listDrinkCategory = listDrinkByCategory.map((itemDBC) => {
     return (
       <StyledDrinkTouchable style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
-          source={{ uri: `${item.image}` }}
+          source={{ uri: `${itemDBC.image}` }}
         ></StyledDrinkTouchableImage>
-        <SDTText numberOfLines={1}>{item.name}</SDTText>
-        <SDTPrice>{item.price}$</SDTPrice>
+        <SDTText numberOfLines={1}>{itemDBC.name}</SDTText>
+        <SDTPrice>{itemDBC.price}$</SDTPrice>
         <StyledDrinkTouchableDelete
-          onPress={() => createTwoButtonAlert(item._id)}
+          onPress={() => createTwoButtonAlert(itemDBC._id)}
         >
           <MaterialCommunityIcons name="trash-can" style={styles.icon} />
         </StyledDrinkTouchableDelete>
         <StyledDrinkTouchableEdit
           onPress={() => {
             navigation.navigate("DrinkUpdating", {
-              id: item._id,
+              id: itemDBC._id,
             }),
               setCheck(!check);
           }}
@@ -236,6 +247,10 @@ const DrinkManagement = ({ navigation, route }) => {
             setType(item.key);
             console.log("key: " + item.key);
           }}
+          //Select an option.
+          defaultButtonText={
+            textD
+          }
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
           }}

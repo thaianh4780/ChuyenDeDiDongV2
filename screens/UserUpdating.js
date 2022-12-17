@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import url from "../Url";
 //Icon
 import SelectDropdown from 'react-native-select-dropdown'
 import {
@@ -23,7 +24,7 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserUpdatding = ({ route, navigation }) => {
     //values
     const { id } = route.params;
-    const url = "http://192.168.117.119:3000/api";
+    // const url = "http://192.168.117.119:3000/api";
     const [user, setUser] = useState("");
     const [listRole, setListRole] = useState([""]);
     //get user by id
@@ -75,6 +76,7 @@ const UserUpdatding = ({ route, navigation }) => {
     };
     //get all role
     const getAllRole = async () => {
+        console.log(url + 'role/all');
         await fetch(url + 'role/all')
             .then((res) => res.json())
             .then((res) => {
@@ -141,6 +143,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                 <StyledFormArea>
                                     <MyTextInput
                                         autofocus
+                                        autoCapitalize="none"
                                         label="Tên Tài Khoản"
                                         placeholder={user.user_name}
                                         editable={false}

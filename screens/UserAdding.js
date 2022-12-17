@@ -23,7 +23,7 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserAdding = ({ navigation }) => {
     //values
     const [listRole, setListRole] = useState([""]);
-    const [role, setRole] = useState("");
+    var [role, setRole] = useState("");
     useEffect(() => { getAllRole() }, []);
     //get all role
     const getAllRole = async () => {
@@ -76,7 +76,7 @@ const UserAdding = ({ navigation }) => {
                     }}
                     data={getIdRole}
                     onSelect={(selectedItem, index) => {
-                        setRole(selectedItem.key);
+                        role = selectedItem.key;
                     }}
                     buttonTextAfterSelection={(selectedItem, index) => {
                         return selectedItem
@@ -101,6 +101,7 @@ const UserAdding = ({ navigation }) => {
                                 <StyledFormArea>
                                     <MyTextInput
                                         autofocus
+                                        autoCapitalize="none"
                                         label="Tên Tài Khoản"
                                         placeholder="abc..."
                                         placeholderTextColor={blur}

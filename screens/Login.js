@@ -28,6 +28,7 @@ const Login = ({ navigation }) => {
 
   //login
   const login = (values) => {
+    console.log(url + "user/login");
     fetch(url + "user/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -38,8 +39,11 @@ const Login = ({ navigation }) => {
         if (data.error) {
           Alert.alert(data.error);
         } else {
-          console.log(data);
-          return navigation.navigate("Home");
+          if (data.role == "63731105fa3b63917784f678") {
+            return navigation.navigate("Home");
+          } else {
+            Alert.alert("User not admin");
+          }
         }
       });
   };
@@ -80,6 +84,7 @@ const Login = ({ navigation }) => {
               <StyledFormArea>
                 <MyTextInput
                   autofocus
+                  autoCapitalize="none"
                   label="User name"
                   icon="mail"
                   placeholder="NameAbc"
@@ -102,7 +107,6 @@ const Login = ({ navigation }) => {
                 <StyledButton
                   onPress={() => {
                     checkInternet(values);
-                    // navigation.navigate("Home");
                     // HandleSubmit
                   }}
                 >
