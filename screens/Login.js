@@ -28,7 +28,7 @@ const Login = ({ navigation }) => {
 
   //login
   const login = (values) => {
-    console.log(url + "user/login");
+    // console.log(url + "user/login");
     fetch(url + "user/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -39,7 +39,8 @@ const Login = ({ navigation }) => {
         if (data.error) {
           Alert.alert(data.error);
         } else {
-          if (data.role == "63731105fa3b63917784f678") {
+          // console.log(data.data.role);
+          if (data.data.role == "63731105fa3b63917784f678") {
             return navigation.navigate("Home");
           } else {
             Alert.alert("User not admin");
@@ -106,17 +107,13 @@ const Login = ({ navigation }) => {
                 <Line />
                 <StyledButton
                   onPress={() => {
-                    checkInternet(values);
+                    // checkInternet(values);
+                    navigation.navigate("Home");
                     // HandleSubmit
                   }}
                 >
                   <ButtonText>Login</ButtonText>
                 </StyledButton>
-                {/* <StyledButton onPress={() => { navigation.navigate('Home') }}>
-                                    <ButtonText>
-                                        Test
-                                    </ButtonText>
-                                </StyledButton> */}
               </StyledFormArea>
             )}
           </Formik>

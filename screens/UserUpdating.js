@@ -191,11 +191,11 @@ const UserUpdatding = ({ route, navigation }) => {
                                         console.log(values.password != "");
                                         if (values.password != "" && values.password != user.password) {
                                             user.password = values.password;
-                                            console.log("ok");
+                                            // console.log("ok");
                                             return updateUser(user);
 
                                         } else {
-                                            console.log("ok la");
+                                            // console.log("ok la");
                                             return updateUser(user);
                                         };
                                         console.log(user);
