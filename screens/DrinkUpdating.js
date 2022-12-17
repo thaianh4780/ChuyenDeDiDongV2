@@ -56,7 +56,8 @@ const DrinkUpdating = ({ navigation, route }) => {
 
   const [listCategory, setListCategory] = useState([]);
   const [drink, setDrink] = useState("");
-  var categoryId = useState("");
+  //var idCategory = useState("");
+  const [categoryId, setCategoryId] = useState("");
 
   // lưu link ảnh để up lên database
   const [image, setImage] = useState("");
@@ -101,7 +102,7 @@ const DrinkUpdating = ({ navigation, route }) => {
     setPicture(result.assets[0]);
   };
 
-  const uploadImage = async () => {
+  const uploadImage = async (value) => {
     if (!picture.canceled) {
       //Upload imgage to cloudinary
       let base64Img = `data:image/jpg;base64,${picture.base64}`;
@@ -118,8 +119,11 @@ const DrinkUpdating = ({ navigation, route }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setImage(data.url);
-          Alert.alert("Done! Upload");
+          // console.log("Upload success");
+          // setImage(data.url);
+          // Alert.alert("Done! Upload");
+          const imgUrl = data.url;
+          updateDrink(value, imgUrl);
         })
         .catch((err) => {
           console.log(err);
@@ -130,7 +134,11 @@ const DrinkUpdating = ({ navigation, route }) => {
     }
   };
 
-  const updateDrink = async (values) => {
+  const updateDrink = async (values, imgUrl) => {
+    if (!imgUrl) {
+      imgUrl = drink.image;
+    }
+    console.log(imgUrl);
     if (!values.price) {
       values.price = drink.price;
     }
@@ -139,13 +147,11 @@ const DrinkUpdating = ({ navigation, route }) => {
     }
     if (!categoryId) {
       values.category = drink.category;
-    } else {
-      values.category = categoryId;
     }
     const data = {
       name: values.name,
       price: values.price,
-      image: image,
+      image: imgUrl,
       category: values.category,
     };
 
@@ -160,6 +166,7 @@ const DrinkUpdating = ({ navigation, route }) => {
           console.log(data.error);
         } else {
           navigation.replace("Home");
+          Alert.alert("up date success");
         }
       });
   };
@@ -177,6 +184,17 @@ const DrinkUpdating = ({ navigation, route }) => {
     setImage(result.assets[0].uri);
 
     setPicture(result.assets[0]);
+  };
+
+  const handleSubmit = async (values) => {
+    //await uploadImage(values);
+    if (picture.length == 0) {
+      console.log("vo update drink");
+      updateDrink(values);
+    } else {
+      uploadImage(values);
+      console.log("vo up image");
+    }
   };
 
   const drinkById = () => {
@@ -234,7 +252,7 @@ const DrinkUpdating = ({ navigation, route }) => {
               >
                 <MaterialCommunityIcons name="camera" style={styles.icon} />
               </TouchableOpacity>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.touchBtn}
                 activeOpacity={0.5}
                 onPress={() => {
@@ -245,14 +263,16 @@ const DrinkUpdating = ({ navigation, route }) => {
                   name="file-upload"
                   style={styles.icon}
                 />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </ChooseFileInput>
         <Line></Line>
         <StyledButton
           onPress={() => {
-            updateDrink(values);
+            // uploadImage()
+            // updateDrink(values);
+            handleSubmit(values);
             HandleSubmit;
           }}
         >
@@ -288,15 +308,15 @@ const DrinkUpdating = ({ navigation, route }) => {
           }}
           data={categories}
           onSelect={(item, index) => {
-            categoryId =item.key;
+           // idCategory = item.key;
+            setCategoryId(item.key);
+            console.log(item.key);
           }}
-          defaultButtonText={
-            listCategory.map((item, index) => {
-                if (item._id == drink.category) {
-                  return <Text>{item.name}</Text>;
-                }
-            })
-        }
+          defaultButtonText={listCategory.map((item, index) => {
+            if (item._id == drink.category) {
+              return <Text>{item.name}</Text>;
+            }
+          })}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
           }}
