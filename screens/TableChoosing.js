@@ -196,7 +196,8 @@ const TableChoosing = ({ navigation }) => {
       </SHBZ>
 
       <DrorpDownInput label="Category"></DrorpDownInput>
-      <ScrollView style={styles.scrollView}>{checkExport()}</ScrollView>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}
+        >{checkExport()}</ScrollView>
     </SafeAreaView>
   );
 };

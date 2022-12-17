@@ -344,7 +344,8 @@ const UserManagement = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}
+        >
           <StyledFormHome>
             {checkType()}
           </StyledFormHome>

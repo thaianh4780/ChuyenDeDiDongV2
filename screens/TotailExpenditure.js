@@ -18,7 +18,8 @@ const TotailExpenditure = ({ navigation }) => {
                 <OLPic resizeMode="cover" source={require('../assets/image/br4.png')} ></OLPic>
                 <TableStyled style={styles.TouchableImage} >
                     <PageTitle>Totail Expenditure</PageTitle>
-                    <ScrollView style={styles.scrollView}>
+                    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}
+         >
                         <DataTable style={styles.container1}>
                             <DataTable.Header style={styles.tableHeader}>
                                 <DataTable.Title >Material </DataTable.Title>

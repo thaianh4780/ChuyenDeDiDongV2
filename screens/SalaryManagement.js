@@ -18,7 +18,8 @@ const SalaryManagement = ({ navigation }) => {
                 <OLPic resizeMode="cover" source={require('../assets/image/br4.png')} ></OLPic>
                 <TableStyled style={styles.TouchableImage} >
                     <PageTitle>Revenue</PageTitle>
-                    <ScrollView style={styles.scrollView}>
+                    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}
+        >
                         <DataTable style={styles.container1}>
                             <DataTable.Header style={styles.tableHeader}>
                                 <DataTable.Title  >Staff Name</DataTable.Title>

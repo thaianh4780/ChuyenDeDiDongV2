@@ -93,7 +93,8 @@ const UserAdding = ({ navigation }) => {
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br3.png')} ></OLPic>
                 <FormAdd style={styles.TouchableImage} >
-                    <ScrollView><PageTitle>Add User</PageTitle>
+                    <ScrollView showsVerticalScrollIndicator={false}
+        ><PageTitle>Add User</PageTitle>
                         <Formik
                             initialValues={{ user_name: '', password: '', full_name: '', phone: '', role: '' }}
                             onSubmit={(values) => { console.log(values); }} >

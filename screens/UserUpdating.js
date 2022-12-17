@@ -134,7 +134,8 @@ const UserUpdatding = ({ route, navigation }) => {
             <InnerContainer>
                 <OLPic resizeMode="cover" source={require('../assets/image/br1.png')} ></OLPic>
                 <FormAdd style={styles.TouchableImage} >
-                    <ScrollView>
+                    <ScrollView showsVerticalScrollIndicator={false}
+        >
                         <PageTitle>Update User</PageTitle>
                         <Formik
                             initialValues={{ user_name: '', password: '', full_name: '', phone: '', role: '' }}
