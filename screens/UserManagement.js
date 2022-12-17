@@ -177,13 +177,12 @@ const UserManagement = ({ navigation }) => {
   //users
   const users = listUser.map((item) => {
     return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
+      <StyledDrinkTouchable key = {item.key} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={require("../assets/image/u3.png")}
         ></StyledDrinkTouchableImage>
         <SDTText> {item.user_name}</SDTText>
-        {/* <SDTPrice>{item.role.role_name}</SDTPrice> */}
         <StyledDrinkTouchableDelete
           onPress={() => {
             createTwoButtonAlert(item._id);
@@ -210,13 +209,12 @@ const UserManagement = ({ navigation }) => {
 
   const usersByRole = listUserByRole.map((item) => {
     return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
+      <StyledDrinkTouchable key = {item.key} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={require("../assets/image/u3.png")}
         ></StyledDrinkTouchableImage>
         <SDTText> {item.user_name}</SDTText>
-        {/* <SDTPrice>{item.role.role_name}</SDTPrice> */}
         <StyledDrinkTouchableDelete
           onPress={() => {
             createTwoButtonAlert(item._id);
@@ -243,13 +241,13 @@ const UserManagement = ({ navigation }) => {
 
   const usersSort = listSortUserOnName.map((item) => {
     return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
+      <StyledDrinkTouchable key = {item.key}
+       style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={require("../assets/image/u3.png")}
         ></StyledDrinkTouchableImage>
         <SDTText> {item.user_name}</SDTText>
-        {/* <SDTPrice>{item.role.role_name}</SDTPrice> */}
         <StyledDrinkTouchableDelete
           onPress={() => {
             createTwoButtonAlert(item._id);
