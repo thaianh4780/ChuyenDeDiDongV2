@@ -47,7 +47,6 @@ import * as ImagePicker from "expo-image-picker";
 import url from "../Url";
 //Colors
 const { brand, blur, primary, secondary, black, darkLight } = Colors;
-// const data = ["admin", "phuc vu", "thu ngan"];
 
 const DrinkUpdating = ({ navigation, route }) => {
   useEffect(() => {
@@ -57,7 +56,7 @@ const DrinkUpdating = ({ navigation, route }) => {
 
   const [listCategory, setListCategory] = useState([]);
   const [drink, setDrink] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  var categoryId = useState("");
 
   // lưu link ảnh để up lên database
   const [image, setImage] = useState("");
@@ -146,9 +145,6 @@ const DrinkUpdating = ({ navigation, route }) => {
     } else {
       values.category = categoryId;
     }
-
-    //console.log("category: " + values.category);
-    //console.log("key: " + categoryId);
     const data = {
       name: values.name,
       price: values.price,
@@ -167,7 +163,6 @@ const DrinkUpdating = ({ navigation, route }) => {
           console.log(data.error);
         } else {
           navigation.replace("Home");
-          Alert.alert("update is success!");
         }
       });
   };
@@ -302,9 +297,15 @@ const DrinkUpdating = ({ navigation, route }) => {
           }}
           data={categories}
           onSelect={(item, index) => {
-            setCategoryId(item.key);
-            console.log("key: " + item.key);
+            categoryId =item.key;
           }}
+          defaultButtonText={
+            listCategory.map((item, index) => {
+                if (item._id == drink.category) {
+                  return <Text>{item.name}</Text>;
+                }
+            })
+        }
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
           }}
