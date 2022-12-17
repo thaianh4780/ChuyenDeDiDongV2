@@ -157,7 +157,7 @@ const DrinkManagement = ({ navigation, route }) => {
   // xuất các đồ uống thuộc 1 danh mục xuống giao diện
   const listDrinkCategory = listDrinkByCategory.map((item) => {
     return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
+      <StyledDrinkTouchable key={item._id} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
@@ -185,7 +185,7 @@ const DrinkManagement = ({ navigation, route }) => {
 
   const drinkOnPrice = listSortDrinkOnPrice.map((item) => {
     return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
+      <StyledDrinkTouchable key={item._id} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${item.image}` }}
@@ -250,7 +250,7 @@ const DrinkManagement = ({ navigation, route }) => {
   // xuất các đồ uống xuống giao diện
   const drinks = listDrink.map((item, index) => {
     return (
-      <StyledDrinkTouchable style={styles.TouchableImage}>
+      <StyledDrinkTouchable key={item._id} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${item.image}` }}

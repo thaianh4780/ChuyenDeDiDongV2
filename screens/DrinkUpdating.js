@@ -50,16 +50,6 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 // const data = ["admin", "phuc vu", "thu ngan"];
 
 const DrinkUpdating = ({ navigation, route }) => {
-  //const url = "http://172.20.10.4:3000/api/";
-  // link danh muc
-  //const urlCategory = "http://192.168.117.131:3000/api/category/list";
-
-  // link đồ uống theo id
-  //const urlProductById = "http://192.168.117.131:3000/api/drink/";
-
-  // link update đồ uống
-  //const urlUpdateProduct = "http://192.168.117.131:3000/api/drink/update/";
-
   useEffect(() => {
     getListCategory();
     getDrinkById(id);
@@ -112,7 +102,7 @@ const DrinkUpdating = ({ navigation, route }) => {
     setPicture(result.assets[0]);
   };
 
-  const uploadImage = async () => {
+  const uploadImage = async (value) => {
     if (!picture.canceled) {
       //Upload imgage to cloudinary
       let base64Img = `data:image/jpg;base64,${picture.base64}`;
@@ -129,10 +119,11 @@ const DrinkUpdating = ({ navigation, route }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          //console.log(data.url);
-          console.log("Upload success");
-          setImage(data.url);
-          Alert.alert("Done! Upload");
+          // console.log("Upload success");
+          // setImage(data.url);
+          // Alert.alert("Done! Upload");
+          const imgUrl = data.url;
+          updateDrink(value, imgUrl);
         })
         .catch((err) => {
           console.log(err);
@@ -143,7 +134,7 @@ const DrinkUpdating = ({ navigation, route }) => {
     }
   };
 
-  const updateDrink = async (values) => {
+  const updateDrink = async (values, imgUrl) => {
     if (!values.price) {
       values.price = drink.price;
     }
@@ -161,7 +152,7 @@ const DrinkUpdating = ({ navigation, route }) => {
     const data = {
       name: values.name,
       price: values.price,
-      image: image,
+      image: imgUrl,
       category: values.category,
     };
 
@@ -194,6 +185,10 @@ const DrinkUpdating = ({ navigation, route }) => {
     setImage(result.assets[0].uri);
 
     setPicture(result.assets[0]);
+  };
+
+  const handleSubmit = async (values) => {
+    await uploadImage(values);
   };
 
   const drinkById = () => {
@@ -251,7 +246,7 @@ const DrinkUpdating = ({ navigation, route }) => {
               >
                 <MaterialCommunityIcons name="camera" style={styles.icon} />
               </TouchableOpacity>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.touchBtn}
                 activeOpacity={0.5}
                 onPress={() => {
@@ -262,14 +257,16 @@ const DrinkUpdating = ({ navigation, route }) => {
                   name="file-upload"
                   style={styles.icon}
                 />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </ChooseFileInput>
         <Line></Line>
         <StyledButton
           onPress={() => {
-            updateDrink(values);
+            // uploadImage()
+            // updateDrink(values);
+            handleSubmit(values);
             HandleSubmit;
           }}
         >
