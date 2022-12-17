@@ -261,8 +261,8 @@ export const StyledDrinkTouchableImage = styled.Image`
   height: 80px;
   width: 70px;
   z-index: 1;
-  bottom: 0;
   left: -20px;
+  margin-vertical:1% ;
   border-radius: 20px;
 `;
 export const StyledDrinkTouchableText = styled.Text`
@@ -322,7 +322,7 @@ export const StyledDrinkTouchableBtn = styled.TouchableOpacity`
 export const StyledHomeBrownZone = styled.View`
   background-color: ${brand};
   width: 100%;
-  height: 250px;
+  height: 190px;
   border-bottom-left-radius: 50px;
   overflow: hidden;
   margin-top: -15%;
@@ -334,7 +334,6 @@ export const StyledHomeBrownText = styled.Text`
   font-size: 40px;
   position: absolute;
   bottom: 0;
-  font-family: "AlexBrushRegular";
 `;
 export const StyledHomeTab = styled.TouchableOpacity`
   background-color: ${primary};

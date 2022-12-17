@@ -367,6 +367,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: brand,
   },
+  touchBtn: {
+    alignItems: "center",
+    justifyContent: "center",
+    height: 30,
+    width: 30,
+    marginTop: "-1%",
+    marginHorizontal: "1%",
+  },
   CFImage: {
     width: 170,
     height: 50,
