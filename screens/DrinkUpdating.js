@@ -56,7 +56,7 @@ const DrinkUpdating = ({ navigation, route }) => {
 
   const [listCategory, setListCategory] = useState([]);
   const [drink, setDrink] = useState("");
-  //var idCategory = useState("");
+  //var idCategory = "";
   const [categoryId, setCategoryId] = useState("");
 
   // lưu link ảnh để up lên database
@@ -92,8 +92,8 @@ const DrinkUpdating = ({ navigation, route }) => {
   const chooseImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
+      // allowsEditing: true,
+      // aspect: [4, 6],
       quality: 1,
       base64: true,
     });
@@ -145,9 +145,9 @@ const DrinkUpdating = ({ navigation, route }) => {
     if (!values.name) {
       values.name = drink.name;
     }
-    if (!categoryId) {
-      values.category = drink.category;
-    }
+
+    values.category = drink.category;
+
     const data = {
       name: values.name,
       price: values.price,
@@ -308,8 +308,9 @@ const DrinkUpdating = ({ navigation, route }) => {
           }}
           data={categories}
           onSelect={(item, index) => {
-           // idCategory = item.key;
-            setCategoryId(item.key);
+            // idCategory = item.key;
+            // setCategoryId(item.key);
+            drink.category = item.key;
             console.log(item.key);
           }}
           defaultButtonText={listCategory.map((item, index) => {
