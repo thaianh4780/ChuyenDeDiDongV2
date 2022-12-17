@@ -141,9 +141,9 @@ const DrinkManagement = ({ navigation }) => {
           setTextD(cate.name);
           console.log(textD);
         }
-      })
+      });
     } else {
-      return textD = "Select an option.";
+      return (textD = "Select an option.");
     }
   };
 
@@ -168,7 +168,7 @@ const DrinkManagement = ({ navigation }) => {
   // xuất các đồ uống thuộc 1 danh mục xuống giao diện
   const listDrinkCategory = listDrinkByCategory.map((itemDBC) => {
     return (
-      <StyledDrinkTouchable key={item._id} style={styles.TouchableImage}>
+      <StyledDrinkTouchable key={itemDBC._id} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={{ uri: `${itemDBC.image}` }}
@@ -248,9 +248,7 @@ const DrinkManagement = ({ navigation }) => {
             console.log("key: " + item.key);
           }}
           //Select an option.
-          defaultButtonText={
-            textD
-          }
+          defaultButtonText={textD}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
           }}
