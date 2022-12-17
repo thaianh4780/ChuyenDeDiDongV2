@@ -56,7 +56,8 @@ const DrinkUpdating = ({ navigation, route }) => {
 
   const [listCategory, setListCategory] = useState([]);
   const [drink, setDrink] = useState("");
-  var categoryId = useState("");
+  //var idCategory = useState("");
+  const [categoryId, setCategoryId] = useState("");
 
   // lưu link ảnh để up lên database
   const [image, setImage] = useState("");
@@ -134,6 +135,10 @@ const DrinkUpdating = ({ navigation, route }) => {
   };
 
   const updateDrink = async (values, imgUrl) => {
+    if (!imgUrl) {
+      imgUrl = drink.image;
+    }
+    console.log(imgUrl);
     if (!values.price) {
       values.price = drink.price;
     }
@@ -142,8 +147,6 @@ const DrinkUpdating = ({ navigation, route }) => {
     }
     if (!categoryId) {
       values.category = drink.category;
-    } else {
-      values.category = categoryId;
     }
     const data = {
       name: values.name,
@@ -163,6 +166,7 @@ const DrinkUpdating = ({ navigation, route }) => {
           console.log(data.error);
         } else {
           navigation.replace("Home");
+          Alert.alert("up date success");
         }
       });
   };
@@ -183,7 +187,14 @@ const DrinkUpdating = ({ navigation, route }) => {
   };
 
   const handleSubmit = async (values) => {
-    await uploadImage(values);
+    //await uploadImage(values);
+    if (picture.length == 0) {
+      console.log("vo update drink");
+      updateDrink(values);
+    } else {
+      uploadImage(values);
+      console.log("vo up image");
+    }
   };
 
   const drinkById = () => {
@@ -297,15 +308,15 @@ const DrinkUpdating = ({ navigation, route }) => {
           }}
           data={categories}
           onSelect={(item, index) => {
-            categoryId =item.key;
+           // idCategory = item.key;
+            setCategoryId(item.key);
+            console.log(item.key);
           }}
-          defaultButtonText={
-            listCategory.map((item, index) => {
-                if (item._id == drink.category) {
-                  return <Text>{item.name}</Text>;
-                }
-            })
-        }
+          defaultButtonText={listCategory.map((item, index) => {
+            if (item._id == drink.category) {
+              return <Text>{item.name}</Text>;
+            }
+          })}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
           }}
