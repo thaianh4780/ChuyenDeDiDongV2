@@ -20,15 +20,28 @@ import {
   FormLog,
 } from "../components/styles";
 import { Formik } from "formik";
-import { Alert, StyleSheet, View } from "react-native";
-
+import { Text ,Alert, StyleSheet, View } from "react-native";
 //Colors
 const { brand, darkLight, primary, blur } = Colors;
 const Login = ({ navigation }) => {
-
+  useEffect(() => {getAllRole()},[])
+  const [listRole, setListRole] = useState([""]);
+  const getAllRole = async () => {
+    await fetch(url + 'role/all')
+      .then((res) => res.json())
+      .then((res) => {
+        var data = res;
+        setListRole(data);
+      })
+      .catch((err) => console.log("ERR", err));
+  };
+  // //list role
+  // const getIdRole = listRole.map((item, index) => {
+  //   return <Text key={item._id}>{item.role_name}</Text>;
+  // });
+  // console.log(getIdRole);
   //login
   const login = (values) => {
-    // console.log(url + "user/login");
     fetch(url + "user/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -39,11 +52,15 @@ const Login = ({ navigation }) => {
         if (data.error) {
           Alert.alert(data.error);
         } else {
-          // console.log(data.data.role);
-          if (data.data.role == "63731105fa3b63917784f678") {
+          let check = false
+          listRole.map((item) => {
+            if (data.role == item._id) {
+              check = true;
+            }})
+          if (check == true) {
             return navigation.navigate("Home");
           } else {
-            Alert.alert("User not admin");
+          return Alert.alert("User not admin");
           }
         }
       });
@@ -107,8 +124,8 @@ const Login = ({ navigation }) => {
                 <Line />
                 <StyledButton
                   onPress={() => {
-                    // checkInternet(values);
-                    navigation.navigate("Home");
+                    checkInternet(values);
+                    // navigation.navigate("Home");
                     // HandleSubmit
                   }}
                 >

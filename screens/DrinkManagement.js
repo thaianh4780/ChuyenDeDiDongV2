@@ -78,7 +78,6 @@ const DrinkManagement = ({ navigation }) => {
     await fetch(url + "category/list")
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res.data);
         var data = res.data;
         setListCategory(data);
       })
@@ -90,8 +89,6 @@ const DrinkManagement = ({ navigation }) => {
     await fetch(url + "drink/category/" + type)
       .then((res) => res.json())
       .then((res) => {
-        // console.log("drink by category: ");
-        // console.log(res.data);
         var data = res.data;
         setListDrinkByCategory(data);
       })
@@ -128,7 +125,6 @@ const DrinkManagement = ({ navigation }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         setCheck(!check);
       })
       .catch((err) => console.log("ERR", err));
@@ -139,7 +135,6 @@ const DrinkManagement = ({ navigation }) => {
       listCategory.map((cate, index) => {
         if (cate._id == type) {
           setTextD(cate.name);
-          console.log(textD);
         }
       });
     } else {
@@ -153,7 +148,6 @@ const DrinkManagement = ({ navigation }) => {
       .then((res) => res.json())
       .then((res) => {
         var data = res.data;
-
         setListSortDrinkOnPrice(data);
       })
       .catch((err) => console.log("ERR", err));
@@ -243,9 +237,7 @@ const DrinkManagement = ({ navigation }) => {
           }}
           data={dataCategory}
           onSelect={(item, index) => {
-            // setCategoryId(item.key);
             setType(item.key);
-            console.log("key: " + item.key);
           }}
           //Select an option.
           defaultButtonText={textD}

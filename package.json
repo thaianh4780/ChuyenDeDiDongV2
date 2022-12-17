@@ -18,6 +18,8 @@
     "@react-navigation/material-top-tabs": "^6.3.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
+    "@reduxjs/toolkit": "^1.9.1",
+    "@types/react-redux": "^7.1.24",
     "config.js": "^0.1.0",
     "dotenv": "^16.0.3",
     "expo": "^47.0.8",
@@ -49,10 +51,14 @@
     "react-native-tab-view": "^3.3.0",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.7",
-    "styled-components": "^5.3.6"
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0",
+    "styled-components": "^5.3.6",
+    "thunk": "^0.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "remote-redux-devtools": "^0.5.16"
   },
   "react-dotenv": {
     "whitelist": [

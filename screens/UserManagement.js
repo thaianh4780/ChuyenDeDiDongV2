@@ -175,9 +175,9 @@ const UserManagement = ({ navigation }) => {
     );
   };
   //users
-  const users = listUser.map((item) => {
+  const users = listUser.map((item, index) => {
     return (
-      <StyledDrinkTouchable key = {item.key} style={styles.TouchableImage}>
+      <StyledDrinkTouchable key = {index} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={require("../assets/image/u3.png")}
@@ -207,9 +207,9 @@ const UserManagement = ({ navigation }) => {
     );
   });
 
-  const usersByRole = listUserByRole.map((item) => {
+  const usersByRole = listUserByRole.map((item, index) => {
     return (
-      <StyledDrinkTouchable key = {item.key} style={styles.TouchableImage}>
+      <StyledDrinkTouchable key = {index} style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"
           source={require("../assets/image/u3.png")}
@@ -239,9 +239,9 @@ const UserManagement = ({ navigation }) => {
     );
   });
 
-  const usersSort = listSortUserOnName.map((item) => {
+  const usersSort = listSortUserOnName.map((item, index) => {
     return (
-      <StyledDrinkTouchable key = {item.key}
+      <StyledDrinkTouchable key = {index}
        style={styles.TouchableImage}>
         <StyledDrinkTouchableImage
           resizeMode="cover"

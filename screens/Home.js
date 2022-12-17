@@ -24,15 +24,30 @@ import { Fontisto, Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import TestTab from "./TestTab";
 import { Colors } from "../components/styles";
 const { brand, darkLight, black, primary, secondary } = Colors;
+import url from "../Url";
 
 const Home = ({ navigation }) => {
+  const logout = () => {
+    fetch(url + "user/logout", {
+      method: "DELETE",
+    })
+      .then((res) => res)
+      .then((data) => {
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          navigation.navigate("Login");
+        }
+      });
+  };
   return (
     <SafeAreaView style={styles.container}>
       <StyledHomeBrownZone>
         <Fontisto style={styles.logo} name="coffeescript" />
         <TouchableWithoutFeedback
           onPress={() => {
-            navigation.navigate("Login");
+            logout();
+            // navigation.navigate("Login");
           }}
         >
           <StyledHomeBrownImage
