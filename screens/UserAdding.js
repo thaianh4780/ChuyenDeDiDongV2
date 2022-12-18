@@ -103,7 +103,7 @@ const UserAdding = ({ navigation }) => {
                                     <MyTextInput
                                         autofocus
                                         autoCapitalize="none"
-                                        label="Tên Tài Khoản"
+                                        label="User Name"
                                         placeholder="abc..."
                                         placeholderTextColor={blur}
                                         onChangeText={handleChange('user_name')}
@@ -111,7 +111,7 @@ const UserAdding = ({ navigation }) => {
                                         value={values.user_name} >
                                     </MyTextInput>
                                     <MyTextInput
-                                        label="Mật Khẩu"
+                                        label="Password"
                                         placeholder="* * * * * *"
                                         placeholderTextColor={blur}
                                         onChangeText={handleChange('password')}
@@ -121,7 +121,7 @@ const UserAdding = ({ navigation }) => {
                                     </MyTextInput>
                                     <MyTextInput
                                         autofocus
-                                        label="Họ và tên"
+                                        label="Full Name"
                                         placeholder="Nguyễn Văn...."
                                         placeholderTextColor={blur}
                                         onChangeText={handleChange('full_name')}
@@ -129,7 +129,7 @@ const UserAdding = ({ navigation }) => {
                                         value={values.full_name} >
                                     </MyTextInput>
                                     <MyTextInput
-                                        label="Số Điện Thoại"
+                                        label="Phone"
                                         placeholder="0123456789"
                                         placeholderTextColor={blur}
                                         keyboardType='numeric'
@@ -138,7 +138,7 @@ const UserAdding = ({ navigation }) => {
                                         value={values.phone} >
                                     </MyTextInput>
                                     <DrorpDownInput
-                                        label="Vai Trò"
+                                        label="Role"
                                         onSelect={handleChange('role')}
                                         value={values.role}>
                                     </DrorpDownInput>
@@ -150,7 +150,7 @@ const UserAdding = ({ navigation }) => {
                                                 HandleSubmit
                                         }} >
                                         <ButtonText>
-                                            Submit
+                                            Add User
                                         </ButtonText>
                                     </StyledButton>
                                 </StyledFormArea>

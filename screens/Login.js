@@ -20,26 +20,20 @@ import {
   FormLog,
 } from "../components/styles";
 import { Formik } from "formik";
-import { Text ,Alert, StyleSheet, View } from "react-native";
+import { Text, Alert, StyleSheet, View } from "react-native";
 //Colors
 const { brand, darkLight, primary, blur } = Colors;
 const Login = ({ navigation }) => {
-  useEffect(() => {getAllRole()},[])
-  const [listRole, setListRole] = useState([""]);
-  const getAllRole = async () => {
-    await fetch(url + 'role/all')
+  const [role, setRole] = useState("");
+  const getRoleByName = async (role_id) => {
+    await fetch(url + 'role/rolebyname/' + role_id)
       .then((res) => res.json())
       .then((res) => {
         var data = res;
-        setListRole(data);
+        setRole(data);
       })
       .catch((err) => console.log("ERR", err));
   };
-  // //list role
-  // const getIdRole = listRole.map((item, index) => {
-  //   return <Text key={item._id}>{item.role_name}</Text>;
-  // });
-  // console.log(getIdRole);
   //login
   const login = (values) => {
     fetch(url + "user/login", {
@@ -52,15 +46,11 @@ const Login = ({ navigation }) => {
         if (data.error) {
           Alert.alert(data.error);
         } else {
-          let check = false
-          listRole.map((item) => {
-            if (data.role == item._id) {
-              check = true;
-            }})
-          if (check == true) {
+          getRoleByName(data.role);
+          if (role.role_name == "Admin") {
             return navigation.navigate("Home");
           } else {
-          return Alert.alert("User not admin");
+            return Alert.alert("User not admin");
           }
         }
       });
@@ -76,6 +66,7 @@ const Login = ({ navigation }) => {
       }
     });
   };
+  // useEffect(() => {getRoleByName()},[])
   return (
     <StyledContainer>
       <InnerContainer>

@@ -54,7 +54,6 @@ const UserUpdatding = ({ route, navigation }) => {
                             Alert.alert("Vui lòng điền đầy đủ thông tin!!");
                             return;
                         } else {
-                            //console.log(user);
                             fetch(url + '/user/update/' + id, {
                                 method: 'PUT',
                                 headers: { 'content-type': 'application/json' },
@@ -145,7 +144,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                     <MyTextInput
                                         autofocus
                                         autoCapitalize="none"
-                                        label="Tên Tài Khoản"
+                                        label="User Name"
                                         placeholder={user.user_name}
                                         editable={false}
                                         selectTextOnFocus={false}
@@ -155,7 +154,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                         value={user.user_name} >
                                     </MyTextInput>
                                     <MyTextInput
-                                        label="Mật Khẩu (nếu có)"
+                                        label="Password (if you want to change password)"
                                         placeholder="* * * * * *"
                                         placeholderTextColor={blur}
                                         onChangeText={handleChange('password')}
@@ -165,7 +164,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                     </MyTextInput>
                                     <MyTextInput
                                         autofocus
-                                        label="Họ và Tên"
+                                        label="Full Name"
                                         placeholder={user.full_name}
                                         placeholderTextColor={blur}
                                         onChangeText={(text) => setUser({ ...user, full_name: text })}
@@ -173,7 +172,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                         value={user.full_name} >
                                     </MyTextInput>
                                     <MyTextInput
-                                        label="Số Điện Thoại"
+                                        label="Phone"
                                         placeholder={user.phone}
                                         placeholderTextColor={blur}
                                         keyboardType='numeric'
@@ -182,7 +181,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                         value={user.phone} >
                                     </MyTextInput>
                                     <DrorpDownInput
-                                        label="Permission"
+                                        label="Role"
                                         value={user.role}>
                                     </DrorpDownInput>
                                     <Line />
@@ -203,7 +202,7 @@ const UserUpdatding = ({ route, navigation }) => {
                                         HandleSubmit
                                     }} >
                                         <ButtonText>
-                                            Submit
+                                            Update User
                                         </ButtonText>
                                     </StyledButton>
                                 </StyledFormArea>
