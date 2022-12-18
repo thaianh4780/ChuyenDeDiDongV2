@@ -24,15 +24,25 @@ import { Text, Alert, StyleSheet, View } from "react-native";
 //Colors
 const { brand, darkLight, primary, blur } = Colors;
 const Login = ({ navigation }) => {
-  const [role, setRole] = useState("");
-  const getRoleByName = async (role_id) => {
-    await fetch(url + 'role/rolebyname/' + role_id)
+  let role = "";
+  const [listRole, setListRole] = useState([""]);
+  const getListRole = async (role_id) => {
+    await fetch(url + 'role/all')
       .then((res) => res.json())
       .then((res) => {
-        var data = res;
-        setRole(data);
+        setListRole(res)
       })
       .catch((err) => console.log("ERR", err));
+  };
+  useEffect(() => { getListRole() }, [])
+
+  const checkRole = async (data) => {
+    listRole.map((item) => {
+      if (data.role == item._id) {
+        role = item;
+      }
+    });
+    return console.log(role);
   };
   //login
   const login = (values) => {
@@ -46,7 +56,7 @@ const Login = ({ navigation }) => {
         if (data.error) {
           Alert.alert(data.error);
         } else {
-          getRoleByName(data.role);
+          checkRole(data)
           if (role.role_name == "Admin") {
             return navigation.navigate("Home");
           } else {
@@ -55,7 +65,6 @@ const Login = ({ navigation }) => {
         }
       });
   };
-
   //check internet
   const checkInternet = (values) => {
     NetInfo.fetch().then(state => {
@@ -66,7 +75,6 @@ const Login = ({ navigation }) => {
       }
     });
   };
-  // useEffect(() => {getRoleByName()},[])
   return (
     <StyledContainer>
       <InnerContainer>
