@@ -24,7 +24,6 @@ const { brand, blur, primary, secondary, black, darkLight } = Colors;
 const UserUpdatding = ({ route, navigation }) => {
     //values
     const { id } = route.params;
-    // const url = "http://192.168.117.119:3000/api";
     const [user, setUser] = useState("");
     const [listRole, setListRole] = useState([""]);
     //get user by id
