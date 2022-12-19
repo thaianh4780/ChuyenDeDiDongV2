@@ -25,6 +25,7 @@ const UserUpdatding = ({ route, navigation }) => {
     //values
     const { id } = route.params;
     const [user, setUser] = useState("");
+    let role = "";
     const [listRole, setListRole] = useState([""]);
     //get user by id
     const getUser = async () => {
@@ -53,7 +54,8 @@ const UserUpdatding = ({ route, navigation }) => {
                             Alert.alert("Vui lòng điền đầy đủ thông tin!!");
                             return;
                         } else {
-                            fetch(url + '/user/update/' + id, {
+                            console.log(user);
+                            fetch(url + 'user/update/' + id, {
                                 method: 'PUT',
                                 headers: { 'content-type': 'application/json' },
                                 body: JSON.stringify(user),
@@ -74,7 +76,6 @@ const UserUpdatding = ({ route, navigation }) => {
     };
     //get all role
     const getAllRole = async () => {
-        console.log(url + 'role/all');
         await fetch(url + 'role/all')
             .then((res) => res.json())
             .then((res) => {
@@ -125,8 +126,6 @@ const UserUpdatding = ({ route, navigation }) => {
             </View>
         )
     };
-
-
     return (
         <StyledContainer >
             <InnerContainer>
@@ -152,15 +151,16 @@ const UserUpdatding = ({ route, navigation }) => {
                                         onBlur={handleBlur('user_name')}
                                         value={user.user_name} >
                                     </MyTextInput>
-                                    <MyTextInput
-                                        label="Password (if you want to change password)"
+                                    {/* <MyTextInput
+                                        label="Password"
                                         placeholder="* * * * * *"
+                                        editable={false}
                                         placeholderTextColor={blur}
                                         onChangeText={handleChange('password')}
                                         onBlur={handleBlur('password')}
                                         value={values.password}
                                         secureTextEntry={true}>
-                                    </MyTextInput>
+                                    </MyTextInput> */}
                                     <MyTextInput
                                         autofocus
                                         label="Full Name"
